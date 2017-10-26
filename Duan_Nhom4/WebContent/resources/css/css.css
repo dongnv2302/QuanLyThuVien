@@ -1,0 +1,77 @@
+/* CSS Document */
+
+a{
+	 text-decoration: none;}
+	 td.t-data {
+    border: 1px solid #D2D2D2;
+    padding: 10px !important;
+	color:#000;
+	vertical-align: middle !important;
+	    font-size: 1em !important;
+}
+th.t-head {
+	background: #F1F1F1;
+    color: #FFFFFF;
+    font-size: 1em !important;
+    padding: 0.6em !important;
+    border: 1px solid #D2D2D2 !important;
+}
+.searchform {
+02
+float: left;
+03
+margin-top: 20px;
+04
+border:#00afdd 2px solid;
+05
+height:27px;
+06
+width:350px;
+07
+}
+.searchform input[type=text]
+
+{
+width:270px;
+18
+height:21px;
+19
+border:0px;
+20
+background:#ffffff;
+21
+float:left;
+22
+margin:0px;padding:3px;
+23
+}
+24
+.searchform input[type=submit]
+25
+ 
+26
+ 
+27
+ 
+28
+ 
+29
+ 
+30
+ 
+31
+{
+32
+border:#00afdd 2px solid;
+33
+float:right;
+34
+margin:2px 2px 2px 2px;
+35
+height:23px;
+36
+padding-top:1px;
+37
+background:#4fbfdc;
+38
+}
