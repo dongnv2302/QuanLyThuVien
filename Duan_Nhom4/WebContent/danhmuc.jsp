@@ -5,10 +5,16 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <base href="${pageContext.servletContext.contextPath }/">
 <title>W3.CSS Template</title>
 <link rel="stylesheet" type="text/css"  href="resources/css/css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+=======
+<title>duan</title>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" type="text/css" href="css/table.css">
+>>>>>>> fef9dc10580af2b855106f8ade2ec19569892c3b
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
