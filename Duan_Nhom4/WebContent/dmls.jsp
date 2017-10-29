@@ -5,8 +5,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <title>W3.CSS Template</title>
-<link rel="stylesheet" type="text/css" href="css/css.css">
-<link rel="stylesheet" type="text/css" href="css/table.css">
+<link rel="stylesheet" type="text/css"  href="resources/css/css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -45,14 +45,14 @@ th {
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+     
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong>Mike</strong></span><br>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       
-     <a href="../index.html" class="w3-bar-item w3-button"><img src="../images/index.png" width="20" height="20"  alt=""/></i></a>
+     <a href="../index.html" class="w3-bar-item w3-button"><img src="resources/images/index.png" width="20" height="20"  alt=""/></a>
     </div>
   </div>
   <hr>

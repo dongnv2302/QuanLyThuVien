@@ -5,7 +5,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <title>W3.CSS Template</title>
-<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" type="text/css"  href="resources/css/css.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -26,14 +26,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong>Mike</strong></span><br>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       
-     <a href="../index.html" class="w3-bar-item w3-button"><img src="../images/index.png" width="20" height="20"  alt=""/></i></a>
+     <a href="../index.html" class="w3-bar-item w3-button"><img src="resources/images/index.png" width="20" height="20"  alt=""/></i></a>
     </div>
   </div>
   <hr>
@@ -145,7 +145,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         <h5>Bảng tin</h5>
-        <img src="/w3images/region.jpg" style="width:100%" alt="">
       </div>
       <div class="w3-twothird">
         <h5>Thông báo</h5>
@@ -206,19 +205,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5>Người truy cập gần đây</h5>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
-        <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="resources/images/m13.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Huyên</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="resources/images/m14.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Hoài</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="resources/images/m15.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Đồng</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="resources/images/m16.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Hùng</span><br>
       </li>
     </ul>
