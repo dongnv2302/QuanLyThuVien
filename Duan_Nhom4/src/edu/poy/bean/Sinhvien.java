@@ -23,6 +23,8 @@ private String NgaySinh ;
 private String Email ;
 @Column(name="HinhAnh ")	
 private String HinhAnh ;
+@Column(name="MatKhau ")	
+private String MatKhau ;
 public String getMaSinhVien() {
 	return MaSinhVien;
 }
@@ -65,19 +67,26 @@ public String getHinhAnh() {
 public void setHinhAnh(String hinhAnh) {
 	HinhAnh = hinhAnh;
 }
-public Sinhvien(String email, String hinhAnh, String tenSinhVien, String gioiTinh, String maSinhVien, String sDT,
-		String ngaySinh) {
-	super();
-	Email = email;
-	HinhAnh = hinhAnh;
-	TenSinhVien = tenSinhVien;
-	GioiTinh = gioiTinh;
-	MaSinhVien = maSinhVien;
-	SDT = sDT;
-	NgaySinh = ngaySinh;
+public String getMatKhau() {
+	return MatKhau;
+}
+public void setMatKhau(String matKhau) {
+	MatKhau = matKhau;
 }
 public Sinhvien() {
 	super();
+}
+public Sinhvien(String maSinhVien, String tenSinhVien, String gioiTinh, String sDT, String ngaySinh, String email,
+		String hinhAnh, String matKhau) {
+	super();
+	MaSinhVien = maSinhVien;
+	TenSinhVien = tenSinhVien;
+	GioiTinh = gioiTinh;
+	SDT = sDT;
+	NgaySinh = ngaySinh;
+	Email = email;
+	HinhAnh = hinhAnh;
+	MatKhau = matKhau;
 }
 
 }

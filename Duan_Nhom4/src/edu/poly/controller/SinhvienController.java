@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.poy.bean.Sinhvien;
 @Transactional
-@RequestMapping("themsv")
+@RequestMapping("themsv.poly")
 @Controller
 public class SinhvienController {
 	@Autowired
@@ -39,7 +39,7 @@ public class SinhvienController {
 	}
 
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("depart") Sinhvien sinhvien) {
+	public String insert(ModelMap model, @ModelAttribute("Sinhvien") Sinhvien sinhvien) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -57,7 +57,7 @@ public class SinhvienController {
 	}
 
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("depart") Sinhvien sinhvien) {
+	public String update(ModelMap model, @ModelAttribute("Sinhvien") Sinhvien sinhvien) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -69,12 +69,12 @@ public class SinhvienController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("departs", getSinhviens());
+		model.addAttribute("sinhvien", getSinhviens());
 		return "themsv";
 	}
 
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("depart") Sinhvien sinhvien) {
+	public String delete(ModelMap model, @ModelAttribute("Sinhvien") Sinhvien sinhvien) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
