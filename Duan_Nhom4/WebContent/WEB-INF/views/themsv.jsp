@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="resources/css/maxcdn.css"></script>
 <link rel="stylesheet" type="text/css" href="css/css.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,9 +93,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Quyền điều khiển của tôi</b></h5>
   </header>
-
+<form:form modelAttribute="sinhvien" action="themsv.poly">
   <div class="container">
   <h2>Thêm Sinh Viên</h2>
+
   <form class="form-horizontal" action="/action_page.php" style="width:800px">
     <div class="form-group" >
       <label class="control-label col-sm-2" for="email">Mã sinh viên:</label>
@@ -153,6 +154,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       </div>
     </div>
     </div>
+    </form:form>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
@@ -162,7 +164,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <button type="button" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
+    </
   </form>
+ 
 </div>
 
   

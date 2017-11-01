@@ -15,98 +15,88 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.poly.bean.Depart;
-import edu.poly.bean.Staff;
-
-
-
-
+import edu.poy.bean.Sinhvien;
 @Transactional
-@RequestMapping("Department")
+@RequestMapping("themsv")
 @Controller
 public class SinhvienController {
-		@Autowired
-		SessionFactory factory;
-		@ModelAttribute("departs")
-		public List< Depart> getDepart(){
-			Session session = factory.getCurrentSession();
-			String hql="FROM Depart";
-			Query query = session.createQuery(hql);
-			@SuppressWarnings("unchecked")
-			List< Depart> list = query.list();	
-			return list;
-		}
-		@RequestMapping()	
-		public String insert(ModelMap model) {
-			model.addAttribute("depart", new Depart());
-			return "Department";
-		}
-		@ModelAttribute("Staffs")
-		public List<Staff> getStaff(){
-			Session session = factory.getCurrentSession();
-			String hql="FROM Staff";
-			Query query = session.createQuery(hql);
-			@SuppressWarnings("unchecked")
-			List<Staff> list = query.list();	
-			return list;
-}
-		@RequestMapping(params="Add")
-		public String insert(ModelMap model, @ModelAttribute("depart") Depart departs){
-			Session session = factory.openSession();
-			Transaction transaction= session.beginTransaction();
-			try {
-				session.save(departs);
-				transaction.commit();
-				model.addAttribute("message","Add new success");
-			} catch (Exception e) {
-				model.addAttribute("message","Add failed");
-				transaction.rollback();
-			}	
-				session.close();
-				model.addAttribute("depart", new Depart());
-				model.addAttribute("departs", getDepart());
-			return "Department";
-		}
-		@RequestMapping(params="Update")
-		public String update(ModelMap model, @ModelAttribute("depart") Depart departs){
-			Session session = factory.openSession();
-			Transaction transaction= session.beginTransaction();
-			try {
-				session.update(departs);
-				transaction.commit();
-				model.addAttribute("message","Edit success");
-			} catch (Exception e) {
-				model.addAttribute("message","Edit Failed");
-				transaction.rollback();
-			}	
-				session.close();
-				model.addAttribute("depart", new Depart());
-				model.addAttribute("departs", getDepart());
-			return "Department";
-		
-		}
-		@RequestMapping(params="Delete")
-		public String delete(ModelMap model, @ModelAttribute("depart") Depart departs){
-			Session session = factory.openSession();
-			Transaction transaction= session.beginTransaction();
-			try {
-				session.delete(departs);
-				transaction.commit();
-				model.addAttribute("message","Delete success");
-			} catch (Exception e) {
-				model.addAttribute("message","Delete Failed");
-				transaction.rollback();
-			}	
-				session.close();
-				model.addAttribute("depart", new Depart());
-				model.addAttribute("departs", getDepart());
-			return "Department";
-		}
-		@RequestMapping(params="Edit")
-		public String edit(ModelMap model,@RequestParam("departId") String departId){
-			Session session = factory.getCurrentSession();
-			Depart depart= (Depart) session.get(Depart.class,departId);
-			model.addAttribute("depart", depart);
-			return "Department";
-		}
+	@Autowired
+	SessionFactory factory;
+	@RequestMapping()
+	public String index(ModelMap model) {
+		model.addAttribute("sinhvien", new Sinhvien());
+		return "themsv";
 	}
+
+	@ModelAttribute("sinhvien")
+	public List<Sinhvien> getSinhviens() {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Sinhvien";
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Sinhvien> list = query.list();
+		return list;
+	}
+
+	@RequestMapping(params = "btnInsert")
+	public String insert(ModelMap model, @ModelAttribute("depart") Sinhvien sinhvien) {
+		Session session = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			session.save(sinhvien);
+			transaction.commit();
+			model.addAttribute("message", "Insert successfully !");
+		} catch (Exception e) {
+			model.addAttribute("message", "Insert fails !");
+			transaction.rollback();
+		}
+		session.close();
+		model.addAttribute("sinhvien", new Sinhvien());
+		model.addAttribute("sinhvien", getSinhviens());
+		return "themsv";
+	}
+
+	@RequestMapping(params = "btnUpdate")
+	public String update(ModelMap model, @ModelAttribute("depart") Sinhvien sinhvien) {
+		Session session = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			session.update(sinhvien);
+			transaction.commit();
+			model.addAttribute("message", "Update successfully !");
+		} catch (Exception e) {
+			model.addAttribute("message", "Update fails !");
+			transaction.rollback();
+		}
+		session.close();
+		model.addAttribute("departs", getSinhviens());
+		return "themsv";
+	}
+
+	@RequestMapping(params = "btnDelete")
+	public String delete(ModelMap model, @ModelAttribute("depart") Sinhvien sinhvien) {
+		Session session = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			session.delete(sinhvien);
+			transaction.commit();
+			model.addAttribute("message", "Delete successfully !");
+		} catch (Exception e) {
+			model.addAttribute("message", "Delete fails !");
+			transaction.rollback();
+		}
+		session.close();
+		model.addAttribute("sinhvien", new Sinhvien());
+		model.addAttribute("sinhvien", getSinhviens());
+		return "themsv";
+	}
+
+	@RequestMapping(params = "lnkEdit")
+	public String edit(ModelMap model, @RequestParam("MaSinhvien") String MaSinhvien) {
+		Session session = factory.getCurrentSession();
+		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class, MaSinhvien);
+		model.addAttribute("sinhvien", getSinhviens());
+		return "themsv";
+	}
+
+}
