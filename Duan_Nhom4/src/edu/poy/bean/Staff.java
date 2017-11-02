@@ -3,13 +3,16 @@ package edu.poy.bean;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-public class NhanVien {
+@Entity
+@Table(name="nhanvien")
+public class Staff {
 	@Id
 	@Column(name = "MaNhanVien")
 	private String manhanvien;
@@ -83,6 +86,23 @@ public class NhanVien {
 	}
 	public void setMatkhau(String matkhau) {
 		this.matkhau = matkhau;
+	}
+	public Staff(String manhanvien, String tennhanvien, String gioitinh, String sdt, Date ngaysinh, String email,
+			String chucvu, String tendangnhap, String matkhau) {
+		super();
+		this.manhanvien = manhanvien;
+		this.tennhanvien = tennhanvien;
+		this.gioitinh = gioitinh;
+		this.sdt = sdt;
+		this.ngaysinh = ngaysinh;
+		this.email = email;
+		this.chucvu = chucvu;
+		this.tendangnhap = tendangnhap;
+		this.matkhau = matkhau;
+	}
+	public Staff() {
+		super();
+		
 	}
 	
 
