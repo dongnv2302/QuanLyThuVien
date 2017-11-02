@@ -22,9 +22,11 @@ public class Sach {
 	private String tacgia;
 	@Column(name = "NhaXuatBan")
 	private String nhaxuatban;
-	@Column(name = "NgayXuatBan")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date ngayxuatban;
-	@Column(name = "NgayNhap")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date ngaynhap;
 	@Column(name = "GiaSach")
 	private String giasach;
@@ -38,6 +40,7 @@ public class Sach {
 	private String mota;
 	public Sach() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	public Sach(String maloaisach, String tensach, String tacgia, String nhaxuatban, Date ngayxuatban, Date ngaynhap,
 			String giasach, String tinhtrang, String anhbia, String sotrang, String mota) {

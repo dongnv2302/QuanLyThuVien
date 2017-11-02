@@ -164,7 +164,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <form:input path="mota" class="form-control"  placeholder="mo ta" />
       </div>
     </div>
-    </div>
+  
   
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
@@ -175,6 +175,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <button name="button" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
+      </div>
+      
   </form:form>
 </div>
 
