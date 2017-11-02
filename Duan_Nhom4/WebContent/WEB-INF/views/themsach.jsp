@@ -172,11 +172,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <button name="btnInsert" class="btn btn-primary">Thêm</button>
         <button name="btnUpdate" class="btn btn-primary">Sửa </button>
         <button name="btnDelete" class="btn btn-primary">Xóa</button>
-<<<<<<< HEAD
         <button name="button" class="btn btn-primary">Tìm Kiếm</button>
-=======
-        <button name="btnInsert" class="btn btn-primary">Tìm Kiếm</button>
->>>>>>> 1212096ec796c1fae082d69bf548c27d22af9945
       </div>
     </div>
   </form:form>
