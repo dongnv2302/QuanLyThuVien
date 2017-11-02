@@ -59,7 +59,7 @@ public class BookController {
 	}
 
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("depart") Sach sach) {
+	public String update(ModelMap model, @ModelAttribute("Sach") Sach sach) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -71,12 +71,12 @@ public class BookController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("departs", getSach());
+		model.addAttribute("Sach", getSach());
 		return "themsach";
 	}
 
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("depart") Sach sach) {
+	public String delete(ModelMap model, @ModelAttribute("Sach") Sach sach) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {

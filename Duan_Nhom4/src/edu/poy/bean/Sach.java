@@ -22,11 +22,9 @@ public class Sach {
 	private String tacgia;
 	@Column(name = "NhaXuatBan")
 	private String nhaxuatban;
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@Column(name = "NgayXuatBan")
 	private Date ngayxuatban;
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@Column(name = "NgayNhap")
 	private Date ngaynhap;
 	@Column(name = "GiaSach")
 	private String giasach;
@@ -40,7 +38,6 @@ public class Sach {
 	private String mota;
 	public Sach() {
 		super();
-	
 	}
 	public Sach(String maloaisach, String tensach, String tacgia, String nhaxuatban, Date ngayxuatban, Date ngaynhap,
 			String giasach, String tinhtrang, String anhbia, String sotrang, String mota) {

@@ -169,10 +169,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
-        <button type="btnInsert" class="btn btn-primary">Thêm</button>
-        <button type="button" class="btn btn-primary">Sửa </button>
-        <button type="button" class="btn btn-primary">Xóa</button>
-        <button type="button" class="btn btn-primary">Tìm Kiếm</button>
+        <button name="btnInsert" class="btn btn-primary">Thêm</button>
+        <button name="btnUpdate" class="btn btn-primary">Sửa </button>
+        <button name="btnDelete" class="btn btn-primary">Xóa</button>
+        <button name="button" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
   </form:form>
