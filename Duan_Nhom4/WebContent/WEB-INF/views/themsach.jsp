@@ -34,13 +34,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-    
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong>Mike</strong></span><br>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-       <a href="../index.html" class="w3-bar-item w3-button"><img src="resources/images/index.png" width="20" height="20"  alt=""/></i></a>
+     <a href="../index.html" class="w3-bar-item w3-button"><img src="resources/images/index.png" width="20" height="20"  alt=""/></i></a>
     </div>
   </div>
   <hr>
@@ -93,76 +92,90 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Quyền điều khiển của tôi</b></h5>
   </header>
-
+<form:form class="form-horizontal" modelAttribute="sach" action="themsach.poly">
   <div class="container">
-  <h2>Thêm Sinh Viên</h2>
-  <form class="form-horizontal" action="/action_page.php" style="width:800px">
+  <h2>Thêm Sách</h2>
+ 
     <div class="form-group" >
-      <label class="control-label col-sm-2" for="email">Mã sinh viên:</label>
+      <label class="control-label col-sm-2" >Mã loại sách:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Mã sinh viên" name="email">
+        <form:input path="maloaisach" class="form-control"  placeholder="Mã loại sách" />
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Tên sinh viên:</label>
+      <label class="control-label col-sm-2" for="pwd">Tên Sách:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tên sinh viên" name="pwd">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Giới tính:</label>
-      <div class="col-sm-10">          
-       
-          <select class="form-control" id="sel1">
-    <option>Nam</option>
-    <option>Nữ</option>
-   
-  </select>
-      </div>
-      
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Số điện thoại:</label>
-      <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Số điện thoại" name="pwd">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Ngày sinh:</label>
-      <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Ngày sinh" name="pwd">
+      <form:input path="tensach" class="form-control"  placeholder="Ten sach" />
       </div>
     </div>
     
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Email:</label>
+      <label class="control-label col-sm-2" for="pwd">Tác giả:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tên đăng nhập" name="pwd">
+       <form:input path="tacgia" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Hình ảnh:</label>
+      <label class="control-label col-sm-2" for="pwd">Nhà xuất bản:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="HÌnh ảnh" name="pwd">
+         <form:input path="nhaxuatban" class="form-control"  placeholder="Nha Xuat Ban" />
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Ngày xuất bản:</label>
+      <div class="col-sm-10">          
+         <form:input path="ngayxuatban" class="form-control"  placeholder="ngayxuatban" />
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
+      <label class="control-label col-sm-2" for="pwd">Ngày nhập:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="mật khẩu" name="pwd">
+         <form:input path="ngaynhap" class="form-control"  placeholder="ngaynhap" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Giá sách:</label>
+      <div class="col-sm-10">          
+         <form:input path="giasach" class="form-control"  placeholder="gia sach" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Tình trạng:</label>
+      <div class="col-sm-10">          
+         <form:input path="tinhtrang" class="form-control"  placeholder="tinh trang" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Ảnh bìa:</label>
+      <div class="col-sm-10">          
+         <form:input path="anhbia" class="form-control"  placeholder="anh bia" />
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Số trang:</label>
+      <div class="col-sm-10">          
+         <form:input path="sotrang" class="form-control"  placeholder="so trang" />
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Mô tả:</label>
+      <div class="col-sm-10">          
+        <form:input path="mota" class="form-control"  placeholder="mo ta" />
       </div>
     </div>
     </div>
+  
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
-        <button type="button" class="btn btn-primary">Thêm</button>
-        <button type="button" class="btn btn-primary">Sửa </button>
-        <button type="button" class="btn btn-primary">Xóa</button>
-        <button type="button" class="btn btn-primary">Tìm Kiếm</button>
+        <button name="btnInsert" class="btn btn-primary">Thêm</button>
+        <button name="btnUpdate" class="btn btn-primary">Sửa </button>
+        <button name="btnDelete" class="btn btn-primary">Xóa</button>
+        <button name="btnInsert" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
-  </form>
+  </form:form>
 </div>
 
   

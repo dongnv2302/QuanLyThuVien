@@ -71,6 +71,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <body>
 <div class="header">
 
+<<<<<<< HEAD:Duan_Nhom4/WebContent/danhmuc.jsp
 		<div class="container">
 			
 			<div class="logo">
@@ -107,6 +108,41 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<span class="icon-bar"></span>
 						</button>
 						
+=======
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="demo.jsp" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Trang Chủ</a>
+  
+   <a href="quanlynhanvien.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a>
+  <a href="themnv.html" class="w3-bar-item w3-button w3-padding w3-blue" >Thêm Nhân Viên</a>
+    <a href="sinhvien.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a>
+    
+    <a href="themsv.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Sinh Viên</a>
+    
+    <a href="sach.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a>
+    
+    <a href="themsach.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Sách</a>
+    
+    <a href="danhmuc.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a>
+    
+    <a href="themdanhmuc.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm danh mục </a>
+    
+    <a href="Ma.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a>
+    
+    <a href="themma.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Mã</a>
+    
+     <a href="dmls.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a>
+    <a href="them_dmls.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Danh Mục Loại Sách</a>
+    <a href="muontra.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a>
+    <a href="themmuontra.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Mượn trả</a>
+    <a href="muontract.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
+    <a href="them_mtct.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm mượn trả chi tiết </a>
+    
+    
+  </div>
+</nav>
+>>>>>>> 376b44159933199956f79d4c59895bd32fada5fd:Duan_Nhom4/WebContent/WEB-INF/views/danhmuc.jsp
 
 					</div> 
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
