@@ -128,8 +128,23 @@ th {
     <th>Chức vụ</th>
     <th>Tên đăng nhập</th>
     <th>Mật khẩu</th>
+    <th>Action</th>
   </tr>
-  
+  <c:forEach var="u" items="${staffs}" >
+						<tr>
+							<td> ${u.manhanvien}</td>
+							<td>${u.tennhanvien}</td>
+							<td>${u.gioitinh}</td>
+							<td>${u.sdt}</td>
+							<td>${u.ngaysinh}</td>
+							<td>${u.email}</td>
+							<td >${u.chucvu}</td>
+							<td >${u.tendangnhap}</td>
+							<td>${u.matkhau}</td>
+							<td><a href="themnv.poly?lnkEdit&manhanvien=${u.manhanvien}">Edit</a></td>
+							
+						</tr>
+					</c:forEach>
 </table>
 
 
