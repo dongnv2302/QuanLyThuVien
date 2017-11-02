@@ -19,7 +19,7 @@ import edu.poy.bean.Sach;
 
 
 @Transactional
-@RequestMapping("themsach")
+@RequestMapping("themsach.poly")
 @Controller
 public class BookController {
 	@Autowired
@@ -41,7 +41,7 @@ public class BookController {
 	}
 
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("depart") Sach sach) {
+	public String insert(ModelMap model, @ModelAttribute("Sach") Sach sach) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
