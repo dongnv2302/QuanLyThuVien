@@ -101,74 +101,69 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="form-group" >
       <label class="control-label col-sm-2" for="email">Mã sinh viên:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Mã sinh viên" name="email">
+        <form:input path="MaSinhVien" class="form-control"  placeholder="Mã sinh viên"  />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tên sinh viên:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tên sinh viên" name="pwd">
+        <form:input path="TenSinhVien" class="form-control"  placeholder="Tên sinh viên" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Giới tính:</label>
       <div class="col-sm-10">          
-       
-          <select class="form-control" id="sel1">
-    <option>Nam</option>
-    <option>Nữ</option>
-   
-  </select>
+       <form:input path="GioiTinh" class="form-control"  placeholder="Gioi Tinh" />
       </div>
       
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Số điện thoại:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Số điện thoại" name="pwd">
+        <form:input path="SDT" class="form-control"  placeholder="Số điện thoại" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày sinh:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Ngày sinh" name="pwd">
+        <form:input path="NgaySinh" class="form-control"  placeholder="Ngày sinh" />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Email:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tên đăng nhập" name="pwd">
+        <form:input path="Email" class="form-control"  placeholder="Tên đăng nhập" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Hình ảnh:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="HÌnh ảnh" name="pwd">
+        <form:input path="HinhAnh" class="form-control"  placeholder="Tên đăng nhập" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="mật khẩu" name="pwd">
+        <form:input path="MatKhau" class="form-control"  placeholder="mật khẩu" />
       </div>
     </div>
     </div>
-    </form:form>
+    
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
-        <button type="button" class="btn btn-primary">Thêm</button>
-        <button type="button" class="btn btn-primary">Sửa </button>
-        <button type="button" class="btn btn-primary">Xóa</button>
-        <button type="button" class="btn btn-primary">Tìm Kiếm</button>
+        <button name="btnInsert" class="btn btn-primary">Thêm</button>
+        <button name="btnUpdate" class="btn btn-primary">Sửa </button>
+        <button name="btnDelete" class="btn btn-primary">Xóa</button>
+        <button name="button" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
     </
   </form>
  
 </div>
-
+</form:form>
   
 
   
