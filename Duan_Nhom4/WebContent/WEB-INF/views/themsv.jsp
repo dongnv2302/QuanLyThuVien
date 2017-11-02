@@ -99,7 +99,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <form class="form-horizontal" action="/action_page.php" style="width:800px">
     <div class="form-group" >
-      <label class="control-label col-sm-2" for="email">Mã sinh viên:</label>
+      <label class="control-label col-sm-2" >Mã sinh viên:</label>
       <div class="col-sm-10">
         <form:input path="masinhvien" class="form-control"  placeholder="Mã sinh viên"></form:input>
       </div>
