@@ -97,7 +97,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <h2>Thêm Sách</h2>
  
     <div class="form-group" >
-      <label class="control-label col-sm-2" for="email">Mã loại sách:</label>
+      <label class="control-label col-sm-2" >Mã loại sách:</label>
       <div class="col-sm-10">
         <form:input path="maloaisach" class="form-control"  placeholder="Mã loại sách" />
       </div>
@@ -125,43 +125,43 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày xuất bản:</label>
       <div class="col-sm-10">          
-         <form:input path="ngayxuatban" class="form-control"  placeholder="Tác giả" />
+         <form:input path="ngayxuatban" class="form-control"  placeholder="ngayxuatban" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày nhập:</label>
       <div class="col-sm-10">          
-         <form:input path="ngaynhap" class="form-control"  placeholder="Tác giả" />
+         <form:input path="ngaynhap" class="form-control"  placeholder="ngaynhap" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Giá sách:</label>
       <div class="col-sm-10">          
-         <form:input path="giasach" class="form-control"  placeholder="Tác giả" />
+         <form:input path="giasach" class="form-control"  placeholder="gia sach" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tình trạng:</label>
       <div class="col-sm-10">          
-         <form:input path="tinhtrang" class="form-control"  placeholder="Tác giả" />
+         <form:input path="tinhtrang" class="form-control"  placeholder="tinh trang" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ảnh bìa:</label>
       <div class="col-sm-10">          
-         <form:input path="anhbia" class="form-control"  placeholder="Tác giả" />
+         <form:input path="anhbia" class="form-control"  placeholder="anh bia" />
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Số trang:</label>
       <div class="col-sm-10">          
-         <form:input path="sotrang" class="form-control"  placeholder="Tác giả" />
+         <form:input path="sotrang" class="form-control"  placeholder="so trang" />
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mô tả:</label>
       <div class="col-sm-10">          
-        <form:input path="mota" class="form-control"  placeholder="Tác giả" />
+        <form:input path="mota" class="form-control"  placeholder="mo ta" />
       </div>
     </div>
     </div>
@@ -172,7 +172,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <button name="btnInsert" class="btn btn-primary">Thêm</button>
         <button name="btnUpdate" class="btn btn-primary">Sửa </button>
         <button name="btnDelete" class="btn btn-primary">Xóa</button>
+<<<<<<< HEAD
         <button name="button" class="btn btn-primary">Tìm Kiếm</button>
+=======
+        <button name="btnInsert" class="btn btn-primary">Tìm Kiếm</button>
+>>>>>>> 1212096ec796c1fae082d69bf548c27d22af9945
       </div>
     </div>
   </form:form>

@@ -41,7 +41,7 @@ public class BookController {
 	}
 
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("Sach") Sach sach) {
+	public String insert(ModelMap model, @ModelAttribute("sach") Sach sach) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -59,7 +59,11 @@ public class BookController {
 	}
 
 	@RequestMapping(params = "btnUpdate")
+<<<<<<< HEAD
 	public String update(ModelMap model, @ModelAttribute("Sach") Sach sach) {
+=======
+	public String update(ModelMap model, @ModelAttribute("sach") Sach sach) {
+>>>>>>> 1212096ec796c1fae082d69bf548c27d22af9945
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -71,12 +75,20 @@ public class BookController {
 			transaction.rollback();
 		}
 		session.close();
+<<<<<<< HEAD
 		model.addAttribute("Sach", getSach());
+=======
+		model.addAttribute("sach", getSach());
+>>>>>>> 1212096ec796c1fae082d69bf548c27d22af9945
 		return "themsach";
 	}
 
 	@RequestMapping(params = "btnDelete")
+<<<<<<< HEAD
 	public String delete(ModelMap model, @ModelAttribute("Sach") Sach sach) {
+=======
+	public String delete(ModelMap model, @ModelAttribute("sach") Sach sach) {
+>>>>>>> 1212096ec796c1fae082d69bf548c27d22af9945
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
