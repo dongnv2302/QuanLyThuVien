@@ -92,7 +92,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Quyền điều khiển của tôi</b></h5>
   </header>
-
+<form:form class="form-horizontal" modelAttribute="sach" action="themsach.poly">
   <div class="container">
   <h2>Thêm Sách</h2>
   <form class="form-horizontal" action="/action_page.php" style="width:800px">
@@ -131,7 +131,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày nhập:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="ngyaf nhập" name="pwd">
+        <input type="password" class="form-control" id="pwd" placeholder="ngay nhập" name="pwd">
       </div>
     </div>
     <div class="form-group">
@@ -165,6 +165,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       </div>
     </div>
     </div>
+    </form:form>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         

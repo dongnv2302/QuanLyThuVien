@@ -93,7 +93,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Quyền điều khiển của tôi</b></h5>
   </header>
-<form:form modelAttribute="sinhvien" action="themsv.poly">
+<form:form class="form-horizontal" modelAttribute="sinhvien" action="themsv.poly">
   <div class="container">
   <h2>Thêm Sinh Viên</h2>
 

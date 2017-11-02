@@ -3,12 +3,15 @@ package edu.poy.bean;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+@Entity
+@Table(name="sach")
 public class Sach {
 	@Id
 	@Column(name = "MaLoaiSach")
@@ -17,11 +20,11 @@ public class Sach {
 	private String tensach;
 	@Column(name = "TacGia")
 	private String tacgia;
-	@Column(name = "NhaSanXuat")
-	private String nhasanxuat;
+	@Column(name = "NhaXuatBan")
+	private String nhaxuatban;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy/MM/dd")
-	private Date ngaysanxuat;
+	private Date ngayxuatban;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date ngaynhap;
@@ -35,6 +38,25 @@ public class Sach {
 	private String sotrang;
 	@Column(name = "Mota")
 	private String mota;
+	public Sach() {
+		super();
+	
+	}
+	public Sach(String maloaisach, String tensach, String tacgia, String nhaxuatban, Date ngayxuatban, Date ngaynhap,
+			String giasach, String tinhtrang, String anhbia, String sotrang, String mota) {
+		super();
+		this.maloaisach = maloaisach;
+		this.tensach = tensach;
+		this.tacgia = tacgia;
+		this.nhaxuatban = nhaxuatban;
+		this.ngayxuatban = ngayxuatban;
+		this.ngaynhap = ngaynhap;
+		this.giasach = giasach;
+		this.tinhtrang = tinhtrang;
+		this.anhbia = anhbia;
+		this.sotrang = sotrang;
+		this.mota = mota;
+	}
 	public String getMaloaisach() {
 		return maloaisach;
 	}
@@ -53,17 +75,17 @@ public class Sach {
 	public void setTacgia(String tacgia) {
 		this.tacgia = tacgia;
 	}
-	public String getNhasanxuat() {
-		return nhasanxuat;
+	public String getNhaxuatban() {
+		return nhaxuatban;
 	}
-	public void setNhasanxuat(String nhasanxuat) {
-		this.nhasanxuat = nhasanxuat;
+	public void setNhaxuatban(String nhaxuatban) {
+		this.nhaxuatban = nhaxuatban;
 	}
-	public Date getNgaysanxuat() {
-		return ngaysanxuat;
+	public Date getNgayxuatban() {
+		return ngayxuatban;
 	}
-	public void setNgaysanxuat(Date ngaysanxuat) {
-		this.ngaysanxuat = ngaysanxuat;
+	public void setNgayxuatban(Date ngayxuatban) {
+		this.ngayxuatban = ngayxuatban;
 	}
 	public Date getNgaynhap() {
 		return ngaynhap;
@@ -101,5 +123,6 @@ public class Sach {
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
+	
 	
 }
