@@ -117,8 +117,7 @@ th {
 </div>
 
   </header><br>
-<form:form  modelAttribute="sinhvien"
-			action="sinhvien.poly">
+<form:form  modelAttribute="sinhvien" action="sinhvien.poly" >
 <table>
   <tr>
     <th>Mã Sinh viên </th>
@@ -141,7 +140,7 @@ th {
 							<th>${u.email}</th>
 							<th >${u.hinhanh}</th>
 							<th>${u.matkhau}</th>
-							<td><a href="themsv.poly?Edit&masinhvien=${u.masinhvien}">Edit</a></td>
+							<td><a href="themsv.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 							
 						</tr>
 					</c:forEach>

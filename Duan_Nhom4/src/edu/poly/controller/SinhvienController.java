@@ -27,7 +27,6 @@ public class SinhvienController {
 		model.addAttribute("sinhvien", new Sinhvien());
 		return "themsv";
 	}
-
 	@ModelAttribute("sinhviens")
 	public List<Sinhvien> getSinhviens() {
 		Session session = factory.getCurrentSession();
@@ -70,7 +69,7 @@ public class SinhvienController {
 		}
 		session.close();
 		model.addAttribute("sinhviens", getSinhviens());
-		return "themsv";
+		return "sinhvien";
 	}
 
 	@RequestMapping(params = "btnDelete")
@@ -92,12 +91,13 @@ public class SinhvienController {
 	}
 
 	@RequestMapping(params = "lnkEdit")
-	public String edit(ModelMap model, @RequestParam("MaSinhvien") String MaSinhvien) {
+	public String edit(ModelMap model, @RequestParam("masinhvien") String masinhvien) {
 		Session session = factory.getCurrentSession();
-		@SuppressWarnings("unused")
-		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class,MaSinhvien);
-		model.addAttribute("sinhviens", getSinhviens());
+		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class, masinhvien);
+		model.addAttribute("sinhvien", sinhvien);
 		return "themsv";
 	}
+	
+			
 
 }
