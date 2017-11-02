@@ -95,87 +95,87 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <form:form class="form-horizontal" modelAttribute="sach" action="themsach.poly">
   <div class="container">
   <h2>Thêm Sách</h2>
-  <form class="form-horizontal" action="/action_page.php" style="width:800px">
+ 
     <div class="form-group" >
       <label class="control-label col-sm-2" for="email">Mã loại sách:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Mã loại sách" name="email">
+        <form:input path="maloaisach" class="form-control"  placeholder="Mã loại sách" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tên Sách:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tên sách" name="pwd">
+      <form:input path="tensach" class="form-control"  placeholder="Ten sach" />
       </div>
     </div>
     
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Tách giả:</label>
+      <label class="control-label col-sm-2" for="pwd">Tác giả:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tác giả" name="pwd">
+       <form:input path="tacgia" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Nhà xuất bản:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Nhà xuất bản" name="pwd">
+         <form:input path="nhaxuatban" class="form-control"  placeholder="Nha Xuat Ban" />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày xuất bản:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tên đăng nhập" name="pwd">
+         <form:input path="ngayxuatban" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày nhập:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="ngay nhập" name="pwd">
+         <form:input path="ngaynhap" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Giá sách:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Giá" name="pwd">
+         <form:input path="giasach" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tình trạng:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Tình trạng" name="pwd">
+         <form:input path="tinhtrang" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ảnh bìa:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Ảnh" name="pwd">
+         <form:input path="anhbia" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Số trang:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Số trang" name="pwd">
+         <form:input path="sotrang" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mô tả:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Mô tả" name="pwd">
+        <form:input path="mota" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     </div>
-    </form:form>
+  
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
-        <button type="button" class="btn btn-primary">Thêm</button>
+        <button type="btnInsert" class="btn btn-primary">Thêm</button>
         <button type="button" class="btn btn-primary">Sửa </button>
         <button type="button" class="btn btn-primary">Xóa</button>
         <button type="button" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
-  </form>
+  </form:form>
 </div>
 
   
