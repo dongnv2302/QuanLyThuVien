@@ -10,83 +10,85 @@ import javax.persistence.Table;
 public class Sinhvien {
 	@Id
 @Column(name="MaSinhVien")
-private String MaSinhVien;
+private String masinhvien;
 @Column(name="TenSinhVien")	
-private String TenSinhVien;
+private String tensinhvien;
 @Column(name="GioiTinh")	
-private String GioiTinh;
+private String gioitinh;
 @Column(name="SDT ")	
-private String SDT ;
+private String sdt ;
 @Column(name="NgaySinh ")	
-private String NgaySinh ;
+private String ngaysinh ;
 @Column(name="Email ")	
-private String Email ;
+private String email ;
 @Column(name="HinhAnh ")	
-private String HinhAnh ;
+private String hinhanh ;
 @Column(name="MatKhau ")	
-private String MatKhau ;
-public String getMaSinhVien() {
-	return MaSinhVien;
-}
-public void setMaSinhVien(String maSinhVien) {
-	MaSinhVien = maSinhVien;
-}
-public String getTenSinhVien() {
-	return TenSinhVien;
-}
-public void setTenSinhVien(String tenSinhVien) {
-	TenSinhVien = tenSinhVien;
-}
-public String getGioiTinh() {
-	return GioiTinh;
-}
-public void setGioiTinh(String gioiTinh) {
-	GioiTinh = gioiTinh;
-}
-public String getSDT() {
-	return SDT;
-}
-public void setSDT(String sDT) {
-	SDT = sDT;
-}
-public String getNgaySinh() {
-	return NgaySinh;
-}
-public void setNgaySinh(String ngaySinh) {
-	NgaySinh = ngaySinh;
-}
-public String getEmail() {
-	return Email;
-}
-public void setEmail(String email) {
-	Email = email;
-}
-public String getHinhAnh() {
-	return HinhAnh;
-}
-public void setHinhAnh(String hinhAnh) {
-	HinhAnh = hinhAnh;
-}
-public String getMatKhau() {
-	return MatKhau;
-}
-public void setMatKhau(String matKhau) {
-	MatKhau = matKhau;
+private String matkhau ;
+public Sinhvien(String masinhvien, String tensinhvien, String gioitinh, String sdt, String ngaysinh, String email,
+		String hinhanh, String matkhau) {
+	super();
+	this.masinhvien = masinhvien;
+	this.tensinhvien = tensinhvien;
+	this.gioitinh = gioitinh;
+	this.sdt = sdt;
+	this.ngaysinh = ngaysinh;
+	this.email = email;
+	this.hinhanh = hinhanh;
+	this.matkhau = matkhau;
 }
 public Sinhvien() {
 	super();
 }
-public Sinhvien(String maSinhVien, String tenSinhVien, String gioiTinh, String sDT, String ngaySinh, String email,
-		String hinhAnh, String matKhau) {
-	super();
-	MaSinhVien = maSinhVien;
-	TenSinhVien = tenSinhVien;
-	GioiTinh = gioiTinh;
-	SDT = sDT;
-	NgaySinh = ngaySinh;
-	Email = email;
-	HinhAnh = hinhAnh;
-	MatKhau = matKhau;
+public String getMasinhvien() {
+	return masinhvien;
 }
+public void setMasinhvien(String masinhvien) {
+	this.masinhvien = masinhvien;
+}
+public String getTensinhvien() {
+	return tensinhvien;
+}
+public void setTensinhvien(String tensinhvien) {
+	this.tensinhvien = tensinhvien;
+}
+public String getGioitinh() {
+	return gioitinh;
+}
+public void setGioitinh(String gioitinh) {
+	this.gioitinh = gioitinh;
+}
+public String getSdt() {
+	return sdt;
+}
+public void setSdt(String sdt) {
+	this.sdt = sdt;
+}
+public String getNgaysinh() {
+	return ngaysinh;
+}
+public void setNgaysinh(String ngaysinh) {
+	this.ngaysinh = ngaysinh;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+public String getHinhanh() {
+	return hinhanh;
+}
+public void setHinhanh(String hinhanh) {
+	this.hinhanh = hinhanh;
+}
+public String getMatkhau() {
+	return matkhau;
+}
+public void setMatkhau(String matkhau) {
+	this.matkhau = matkhau;
+}
+
+
 
 }

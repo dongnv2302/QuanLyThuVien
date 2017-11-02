@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="resources/css/maxcdn.css"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/css.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,51 +101,51 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="form-group" >
       <label class="control-label col-sm-2" for="email">Mã sinh viên:</label>
       <div class="col-sm-10">
-        <form:input path="MaSinhVien" class="form-control"  placeholder="Mã sinh viên"  />
+        <form:input path="masinhvien" class="form-control"  placeholder="Mã sinh viên"></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tên sinh viên:</label>
       <div class="col-sm-10">          
-        <form:input path="TenSinhVien" class="form-control"  placeholder="Tên sinh viên" />
+        <form:input path="tensinhvien" class="form-control"  placeholder="Tên sinh viên" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Giới tính:</label>
       <div class="col-sm-10">          
-       <form:input path="GioiTinh" class="form-control"  placeholder="Gioi Tinh" />
+       <form:input path="gioitinh" class="form-control"  placeholder="Gioi Tinh" />
       </div>
       
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Số điện thoại:</label>
       <div class="col-sm-10">          
-        <form:input path="SDT" class="form-control"  placeholder="Số điện thoại" />
+        <form:input path="sdt" class="form-control"  placeholder="Số điện thoại" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày sinh:</label>
       <div class="col-sm-10">          
-        <form:input path="NgaySinh" class="form-control"  placeholder="Ngày sinh" />
+        <form:input path="ngaysinh" class="form-control"  placeholder="Ngày sinh" />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Email:</label>
       <div class="col-sm-10">          
-        <form:input path="Email" class="form-control"  placeholder="Tên đăng nhập" />
+        <form:input path="email" class="form-control"  placeholder="Tên đăng nhập" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Hình ảnh:</label>
       <div class="col-sm-10">          
-        <form:input path="HinhAnh" class="form-control"  placeholder="Tên đăng nhập" />
+        <form:input path="hinhanh" class="form-control"  placeholder="Tên đăng nhập" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
       <div class="col-sm-10">          
-        <form:input path="MatKhau" class="form-control"  placeholder="mật khẩu" />
+        <form:input path="matkhau" class="form-control"  placeholder="mật khẩu" />
       </div>
     </div>
     </div>
