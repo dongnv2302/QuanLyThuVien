@@ -16,33 +16,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.poy.bean.Sinhvien;
+import edu.poy.bean.Staff;
+
 @Transactional
-@RequestMapping("themsv.poly")
+@RequestMapping("themnv")
 @Controller
-public class SinhvienController {
+public class StaffController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping()
 	public String index(ModelMap model) {
-		model.addAttribute("sinhvien", new Sinhvien());
-		return "themsv";
+		model.addAttribute("quanlynhanvien", new Staff());
+		return "themnv";
 	}
-	@ModelAttribute("sinhviens")
-	public List<Sinhvien> getSinhviens() {
+	@ModelAttribute("quanlynhanvien")
+	public List<Staff> getStaff() {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Sinhvien";
+		String hql = "FROM Staff";
 		Query query = session.createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Sinhvien> list = query.list();
+		List<Staff> list = query.list();
 		return list;
 	}
-
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("sinhvien") Sinhvien sinhvien) {
+	public String insert(ModelMap model, @ModelAttribute("depart") Staff staff) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.save(sinhvien);
+			session.save(staff);
 			transaction.commit();
 			model.addAttribute("message", "Insert successfully !");
 		} catch (Exception e) {
@@ -50,17 +51,16 @@ public class SinhvienController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sinhvien", new Sinhvien());
-		model.addAttribute("sinhviens", getSinhviens());
-		return "sinhvien";
+		model.addAttribute("staff", new Staff());
+		model.addAttribute("staff", getStaff());
+		return "themnv";
 	}
-
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("sinhvien") Sinhvien sinhvien) {
+	public String update(ModelMap model, @ModelAttribute("depart") Staff staff) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.update(sinhvien);
+			session.update(staff);
 			transaction.commit();
 			model.addAttribute("message", "Update successfully !");
 		} catch (Exception e) {
@@ -68,16 +68,15 @@ public class SinhvienController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sinhviens", getSinhviens());
-		return "sinhvien";
+		model.addAttribute("departs", getStaff());
+		return "themnv";
 	}
-
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("Sinhvien") Sinhvien sinhvien) {
+	public String delete(ModelMap model, @ModelAttribute("depart") Staff staff) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.delete(sinhvien);
+			session.delete(staff);
 			transaction.commit();
 			model.addAttribute("message", "Delete successfully !");
 		} catch (Exception e) {
@@ -85,19 +84,15 @@ public class SinhvienController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sinhvien", new Sinhvien());
-		model.addAttribute("sinhviens", getSinhviens());
-		return "themsv";
+		model.addAttribute("staff", new Staff());
+		model.addAttribute("staff", getStaff());
+		return "themnv";
 	}
-
 	@RequestMapping(params = "lnkEdit")
-	public String edit(ModelMap model, @RequestParam("masinhvien") String masinhvien) {
+	public String edit(ModelMap model, @RequestParam("manhanvien") String manhanvien) {
 		Session session = factory.getCurrentSession();
-		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class, masinhvien);
-		model.addAttribute("sinhvien", sinhvien);
-		return "themsv";
+		Staff staff = (Staff) session.get(Staff.class, manhanvien);
+		model.addAttribute("staff", getStaff());
+		return "themnv";
 	}
-	
-			
-
 }
