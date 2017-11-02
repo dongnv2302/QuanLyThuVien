@@ -28,7 +28,7 @@ public class SinhvienController {
 		return "themsv";
 	}
 
-	@ModelAttribute("sinhvien")
+	@ModelAttribute("sinhviens")
 	public List<Sinhvien> getSinhviens() {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Sinhvien";
@@ -39,7 +39,7 @@ public class SinhvienController {
 	}
 
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("Sinhvien") Sinhvien sinhvien) {
+	public String insert(ModelMap model, @ModelAttribute("sinhvien") Sinhvien sinhvien) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -52,12 +52,12 @@ public class SinhvienController {
 		}
 		session.close();
 		model.addAttribute("sinhvien", new Sinhvien());
-		model.addAttribute("sinhvien", getSinhviens());
-		return "themsv";
+		model.addAttribute("sinhviens", getSinhviens());
+		return "sinhvien";
 	}
 
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("Sinhvien") Sinhvien sinhvien) {
+	public String update(ModelMap model, @ModelAttribute("sinhvien") Sinhvien sinhvien) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -69,7 +69,7 @@ public class SinhvienController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sinhvien", getSinhviens());
+		model.addAttribute("sinhviens", getSinhviens());
 		return "themsv";
 	}
 
@@ -87,15 +87,16 @@ public class SinhvienController {
 		}
 		session.close();
 		model.addAttribute("sinhvien", new Sinhvien());
-		model.addAttribute("sinhvien", getSinhviens());
+		model.addAttribute("sinhviens", getSinhviens());
 		return "themsv";
 	}
 
 	@RequestMapping(params = "lnkEdit")
 	public String edit(ModelMap model, @RequestParam("MaSinhvien") String MaSinhvien) {
 		Session session = factory.getCurrentSession();
-		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class, MaSinhvien);
-		model.addAttribute("sinhvien", getSinhviens());
+		@SuppressWarnings("unused")
+		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class,MaSinhvien);
+		model.addAttribute("sinhviens", getSinhviens());
 		return "themsv";
 	}
 

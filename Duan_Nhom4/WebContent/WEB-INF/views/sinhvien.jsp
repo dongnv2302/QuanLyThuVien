@@ -117,7 +117,8 @@ th {
 </div>
 
   </header><br>
-
+<form:form  modelAttribute="sinhvien"
+			action="sinhvien.poly">
 <table>
   <tr>
     <th>Mã Sinh viên </th>
@@ -130,17 +131,22 @@ th {
     <th>Mật khẩu</th>
     <th>Action</th>
   </tr>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td>huyen</td>
-  <td><a href="#">Edit</a>|<a href="#">Del</a></td>
+<c:forEach var="u" items="${sinhviens}">
+						<tr>
+							<th> ${u.masinhvien}</th>
+							<th>${u.tensinhvien}</th>
+							<th>${u.gioitinh}</th>
+							<th>${u.sdt}</th>
+							<th>${u.ngaysinh}</th>
+							<th>${u.email}</th>
+							<th >${u.hinhanh}</th>
+							<th>${u.matkhau}</th>
+							<td><a href="themsv.poly?Edit&masinhvien=${u.masinhvien}">Edit</a></td>
+							
+						</tr>
+					</c:forEach>
 </table>
-
+</form:form>
 
   
 
