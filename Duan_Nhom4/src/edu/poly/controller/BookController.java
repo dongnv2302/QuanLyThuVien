@@ -28,7 +28,7 @@ public class BookController {
 		return "themsach";
 	}
 
-	@ModelAttribute("sach")
+	@ModelAttribute("sachs")
 	public List<Sach> getSachs() {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Sach";
@@ -52,12 +52,12 @@ public class BookController {
 		}
 		session.close();
 		model.addAttribute("sach", new Sach());
-		model.addAttribute("sach", getSachs());
-		return "themsach";
+		model.addAttribute("sachs", getSachs());
+		return "sach";
 	}
 
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("Sach") Sach sach) {
+	public String update(ModelMap model, @ModelAttribute("sach") Sach sach) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -69,8 +69,8 @@ public class BookController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sach", getSachs());
-		return "themsach";
+		model.addAttribute("sachs", getSachs());
+		return "sach";
 	}
 
 	@RequestMapping(params = "btnDelete")
@@ -87,15 +87,15 @@ public class BookController {
 		}
 		session.close();
 		model.addAttribute("sach", new Sach());
-		model.addAttribute("sach", getSachs());
-		return "themsach";
+		model.addAttribute("sachs", getSachs());
+		return "sach";
 	}
 
 	@RequestMapping(params = "lnkEdit")
 	public String edit(ModelMap model, @RequestParam("maloaisach") String maloaisach) {
 		Session session = factory.getCurrentSession();
 		Sach sach = (Sach) session.get(Sach.class, maloaisach);
-		model.addAttribute("sach", getSachs());
+		model.addAttribute("sachs", getSachs());
 		return "themsach";
 	}
 

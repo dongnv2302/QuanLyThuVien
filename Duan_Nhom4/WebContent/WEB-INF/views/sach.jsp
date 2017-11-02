@@ -103,7 +103,7 @@ th {
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Danh sách sinh viên</b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> Danh sách Sách</b></h5>
     <div id="search" style="float:right">
 
 <form class="searchform" action="" method="get">
@@ -117,6 +117,8 @@ th {
 </div>
 
   </header><br>
+  <form:form  modelAttribute="sach"
+			action="sach.poly">
 <table>
   <tr>
     <th>Mã loại sách</th>
@@ -130,10 +132,27 @@ th {
     <th>Ảnh bìa</th>
     <th>Số trang</th>
     <th>Mô tả</th>
+    <th>Action</th>
   </tr>
-  
+  <c:forEach var="u" items="${sachs}">
+  <tr>
+							<th> ${u.maloaisach}</th>
+							<th>${u.tensach}</th>
+							<th>${u.tacgia}</th>
+							<th>${u.nhaxuatban}</th>
+							<th>${u.ngayxuatban}</th>
+							<th>${u.ngaynhap}</th>
+							<th>${u.giasach}</th>
+							<th >${u.tinhtrang}</th>
+							<th>${u.anhbia}</th>
+							<th>${u.sotrang}</th>
+							<th>${u.mota}</th>
+							<td><a href="themsach.poly?Edit&maloaisach=${u.maloaisach}">Edit</a></td>
+							
+						</tr>
+					</c:forEach>
 </table>
-
+</form:form>
 
   
 
