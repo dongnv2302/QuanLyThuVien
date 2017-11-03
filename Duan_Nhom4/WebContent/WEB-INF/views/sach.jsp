@@ -136,18 +136,18 @@ th {
   </tr>
   <c:forEach var="u" items="${sachs}">
   <tr>
-							<th> ${u.maloaisach}</th>
-							<th>${u.tensach}</th>
-							<th>${u.tacgia}</th>
-							<th>${u.nhaxuatban}</th>
-							<th>${u.ngayxuatban}</th>
-							<th>${u.ngaynhap}</th>
-							<th>${u.giasach}</th>
-							<th >${u.tinhtrang}</th>
-							<th>${u.anhbia}</th>
-							<th>${u.sotrang}</th>
-							<th>${u.mota}</th>
-							<td><a href="themsach.poly?Edit&maloaisach=${u.maloaisach}">Edit</a></td>
+							<td> ${u.maloaisach}</td>
+							<td>${u.tensach}</td>
+							<td>${u.tacgia}</td>
+							<td>${u.nhaxuatban}</td>
+							<td>${u.ngayxuatban}</td>
+							<td>${u.ngaynhap}</td>
+							<td>${u.giasach}</td>
+							<td >${u.tinhtrang}</td>
+							<td>${u.anhbia}</td>
+							<td>${u.sotrang}</td>
+							<td>${u.mota}</td>
+							<td><a href="themsach.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
 							
 						</tr>
 					</c:forEach>

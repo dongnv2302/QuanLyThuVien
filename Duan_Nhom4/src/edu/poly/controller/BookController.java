@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.poy.bean.Sach;
+import edu.poy.bean.Sinhvien;
 @Transactional
 @RequestMapping("themsach.poly")
 @Controller
@@ -95,7 +96,7 @@ public class BookController {
 	public String edit(ModelMap model, @RequestParam("maloaisach") String maloaisach) {
 		Session session = factory.getCurrentSession();
 		Sach sach = (Sach) session.get(Sach.class, maloaisach);
-		model.addAttribute("sachs", getSachs());
+		model.addAttribute("sach", sach);
 		return "themsach";
 	}
 
