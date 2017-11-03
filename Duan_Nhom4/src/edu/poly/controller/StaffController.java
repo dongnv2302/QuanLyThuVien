@@ -69,7 +69,7 @@ public class StaffController {
 		}
 		session.close();
 		model.addAttribute("staffs", getStaffs());
-		return "themnv";
+		return "quanlynhanvien";
 	}
 	@RequestMapping(params = "btnDelete")
 	public String delete(ModelMap model, @ModelAttribute("Staff") Staff staff) {
