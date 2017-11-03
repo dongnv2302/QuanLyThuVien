@@ -19,18 +19,18 @@ import edu.poy.bean.Sinhvien;
 import edu.poy.bean.Staff;
 
 @Transactional
-@RequestMapping("themnv")
+@RequestMapping("themnv.poly")
 @Controller
 public class StaffController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping()
 	public String index(ModelMap model) {
-		model.addAttribute("quanlynhanvien", new Staff());
+		model.addAttribute("staff", new Staff());
 		return "themnv";
 	}
-	@ModelAttribute("quanlynhanvien")
-	public List<Staff> getStaff() {
+	@ModelAttribute("staffs")
+	public List<Staff> getStaffs() {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Staff";
 		Query query = session.createQuery(hql);
@@ -39,7 +39,7 @@ public class StaffController {
 		return list;
 	}
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("depart") Staff staff) {
+	public String insert(ModelMap model, @ModelAttribute("staff") Staff staff) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -52,11 +52,11 @@ public class StaffController {
 		}
 		session.close();
 		model.addAttribute("staff", new Staff());
-		model.addAttribute("staff", getStaff());
-		return "themnv";
+		model.addAttribute("staffs", getStaffs());
+		return "quanlynhanvien";
 	}
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("depart") Staff staff) {
+	public String update(ModelMap model, @ModelAttribute("staff") Staff staff) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -68,11 +68,11 @@ public class StaffController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("departs", getStaff());
+		model.addAttribute("staffs", getStaffs());
 		return "themnv";
 	}
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("depart") Staff staff) {
+	public String delete(ModelMap model, @ModelAttribute("Staff") Staff staff) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -85,14 +85,15 @@ public class StaffController {
 		}
 		session.close();
 		model.addAttribute("staff", new Staff());
-		model.addAttribute("staff", getStaff());
-		return "themnv";
+		model.addAttribute("staffs", getStaffs());
+		return "quanlynhanvien";
 	}
 	@RequestMapping(params = "lnkEdit")
 	public String edit(ModelMap model, @RequestParam("manhanvien") String manhanvien) {
 		Session session = factory.getCurrentSession();
 		Staff staff = (Staff) session.get(Staff.class, manhanvien);
-		model.addAttribute("staff", getStaff());
+		model.addAttribute("staff", staff);
 		return "themnv";
 	}
+
 }
