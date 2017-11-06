@@ -5,32 +5,37 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
+
+
+
 @Entity
 @Table(name="muontra")
 public class Muontra {
 	@Id
 	@Column(name = "MaMuonTra")
 	private String mamuontra;
-	@Column(name = "MaSinhVien")
-	private String masinhvien;
+	@ManyToOne
+	@JoinColumn(name="masinhvien")
+	Sinhvien sinhvien;
 	@Column(name = "NgayMuon")
 	private String ngaymuon;
 	@Column(name = "NgayHenTra")
 	private String ngayhentra;
 	@Column(name = "NgayTra")
 	private String ngaytra;
+
 	public Muontra() {
 		super();
 	}
-	public Muontra(String mamuontra, String masinhvien, String ngaymuon, String ngayhentra, String ngaytra) {
+	public Muontra(String mamuontra, Sinhvien sinhvien, String ngaymuon, String ngayhentra, String ngaytra) {
 		super();
 		this.mamuontra = mamuontra;
-		this.masinhvien = masinhvien;
+		this.sinhvien = sinhvien;
 		this.ngaymuon = ngaymuon;
 		this.ngayhentra = ngayhentra;
 		this.ngaytra = ngaytra;
@@ -41,11 +46,11 @@ public class Muontra {
 	public void setMamuontra(String mamuontra) {
 		this.mamuontra = mamuontra;
 	}
-	public String getMasinhvien() {
-		return masinhvien;
+	public Sinhvien getSinhvien() {
+		return sinhvien;
 	}
-	public void setMasinhvien(String masinhvien) {
-		this.masinhvien = masinhvien;
+	public void setSinhvien(Sinhvien sinhvien) {
+		this.sinhvien = sinhvien;
 	}
 	public String getNgaymuon() {
 		return ngaymuon;

@@ -106,7 +106,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mã sinh viên :</label>
       <div class="col-sm-10">          
-        <form:input path="masinhvien" class="form-control" placeholder="Mã mượn trả" ></form:input>
+        <form:select items="${sinhvien}" path="sinhvien.masinhvien"
+								itemValue="masinhvien" itemLabel="tensinhvien"></form:select>
       </div>
     </div>
     <div class="form-group">

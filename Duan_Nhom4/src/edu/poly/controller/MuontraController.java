@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.poy.bean.Muontra;
+import edu.poy.bean.Sinhvien;
 
 @Transactional
 @RequestMapping("themmuontra.poly")
@@ -37,7 +38,16 @@ public class MuontraController {
 		List<Muontra> list = query.list();
 		return list;
 	}
-
+	@ModelAttribute("sinhvien")
+	public List<Sinhvien> getSinhviens() {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Sinhvien";
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Sinhvien> list = query.list();
+		return list;
+	}
+		
 	@RequestMapping(params = "btnInsert")
 	public String insert(ModelMap model, @ModelAttribute("muontra") Muontra muontra) {
 		Session session = factory.openSession();

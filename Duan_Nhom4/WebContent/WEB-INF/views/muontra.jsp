@@ -129,7 +129,7 @@ th {
   <c:forEach var="u" items="${muontras}">
 						<tr>
 							<td> ${u.mamuontra}</td>
-							<td>${u.masinhvien}</td>
+							<td>${u.sinhvien.masinhvien}</td>
 							<td>${u.ngaymuon}</td>
 							<td>${u.ngayhentra}</td>
 							<td>${u.ngaytra}</td>
