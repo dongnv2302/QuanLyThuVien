@@ -144,7 +144,7 @@ th {
 							<td>${u.ngaynhap}</td>
 							<td>${u.giasach}</td>
 							<td >${u.tinhtrang}</td>
-							<td>${u.anhbia}</td>
+							<td><center><img src="<c:url value="/resources/images/${u.anhbia}"/>"  width="30px" height="30px" ></center></td>
 							<td>${u.sotrang}</td>
 							<td>${u.mota}</td>
 							<td><a href="themsach.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>

@@ -132,14 +132,14 @@ th {
   </tr>
 <c:forEach var="u" items="${sinhviens}">
 						<tr>
-							<th> ${u.masinhvien}</th>
-							<th>${u.tensinhvien}</th>
-							<th>${u.gioitinh}</th>
-							<th>${u.sdt}</th>
-							<th>${u.ngaysinh}</th>
-							<th>${u.email}</th>
-							<th >${u.hinhanh}</th>
-							<th>${u.matkhau}</th>
+							<td> ${u.masinhvien}</td>
+							<td>${u.tensinhvien}</td>
+							<td>${u.gioitinh}</td>
+							<td>${u.sdt}</td>
+							<td>${u.ngaysinh}</td>
+							<td>${u.email}</td>
+							<td><center><img src="<c:url value="/resources/images/${u.hinhanh}"/>"  width="30px" height="30px" ></center></td>
+							<td>${u.matkhau}</td>
 							<td><a href="themsv.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 							
 						</tr>

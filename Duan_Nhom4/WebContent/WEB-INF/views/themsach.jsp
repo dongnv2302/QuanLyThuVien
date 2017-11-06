@@ -98,69 +98,69 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
  
     <div class="form-group" >
       <label class="control-label col-sm-2" >Mã loại sách:</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10" style="width: 800px">  
         <form:input path="maloaisach" class="form-control"  placeholder="Mã loại sách" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tên Sách:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">            
       <form:input path="tensach" class="form-control"  placeholder="Ten sach" />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tác giả:</label>
-      <div class="col-sm-10">          
+     <div class="col-sm-10" style="width: 800px">          
        <form:input path="tacgia" class="form-control"  placeholder="Tác giả" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Nhà xuất bản:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">            
          <form:input path="nhaxuatban" class="form-control"  placeholder="Nha Xuat Ban" />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày xuất bản:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">          
          <form:input path="ngayxuatban" class="form-control"  placeholder="ngayxuatban" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày nhập:</label>
-      <div class="col-sm-10">          
+     <div class="col-sm-10" style="width: 800px">          
          <form:input path="ngaynhap" class="form-control"  placeholder="ngaynhap" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Giá sách:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">           
          <form:input path="giasach" class="form-control"  placeholder="gia sach" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tình trạng:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">          
          <form:input path="tinhtrang" class="form-control"  placeholder="tinh trang" />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ảnh bìa:</label>
-      <div class="col-sm-10">          
-         <form:input path="anhbia" class="form-control"  placeholder="anh bia" />
+      <div class="col-sm-10" style="width: 800px">           
+         <form:input path="anhbia" class="form-control"  type="file" name="fileUpload" placeholder="anh bia" />
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Số trang:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">          
          <form:input path="sotrang" class="form-control"  placeholder="so trang" />
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mô tả:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">          
         <form:input path="mota" class="form-control"  placeholder="mo ta" />
       </div>
     </div>

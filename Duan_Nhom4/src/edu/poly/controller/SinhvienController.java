@@ -87,7 +87,7 @@ public class SinhvienController {
 		session.close();
 		model.addAttribute("sinhvien", new Sinhvien());
 		model.addAttribute("sinhviens", getSinhviens());
-		return "themsv";
+		return "sinhvien";
 	}
 
 	@RequestMapping(params = "lnkEdit")
