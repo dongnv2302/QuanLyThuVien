@@ -21,7 +21,11 @@
 			<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 			<property name="url" value="jdbc:mysql://localhost:3306/thuvien"></property>
 			<property name="username" value="root"></property>
+<<<<<<< HEAD
 			<property name="password" value="root"></property>
+=======
+			<property name="password" value=""></property>
+>>>>>>> 173d67b31708f913b0059188e6654f62339c6208
 	</bean>
 	
 	<!-- Cấu hình Hibernate -->

@@ -131,7 +131,7 @@ html, body, h1, h2, h3, h4, h5 {
 				<h2>Thêm Sinh Viên</h2>
 				<div class="form-group">
 					<label class="control-label col-sm-2">Mã sinh viên:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="masinhvien" class="form-control"
 							placeholder="Mã sinh viên"></form:input>
 					</div>
@@ -139,14 +139,14 @@ html, body, h1, h2, h3, h4, h5 {
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Tên sinh
 						viên:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="tensinhvien" class="form-control"
 							placeholder="Tên sinh viên" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Giới tính:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="gioitinh" class="form-control"
 							placeholder="Gioi Tinh" />
 					</div>
@@ -155,14 +155,14 @@ html, body, h1, h2, h3, h4, h5 {
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Số điện
 						thoại:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="sdt" class="form-control"
 							placeholder="Số điện thoại" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Ngày sinh:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="ngaysinh" class="form-control"
 							placeholder="Ngày sinh" />
 					</div>
@@ -170,22 +170,22 @@ html, body, h1, h2, h3, h4, h5 {
 
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Email:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="email" class="form-control"
 							placeholder="Tên đăng nhập" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Hình ảnh:</label>
-					<div class="col-sm-10">
+					 <div class="col-sm-10" style="width: 800px"> 
 						<form:input path="hinhanh" class="form-control"
-							placeholder="Tên đăng nhập" />
+							placeholder="Tên đăng nhập" type="file"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
-					<div class="col-sm-10">
-						<form:input path="matkhau" class="form-control"
+					 <div class="col-sm-10" style="width: 800px"> 
+						<form:password path="matkhau" class="form-control"
 							placeholder="mật khẩu" />
 					</div>
 				</div>
