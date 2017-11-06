@@ -92,52 +92,55 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Quyền điều khiển của tôi</b></h5>
   </header>
-
+<form:form class="form-horizontal" modelAttribute="muontra"
+			action="themmuontra.poly">
   <div class="container">
   <h2>Thêm Danh mục</h2>
   <form class="form-horizontal" action="/action_page.php" style="width:800px">
     <div class="form-group" >
       <label class="control-label col-sm-2" for="email">Mã mượn trả :</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Mã mượn trả" name="email">
+        <form:input path="mamuontra" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mã sinh viên :</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Mã sinh viên" name="pwd">
+        <form:input path="masinhvien" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày mượn:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="dd/MM/yyyy" name="pwd">
+        <form:input path="ngaymuon" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày hẹn trả :</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="dd/MM/yyyyn" name="pwd">
+        <form:input path="ngayhentra" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày trả :</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="dd/MM/yyyy" name="pwd">
+        <form:input path="ngaytra" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
-        <button type="button" class="btn btn-primary">Thêm</button>
-        <button type="button" class="btn btn-primary">Sửa </button>
-        <button type="button" class="btn btn-primary">Xóa</button>
-        <button type="button" class="btn btn-primary">Tìm Kiếm</button>
+        <form:button name="btnInsert" class="btn btn-primary">Thêm</form:button>
+        <form:button name="btnUpdate" class="btn btn-primary">Sửa </form:button>
+        <form:button name="btnDelete" class="btn btn-primary">Xóa</form:button>
+        <form:button name="button" class="btn btn-primary">Tìm Kiếm</form:button>
       </div>
     </div>
   </form>
+  </form:form>
 </div>
+
 
   
 

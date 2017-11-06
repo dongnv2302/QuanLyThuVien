@@ -116,20 +116,29 @@ th {
 </div>
 
   </header><br>
-
+<form:form class="form-horizontal" modelAttribute="muontra"
+			action="muontra.poly">
 <table>
   <tr>
-    <th>Mã dmượn trả </th>
+    <th>Mã mượn trả </th>
     <th>Mã sinh viên</th>
     <th>Ngày mượn</th>
     <th>Ngày hẹn trả</th>
     <th>Ngày trả</th>
-   
-    
   </tr>
-  
+  <c:forEach var="u" items="${muontras}">
+						<tr>
+							<td> ${u.mamuontra}</td>
+							<td>${u.masinhvien}</td>
+							<td>${u.ngaymuon}</td>
+							<td>${u.ngayhentra}</td>
+							<td>${u.ngaytra}</td>
+							<td><a href="themmuontra.poly?lnkEdit&mamuontra=${u.mamuontra}">Edit</a></td>
+							
+						</tr>
+					</c:forEach>
 </table>
-
+</form:form>
 
   
 
