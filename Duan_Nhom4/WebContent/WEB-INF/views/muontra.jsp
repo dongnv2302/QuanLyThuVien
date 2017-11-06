@@ -125,6 +125,7 @@ th {
     <th>Ngày mượn</th>
     <th>Ngày hẹn trả</th>
     <th>Ngày trả</th>
+    <th>Action</th>
   </tr>
   <c:forEach var="u" items="${muontras}">
 						<tr>

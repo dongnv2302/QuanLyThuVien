@@ -95,36 +95,36 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <form:form class="form-horizontal" modelAttribute="muontra"
 			action="themmuontra.poly">
   <div class="container">
-  <h2>Thêm Danh mục</h2>
+  <h2>Thêm Mượn trả</h2>
   <form class="form-horizontal" action="/action_page.php" style="width:800px">
     <div class="form-group" >
       <label class="control-label col-sm-2" for="email">Mã mượn trả :</label>
-      <div class="col-sm-10">
+     <div class="col-sm-10" style="width: 800px">
         <form:input path="mamuontra" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Mã sinh viên :</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">        
         <form:select items="${sinhvien}" path="sinhvien.masinhvien"
 								itemValue="masinhvien" itemLabel="tensinhvien"></form:select>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày mượn:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">          
         <form:input path="ngaymuon" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày hẹn trả :</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10" style="width: 800px">          
         <form:input path="ngayhentra" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ngày trả :</label>
-      <div class="col-sm-10">          
+     <div class="col-sm-10" style="width: 800px">          
         <form:input path="ngaytra" class="form-control" placeholder="Mã mượn trả" ></form:input>
       </div>
     </div>
