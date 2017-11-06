@@ -20,8 +20,13 @@
 	    	class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 			<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 			<property name="url" value="jdbc:mysql://localhost:3306/thuvien"></property>
+<<<<<<< HEAD
 			<property name="username" value="root"></property>
 			<property name="password" value="root"></property>
+=======
+			<property name="username" value="hung"></property>
+			<property name="password" value="123"></property>
+>>>>>>> 6914c078f2fd0ebd93cc6dd7702bdf19de45cbd0
 	</bean>
 	
 	<!-- Cấu hình Hibernate -->
