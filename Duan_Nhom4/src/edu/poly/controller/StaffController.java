@@ -19,7 +19,7 @@ import edu.poy.bean.Sinhvien;
 import edu.poy.bean.Staff;
 
 @Transactional
-@RequestMapping("themnv.poly")
+@RequestMapping("quanlynhanvien.poly")
 @Controller
 public class StaffController {
 	@Autowired
@@ -27,7 +27,7 @@ public class StaffController {
 	@RequestMapping()
 	public String index(ModelMap model) {
 		model.addAttribute("staff", new Staff());
-		return "themnv";
+		return "quanlynhanvien";
 	}
 	@ModelAttribute("staffs")
 	public List<Staff> getStaffs() {
@@ -93,7 +93,7 @@ public class StaffController {
 		Session session = factory.getCurrentSession();
 		Staff staff = (Staff) session.get(Staff.class, manhanvien);
 		model.addAttribute("staff", staff);
-		return "themnv";
+		return "quanlynhanvien";
 	}
 
 }

@@ -5,9 +5,12 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <title>W3.CSS Template</title>
-<link rel="stylesheet" type="text/css"  href="resources/css/css.css">
-<link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" type="text/css" href="css/table.css">
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -33,62 +36,65 @@ th {
     color: white;
 }
 </style>
+<link href="bootstrap.css" rel="stylesheet" type="text/css">
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">Welcome Admin</span>
+  <span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img src="../images/if_User_group_132235.png" width="24" height="24"  alt=""/></span>
 </div>
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-     
+      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>Mike</strong></span><br>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-      
-     <a href="../index.html" class="w3-bar-item w3-button"><img src="resources/images/index.png" width="20" height="20"  alt=""/></a>
+      <span ><h3 style="color:#906"><b>Thư Viện</b></h3>  <strong>FPT Polytechnic</strong></span><br>
+     
+			<div class="header-ri">
+				<ul class="social-top">
+					<li><a href="#" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					
+				</ul>	
+			</div>
+		
     </div>
   </div>
   <hr>
-  <div class="w3-container">
-    <h5>Quản lý</h5>
-    
-
-  </div>
+ 
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="demo.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Trang Chủ</a>
   
    <a href="quanlynhanvien.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a>
-  <a href="themnv.html" class="w3-bar-item w3-button w3-padding w3-blue" >Thêm Nhân Viên</a>
+  
     <a href="sinhvien.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a>
     
-    <a href="themsv.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Sinh Viên</a>
+   
     
     <a href="sach.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a>
     
-    <a href="themsach.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Sách</a>
+   
     
     <a href="danhmuc.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a>
     
-    <a href="themdanhmuc.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm danh mục </a>
+ 
     
     <a href="Ma.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a>
     
-    <a href="themma.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Mã</a>
+   
     
      <a href="dmls.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a>
-    <a href="them_dmls.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Danh Mục Loại Sách</a>
+    
     <a href="muontra.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a>
-    <a href="themmuontra.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm Mượn trả</a>
+    
     <a href="muontract.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
-    <a href="them_mtct.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm mượn trả chi tiết </a>
+
     
     
   </div>
@@ -103,14 +109,20 @@ th {
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Danh sách sinh viên</b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> Danh sách Danh Mục Loại Sách</b></h5>
+    
+    							
+									<a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img"><button type="button" class="btn btn-success"><img src="../images/if_edit1.png" width="24" height="24"  alt=""/>Thêm</button></a>
+										
+									
+                                        
     <div id="search" style="float:right">
 
 <form class="searchform" action="" method="get">
 
-<input class="s" onfocus="if (this.value == 'Search this website …') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this website …';}" type="text" name="s" value="Search this website …" />
+<input class="s" onfocus="if (this.value == 'Tìm kiếm theo MSV') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Tìm kiếm theo MSV';}" type="text" name="s" value="Tìm kiếm	" />
 
-<input class="searchsubmit" type="submit" value="Search" />
+<input class="searchsubmit" type="submit" value="Tìm Kiếm" />
 
 </form>
 
@@ -120,12 +132,14 @@ th {
 
 <table>
   <tr>
-    <th>Mã loại sách </th>
-    <th>Mã danh mục </th>
-   
-    
+    <th>Mã Loại Sách </th>
+    <th>Mã Danh Mục</th>
+    <th>Action</th>
   </tr>
+  <td>huyen</td>
+  <td>huyen</td>
   
+  <td><a href="#">Edit</a>|<a href="#">Del</a></td>
 </table>
 
 
@@ -134,7 +148,8 @@ th {
   
 
 </div>
-
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>
 <script>
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
@@ -159,6 +174,45 @@ function w3_close() {
     overlayBg.style.display = "none";
 }
 </script>
-
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body modal-spa">
+								
+								<div class="col-md-7 span-1 ">
+									<div class="container">
+  <h2 style="color:#390">Thêm Danh Mục Loại Sách</h2>
+  <form class="form-horizontal" action="/action_page.php" style="width:800px">
+    <div class="form-group" >
+      <label class="control-label col-sm-2" for="email">Mã Loại Sách:</label>
+      <div class="col-sm-10" style="width:500px">
+        <input type="email" class="form-control" id="email" placeholder="Mã Loại Sách" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Mã Danh Mục:</label>
+      <div class="col-sm-10" style="width:500px">         
+        <input type="password" class="form-control" id="pwd" placeholder="Mã Danh Mục" name="pwd">
+      </div>
+    </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10" style="text-align:center">
+        
+        <button type="button" class="btn btn-success"><img src="../images/if_Add_to_basket_132292.png" width="24" height="24"  alt=""/>Thêm </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="button" class="btn btn-success"><img src="../images/if_edit1.png" width="24" height="24"  alt=""/>Sửa</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="button" class="btn btn-success"><img src="../images/if_Delete.png" width="24" height="24"  alt=""/>Xóa</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+      </div>
+    </div>
+  </form>
+</div>
+									 
+								</div>
+								<div class="clearfix"> </div>
+							</div>
 </body>
 </html>

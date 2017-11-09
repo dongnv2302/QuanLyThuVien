@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.poy.bean.Sinhvien;
 @Transactional
-@RequestMapping("themsv.poly")
+@RequestMapping("sinhvien.poly")
 @Controller
 public class SinhvienController {
 	@Autowired
@@ -25,7 +25,7 @@ public class SinhvienController {
 	@RequestMapping()
 	public String index(ModelMap model) {
 		model.addAttribute("sinhvien", new Sinhvien());
-		return "themsv";
+		return "sinhvien";
 	}
 	@ModelAttribute("sinhviens")
 	public List<Sinhvien> getSinhviens() {
@@ -95,7 +95,7 @@ public class SinhvienController {
 		Session session = factory.getCurrentSession();
 		Sinhvien sinhvien = (Sinhvien) session.get(Sinhvien.class, masinhvien);
 		model.addAttribute("sinhvien", sinhvien);
-		return "themsv";
+		return "sinhvien";
 	}
 	
 			
