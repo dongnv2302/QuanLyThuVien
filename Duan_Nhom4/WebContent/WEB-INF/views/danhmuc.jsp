@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<<<<<<< HEAD
 
 
 
@@ -14,6 +15,13 @@
 <link rel="stylesheet" type="text/css" href="resourses/css/bootstrap.css">
 
 <link rel="stylesheet" type="text/css" href="resourses/css/style.css">
+=======
+<html>
+<title>W3.CSS Template</title>
+<link rel="stylesheet" type="text/css"  href="resources/css/css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<meta charset="UTF-8">
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -39,19 +47,27 @@ th {
     color: white;
 }
 </style>
+<<<<<<< HEAD
 <link href="resources/bootstrap.css" rel="stylesheet" type="text/css">
+=======
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+<<<<<<< HEAD
   <span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img src="resources/images/if_User_group_132235.png" width="24" height="24"  alt=""/></span>
+=======
+  <span class="w3-bar-item w3-right">Welcome Admin</span>
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
 </div>
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
+<<<<<<< HEAD
       <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
@@ -67,6 +83,22 @@ th {
 			</div>
 		
     </div>
+=======
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>Mike</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+    
+     <a href="../index.html" class="w3-bar-item w3-button"><img src="resources/images/index.png" width="20" height="20"  alt=""/></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Quản lý</h5>
+    
+
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
   </div>
   <hr>
  
@@ -112,6 +144,7 @@ th {
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
+<<<<<<< HEAD
     <h5><b><i class="fa fa-dashboard"></i> Danh sách Danh Mục</b></h5>
     
     							
@@ -119,19 +152,29 @@ th {
 										
 									
                                         
+=======
+    <h5><b><i class="fa fa-dashboard"></i> Danh Muc</b></h5>
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
     <div id="search" style="float:right">
 
 <form class="searchform" action="" method="get">
 
+<<<<<<< HEAD
 <input class="s" onfocus="if (this.value == 'Tìm kiếm theo MSV') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Tìm kiếm theo MSV';}" type="text" name="s" value="Tìm kiếm	" />
 
 <input class="searchsubmit" type="submit" value="Tìm Kiếm" />
+=======
+<input class="s" onfocus="if (this.value == 'Search this website …') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this website …';}" type="text" name="s" value="Search this website …" />
+
+<input class="searchsubmit" type="submit" value="Search" />
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
 
 </form>
 
 </div>
 
   </header><br>
+<<<<<<< HEAD
 
 <table>
   <tr>
@@ -217,6 +260,57 @@ function w3_close() {
 								</div>
 								<div class="clearfix"> </div>
 							</div>
+=======
+<form:form class="form-horizontal" modelAttribute="muontra"
+			action="muontra.poly">
+<table>
+  <tr>
+    <th>Mã danh Muc </th>
+    <th>Ten Danh Muc</th>
+    <th>Action</th>
+  </tr>
+  <c:forEach var="u" items="${danhmucs}">
+						<tr>
+							<td> ${u.madanhmuc}</td>
+							<td>${u.tendanhmuc}</td>
+							<td><a href="themdanhmuc.poly?lnkEdit&madanhmuc=${u.madanhmuc}">Edit</a></td>
+							
+						</tr>
+					</c:forEach>
+</table>
+</form:form>
+
+  
+
+  
+
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
 </body>
 </html>
-    

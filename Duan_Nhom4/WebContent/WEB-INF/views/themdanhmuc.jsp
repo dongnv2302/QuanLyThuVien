@@ -34,6 +34,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
+    
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong>Mike</strong></span><br>
@@ -92,56 +93,36 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Quyền điều khiển của tôi</b></h5>
   </header>
-<form:form class="form-horizontal" modelAttribute="muontra"
-			action="themmuontra.poly">
+ <form:form class="form-horizontal" modelAttribute="danhmuc" action="themdanhmuc.poly">
   <div class="container">
-  <h2>Thêm Mượn trả</h2>
-  <form class="form-horizontal" action="/action_page.php" style="width:800px">
+  <h2>Thêm Danh mục</h2>
+ 
     <div class="form-group" >
-      <label class="control-label col-sm-2" for="email">Mã mượn trả :</label>
-     <div class="col-sm-10" style="width: 800px">
-        <form:input path="mamuontra" class="form-control" placeholder="Mã mượn trả" ></form:input>
+      <label class="control-label col-sm-2" for="email">Mã danh mục :</label>
+      <div class="col-sm-10" style="width: 800px">
+       <form:input path="madanhmuc" class="form-control"  placeholder="Mã Danh Muc" />
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Mã sinh viên :</label>
-      <div class="col-sm-10" style="width: 800px">        
-        <form:select items="${sinhvien}" path="sinhvien.masinhvien"
-								itemValue="masinhvien" itemLabel="tensinhvien"></form:select>
+      <label class="control-label col-sm-2" for="pwd">Tên danh mục :</label>
+      <div class="col-sm-10" style="width: 800px">     
+       <form:input path="tendanhmuc" class="form-control"  placeholder="Ten Danh Muc" />
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Ngày mượn:</label>
-      <div class="col-sm-10" style="width: 800px">          
-        <form:input path="ngaymuon" class="form-control" placeholder="Mã mượn trả" ></form:input>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Ngày hẹn trả :</label>
-      <div class="col-sm-10" style="width: 800px">          
-        <form:input path="ngayhentra" class="form-control" placeholder="Mã mượn trả" ></form:input>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Ngày trả :</label>
-     <div class="col-sm-10" style="width: 800px">          
-        <form:input path="ngaytra" class="form-control" placeholder="Mã mượn trả" ></form:input>
-      </div>
-    </div>
-    </div>
+    
+   
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         
-        <form:button name="btnInsert" class="btn btn-primary">Thêm</form:button>
-        <form:button name="btnUpdate" class="btn btn-primary">Sửa </form:button>
-        <form:button name="btnDelete" class="btn btn-primary">Xóa</form:button>
-        <form:button name="button" class="btn btn-primary">Tìm Kiếm</form:button>
+        <button name="btnInsert" class="btn btn-primary">Thêm</button>
+        <button name="btnUpdate" class="btn btn-primary">Sửa </button>
+        <button name="btnDelete" class="btn btn-primary">Xóa</button>
+        <button name="button" class="btn btn-primary">Tìm Kiếm</button>
       </div>
     </div>
-  </form>
+     </div>
   </form:form>
 </div>
-
 
   
 

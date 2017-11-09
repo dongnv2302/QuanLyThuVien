@@ -132,11 +132,19 @@ th {
 
 <table>
   <tr>
+<<<<<<< HEAD
     <th>Mã Mượn Trả</th>
     <th>Mã Sinh Viên</th>
     <th>Ngày Mượn</th>
     <th>Ngày Hẹn Trả</th>
     <th>Ngày Trả</th>
+=======
+    <th>Mã mượn trả </th>
+    <th>Mã sinh viên</th>
+    <th>Ngày mượn</th>
+    <th>Ngày hẹn trả</th>
+    <th>Ngày trả</th>
+>>>>>>> 7417f8925bbe83b7ab6d7d8355cdc3de3f5d4e09
     <th>Action</th>
   </tr>
   <td>huyen</td>
