@@ -97,7 +97,7 @@ public class BookController {
 		Session session = factory.getCurrentSession();
 		Sach sach = (Sach) session.get(Sach.class, maloaisach);
 		model.addAttribute("sach", sach);
-		return "themsach";
+		return "sach";
 	}
 
 }

@@ -54,18 +54,18 @@ th {
 			<i class="fa fa-bars"></i>  Menu
 		</button>
 		<span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img
-			src="resources/images/if_User_group_132235.png" width="24" height="24"
-			alt="" /></span>
+			src="resources/images/if_User_group_132235.png" width="24"
+			height="24" alt="" /></span>
 	</div>
 
 	<!-- Sidebar/menu -->
 	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
+		<center>
 		<div class="w3-container w3-row">
 			<div class="w3-col s4">
-				<img src="/w3images/avatar2.png" class="w3-circle w3-margin-right"
-					style="width: 46px">
+				
 			</div>
 			<div class="w3-col s8 w3-bar">
 				<span><h3 style="color: #906">
@@ -86,6 +86,7 @@ th {
 
 			</div>
 		</div>
+		</center>
 		<hr>
 
 		<div class="w3-bar-block">
@@ -135,8 +136,10 @@ th {
 
 			<a href="#" data-toggle="modal" data-target="#myModal1"
 				class="offer-img"><button type="button" class="btn btn-success">
-					<img src="resources/images/if_edit1.png" width="24" height="24" alt="" />Thêm
+					<img src="resources/images/if_edit1.png" width="24" height="24"
+						alt="" />Thêm
 				</button></a>
+
 
 
 
@@ -144,12 +147,8 @@ th {
 
 				<form class="searchform" action="" method="get">
 
-					<input class="s"
-						onfocus="if (this.value == 'Tìm kiếm theo MSV') {this.value = '';}"
-						onblur="if (this.value == '') {this.value = 'Tìm kiếm theo MSV';}"
-						type="text" name="s" value="Tìm kiếm	" /> <input
-						class="searchsubmit" type="submit" value="Tìm Kiếm" />
-
+					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
+						name="s" placeholder="Tìm kiếm" />
 				</form>
 
 			</div>
@@ -157,38 +156,45 @@ th {
 		</header>
 		<br>
 
-		<table>
-			<tr>
-				<th>Mã Loại Sách</th>
-				<th>Tên Sách</th>
-				<th>Tác Giả</th>
-				<th>Nhà Xuất Bản</th>
-				<th>Ngày Xuất Bản</th>
-				<th>Ngày Nhập</th>
-				<th>Giá Sách</th>
-				<th>Tình Trạng</th>
-				<th>Ảnh Bìa</th>
-				<th>Số Trang</th>
-				<th>Mô tả</th>
-				<th>Action</th>
-			</tr>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td><a href="#">Edit</a>|<a href="#">Del</a></td>
-		</table>
+		<form:form modelAttribute="sach" action="sach.poly" id="myTable">
+			<table>
+				<tr>
+					<th>Mã loại sách</th>
+					<th>Tên sách</th>
+					<th>Tác giả</th>
+					<th>Nhà xuất bản</th>
+					<th>Ngày xuất bản</th>
+					<th>Ngày nhập</th>
+					<th>Giá sách</th>
+					<th>Tình trạng</th>
+					<th>Ảnh bìa</th>
+					<th>Số trang</th>
+					<th>Mô tả</th>
+					<th>Action</th>
+				</tr>
+				<c:forEach var="u" items="${sachs}">
+					<tr>
+						<td>${u.maloaisach}</td>
+						<td>${u.tensach}</td>
+						<td>${u.tacgia}</td>
+						<td>${u.nhaxuatban}</td>
+						<td>${u.ngayxuatban}</td>
+						<td>${u.ngaynhap}</td>
+						<td>${u.giasach}</td>
+						<td>${u.tinhtrang}</td>
+						<td>
+								<img src="<c:url value="/resources/images/${u.anhbia}"/>"
+									width="30px" height="30px">
+							</td>
+						<td>${u.sotrang}</td>
+						<td>${u.mota}</td>
+						<td><a
+							href="sach.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
 
-
-
-
+					</tr>
+				</c:forEach>
+			</table>
+		</form:form>
 
 
 	</div>
@@ -233,122 +239,144 @@ th {
 					<div class="col-md-7 span-1 ">
 						<div class="container">
 							<h2 style="color: #390">Thêm Sách</h2>
-							<form class="form-horizontal" action="/action_page.php"
-								style="width: 800px">
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="email">Mã
-										Loại Sách:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="email" class="form-control" id="email"
-											placeholder="Mã Loại Sách" name="email">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tên
-										Sách:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Tên Sách" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tác
-										Giả:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Tác Giả" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Nhà
-										Xuất Bản:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Nhà Xuất Bản" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Ngày
-										Sản Xuất:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Ngày Sản Xuất" name="pwd">
-									</div>
-								</div>
+							<form:form class="form-horizontal" modelAttribute="sach"
+								action="sach.poly">
+								<div class="container">
 
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Ngày
-										Nhập:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Ngày Nhập" name="pwd">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Mã loại sách:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="maloaisach" class="form-control"
+												placeholder="Mã loại sách" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tên
+											Sách:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="tensach" class="form-control"
+												placeholder="Ten sach" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tác
+											giả:</label>
+										<div class="col-sm-10" style="width:500px">
+											<form:input path="tacgia" class="form-control"
+												placeholder="Tác giả" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Nhà
+											xuất bản:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="nhaxuatban" class="form-control"
+												placeholder="Nha Xuat Ban" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Ngày
+											xuất bản:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="ngayxuatban" class="form-control"
+												placeholder="ngayxuatban" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Ngày
+											nhập:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="ngaynhap" class="form-control"
+												placeholder="ngaynhap" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Giá
+											sách:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="giasach" class="form-control"
+												placeholder="gia sach" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tình
+											trạng:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="tinhtrang" class="form-control"
+												placeholder="tinh trang" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Ảnh
+											bìa:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="anhbia" class="form-control" type="file"
+												name="fileUpload" placeholder="anh bia" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Số
+											trang:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="sotrang" class="form-control"
+												placeholder="so trang" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="mota" class="form-control"
+												placeholder="mo ta" />
+										</div>
+									</div>
+									<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+
+										
+										<form:button name="btnInsert" class="btn btn-success">
+											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
+												height="24" alt="" />Thêm
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnUpdate" class="btn btn-success">
+											<img src="resources/images/if_edit1.png" width="24" height="24"
+												alt="" />Sửa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnDelete" class="btn btn-success">
+											<img src="resources/images/if_Delete.png" width="24" height="24"
+												alt="" />Xóa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Giá
-										Sách:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Giá Sách" name="pwd">
-									</div>
 								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tình
-										Trạng:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Tình Trạng" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Ảnh
-										Bìa:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Ảnh Bìa" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Số
-										Trang:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Số Trang" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Mô Tả:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Mô Tả" name="pwd">
-									</div>
-								</div>
+							</form:form>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10" style="text-align: center">
 
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-										height="24" alt="" />Thêm
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_edit1.png" width="24" height="24" alt="" />Sửa
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_Delete.png" width="24" height="24"
-										alt="" />Xóa
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-							</div>
-						</div>
-						</form>
 					</div>
-
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
-			</div>
+				<script>
+			function myFunction() {
+				var input, filter, table, tr, td, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[0];
+					if (td) {
+						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
 </body>
 </html>
