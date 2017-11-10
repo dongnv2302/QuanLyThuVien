@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.poy.bean.Danhmuc;
 @Transactional
-@RequestMapping("themdanhmuc.poly")
+@RequestMapping("danhmuc.poly")
 @Controller
 public class DanhMucController {
 	@Autowired
@@ -25,7 +25,7 @@ public class DanhMucController {
 	@RequestMapping()
 	public String index(ModelMap model) {
 		model.addAttribute("danhmuc", new Danhmuc());
-		return "themdanhmuc";
+		return "danhmuc";
 	}
 	@ModelAttribute("danhmucs")
 	public List<Danhmuc> getDanhmucs() {
@@ -95,7 +95,7 @@ public class DanhMucController {
 		Session session = factory.getCurrentSession();
 		Danhmuc danhmuc = (Danhmuc) session.get(Danhmuc.class, madanhmuc);
 		model.addAttribute("danhmuc", danhmuc);
-		return "themdanhmuc";
+		return "danhmuc";
 	}
 	
 			

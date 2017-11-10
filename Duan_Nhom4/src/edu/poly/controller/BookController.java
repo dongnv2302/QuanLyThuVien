@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import edu.poy.bean.Sach;
 import edu.poy.bean.Sinhvien;
 @Transactional
-@RequestMapping("themsach.poly")
+@RequestMapping("sach.poly")
 @Controller
 public class BookController {
 	@Autowired
@@ -26,7 +26,7 @@ public class BookController {
 	@RequestMapping()
 	public String index(ModelMap model) {
 		model.addAttribute("sach", new Sach());
-		return "themsach";
+		return "sach";
 	}
 
 	@ModelAttribute("sachs")

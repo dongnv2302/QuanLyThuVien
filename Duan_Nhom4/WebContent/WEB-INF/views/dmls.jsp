@@ -5,12 +5,12 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <title>W3.CSS Template</title>
-<link rel="stylesheet" type="text/css" href="css/css.css">
-<link rel="stylesheet" type="text/css" href="css/table.css">
+<link rel="stylesheet" type="text/css" href="resources/css/css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
 
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -36,13 +36,13 @@ th {
     color: white;
 }
 </style>
-<link href="bootstrap.css" rel="stylesheet" type="text/css">
+<link href="resources/bootstrap.css" rel="stylesheet" type="text/css">
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img src="../images/if_User_group_132235.png" width="24" height="24"  alt=""/></span>
+  <span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img src="resources/images/if_User_group_132235.png" width="24" height="24"  alt=""/></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -148,8 +148,8 @@ th {
   
 
 </div>
-<script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/bootstrap.js"></script>
+<script src="resources/js/jquery-1.11.1.min.js"></script>
+<script src="resources/js/bootstrap.js"></script>
 <script>
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
@@ -202,9 +202,9 @@ function w3_close() {
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10" style="text-align:center">
         
-        <button type="button" class="btn btn-success"><img src="../images/if_Add_to_basket_132292.png" width="24" height="24"  alt=""/>Thêm </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <button type="button" class="btn btn-success"><img src="../images/if_edit1.png" width="24" height="24"  alt=""/>Sửa</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <button type="button" class="btn btn-success"><img src="../images/if_Delete.png" width="24" height="24"  alt=""/>Xóa</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-success"><img src="resources/images/if_Add_to_basket_132292.png" width="24" height="24"  alt=""/>Thêm </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="button" class="btn btn-success"><img src="resources/images/if_edit1.png" width="24" height="24"  alt=""/>Sửa</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="button" class="btn btn-success"><img src="resources/images/if_Delete.png" width="24" height="24"  alt=""/>Xóa</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
       </div>
     </div>

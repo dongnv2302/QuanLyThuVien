@@ -19,7 +19,7 @@ import edu.poy.bean.Muontra;
 import edu.poy.bean.Sinhvien;
 
 @Transactional
-@RequestMapping("themmuontra.poly")
+@RequestMapping("muontra.poly")
 @Controller
 public class MuontraController {
 	@Autowired

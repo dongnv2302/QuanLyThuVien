@@ -53,35 +53,37 @@ th {
 			<i class="fa fa-bars"></i>  Menu
 		</button>
 		<span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img
-			src="resources//images/if_User_group_132235.png" width="24" height="24"
-			alt="" /></span>
+			src="resources//images/if_User_group_132235.png" width="24"
+			height="24" alt="" /></span>
 	</div>
 
 	<!-- Sidebar/menu -->
 	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
-		<center><div class="w3-container w3-row">
-			
-			<div class="w3-col s8 w3-bar">
-				<span><h3 style="color: #906">
-						<b>Thư Viện</b>
-					</h3> <strong>FPT Polytechnic</strong></span><br>
+		<center>
+			<div class="w3-container w3-row">
 
-				<div class="header-ri">
-					<ul class="social-top">
-						<li><a href="#" class="icon facebook"><i
-								class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon twitter"><i
-								class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon pinterest"><i
-								class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
 
-					</ul>
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div></center>
+		</center>
 		<hr>
 
 		<div class="w3-bar-block">
@@ -141,41 +143,45 @@ th {
 
 				<form class="searchform" action="" method="get">
 
-					<input class="s"
-						onfocus="if (this.value == 'Tìm kiếm theo MSV') {this.value = '';}"
-						onblur="if (this.value == '') {this.value = 'Tìm kiếm theo MSV';}"
-						type="text" name="s" value="Tìm kiếm	" /> <input
-						class="searchsubmit" type="submit" value="Tìm Kiếm" />
-
+					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
+						name="s" placeholder="Tìm kiếm" />
 				</form>
 
 			</div>
 
 		</header>
 		<br>
+		
+		<form:form modelAttribute="sinhvien" action="sinhvien.poly">
+			<table id="myTable">
+				<tr>
+					<th>Mã Sinh viên</th>
+					<th>Tên sinh viên</th>
+					<th>Giới tính</th>
+					<th>Số điện thoại</th>
+					<th>Ngày sinh</th>
+					<th>Email</th>
+					<th>Hình ảnh</th>
+					<th>Mật khẩu</th>
+					<th>Action</th>
+				</tr>
+				<c:forEach var="u" items="${sinhviens}">
+					<tr>
+						<td>${u.masinhvien}</td>
+						<td>${u.tensinhvien}</td>
+						<td>${u.gioitinh}</td>
+						<td>${u.sdt}</td>
+						<td>${u.ngaysinh}</td>
+						<td>${u.email}</td>
+						<td>${u.hinhanh}</td>
+						<td>${u.matkhau}</td>
+						<td><a
+							href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 
-		<table>
-			<tr>
-				<th>Mã Sinh viên</th>
-				<th>Tên sinh viên</th>
-				<th>Giới tính</th>
-				<th>Số điện thoại</th>
-				<th>Ngày sinh</th>
-				<th>Email</th>
-				<th>Hình ảnh</th>
-				<th>Mật khẩu</th>
-				<th>Action</th>
-			</tr>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td><a href="#">Edit</a>|<a href="#">Del</a></td>
-		</table>
+					</tr>
+				</c:forEach>
+			</table>
+		</form:form>
 
 
 
@@ -221,105 +227,122 @@ th {
 				</div>
 				<div class="modal-body modal-spa">
 					<div class="col-md-7 span-1 ">
-						<h2 style="color:#390">Thêm Sinh Viên</h2>
-						<form class="form-horizontal" action="/action_page.php"
-							style="width: 800px">
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="email">Mã
-									sinh viên:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="email" class="form-control" id="email"
-										placeholder="Mã sinh viên" name="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Tên sinh
-									viên:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="Tên sinh viên" name="pwd">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Giới
-									tính:</label>
-								<div class="col-sm-10" style="width: 500px">
+						<h2 style="color: #390">Thêm Sinh Viên</h2>
+						<form:form class="form-horizontal" modelAttribute="sinhvien"
+							action="sinhvien.poly">
+							<div class="container">
 
-									<select class="form-control" id="sel1">
-										<option>Nam</option>
-										<option>Nữ</option>
+								<div class="form-group">
+									<label class="control-label col-sm-2">Mã sinh viên:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="masinhvien" class="form-control"
+											placeholder="Mã sinh viên"></form:input>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tên
+										sinh viên:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="tensinhvien" class="form-control"
+											placeholder="Tên sinh viên" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Giới
+										tính:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="gioitinh" class="form-control"
+											placeholder="Gioi Tinh" />
+									</div>
 
-									</select>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Số điện
+										thoại:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="sdt" class="form-control"
+											placeholder="Số điện thoại" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Ngày
+										sinh:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="ngaysinh" class="form-control"
+											placeholder="Ngày sinh" />
+									</div>
 								</div>
 
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Số điện
-									thoại:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="Số điện thoại" name="pwd">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Email:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="email" class="form-control"
+											placeholder="Tên đăng nhập" />
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Ngày
-									sinh:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="Ngày sinh" name="pwd">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Hình
+										ảnh:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="hinhanh" class="form-control"
+											placeholder="Tên đăng nhập" />
+									</div>
 								</div>
-							</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Mật
+										khẩu:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="matkhau" class="form-control"
+											placeholder="mật khẩu" />
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
 
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Email:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="Tên đăng nhập" name="pwd">
+										
+										<form:button name="btnInsert" class="btn btn-success">
+											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
+												height="24" alt="" />Thêm
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnUpdate" class="btn btn-success">
+											<img src="resources/images/if_edit1.png" width="24" height="24"
+												alt="" />Sửa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnDelete" class="btn btn-success">
+											<img src="resources/images/if_Delete.png" width="24" height="24"
+												alt="" />Xóa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Hình
-									ảnh:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="HÌnh ảnh" name="pwd">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Mật
-									khẩu:</label>
-								<div class="col-sm-10" style="width: 500px">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="mật khẩu" name="pwd">
-								</div>
-							</div>
+						</form:form>
+
 					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10" style="text-align: center">
-
-							<button type="button" class="btn btn-success">
-								<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-									height="24" alt="" />Thêm
-							</button>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="button" class="btn btn-success">
-								<img src="resources/images/if_edit1.png" width="24" height="24" alt="" />Sửa
-							</button>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="button" class="btn btn-success">
-								<img src="resources/images/if_Delete.png" width="24" height="24" alt="" />Xóa
-							</button>
-							
-
-						</div>
-					</div>
-					</form>
-
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
-	
+		<script>
+			function myFunction() {
+				var input, filter, table, tr, td, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[0];
+					if (td) {
+						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
 </body>
 </html>
