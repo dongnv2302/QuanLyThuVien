@@ -88,29 +88,28 @@ th {
 			</div>
 		</center>
 		<hr>
-
-		<div class="w3-bar-block">
+<div class="w3-bar-block">
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
 				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
-				href="quanlynhanvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a> <a
-				href="sinhvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="sinhvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a> <a
-				href="sach.html" class="w3-bar-item w3-button w3-padding"><i
+				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
-				href="danhmuc.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.html"
+				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.html"
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
-				href="muontra.html" class="w3-bar-item w3-button w3-padding"><i
+				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
-				href="muontract.html" class="w3-bar-item w3-button w3-padding"><i
+				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
 
 
@@ -167,7 +166,7 @@ th {
 					<th>Email</th>
 					<th>Chức vụ</th>
 					<th>Tên đăng nhập</th>
-					<th>Mật khẩu</th>
+					
 					<th>Action</th>
 				</tr>
 				<c:forEach var="u" items="${staffs}">
@@ -180,7 +179,6 @@ th {
 						<td>${u.email}</td>
 						<td>${u.chucvu}</td>
 						<td>${u.tendangnhap}</td>
-						<td>${u.matkhau}</td>
 						<td><a
 							href="quanlynhanvien.poly?lnkEdit&manhanvien=${u.manhanvien}">Edit</a></span>
 
@@ -326,7 +324,7 @@ th {
 												alt="" />Sửa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Are you sure you want to delete?');">
+									<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
 											<img src="resources/images/if_edit1.png" width="24" height="24"
 												alt="" />xóa
 										</form:button>

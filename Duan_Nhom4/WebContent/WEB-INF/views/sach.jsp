@@ -345,9 +345,9 @@ th {
 												alt="" />Sửa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success">
-											<img src="resources/images/if_Delete.png" width="24" height="24"
-												alt="" />Xóa
+										<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
+											<img src="resources/images/if_edit1.png" width="24" height="24"
+												alt="" />xóa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
