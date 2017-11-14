@@ -63,29 +63,27 @@ th {
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
 		<center>
-		<div class="w3-container w3-row">
-			<div class="w3-col s4">
-				
-			</div>
-			<div class="w3-col s8 w3-bar">
-				<span><h3 style="color: #906">
-						<b>Thư Viện</b>
-					</h3> <strong>FPT Polytechnic</strong></span><br>
+			<div class="w3-container w3-row">
+				<div class="w3-col s4"></div>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
 
-				<div class="header-ri">
-					<ul class="social-top">
-						<li><a href="#" class="icon facebook"><i
-								class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon twitter"><i
-								class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon pinterest"><i
-								class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
 
-					</ul>
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
 		</center>
 		<hr>
 
@@ -161,16 +159,15 @@ th {
 				<tr>
 					<th>Mã Loại Sách</th>
 					<th>Mã Danh Mục</th>
-					
+
 					<th>Action</th>
 				</tr>
 				<c:forEach var="u" items="${dmlss}">
 					<tr>
 						<td>${u.maloaisach}</td>
-						<td>${u.madanhmuc}</td>
-						
-						<td><a
-							href="dmls.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
+						<td>${u.danhmuc.madanhmuc}</td>
+
+						<td><a 	href="dmls.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
@@ -235,32 +232,32 @@ th {
 										<label class="control-label col-sm-2" for="pwd">Mã
 											Danh Mục:</label>
 										<div class="col-sm-10" style="width: 500px">
-											<form:input path="madanhmuc" class="form-control"
-												placeholder="Mã Danh Mục" />
+											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
+													itemValue="madanhmuc" itemLabel="tendanhmuc"></form:select>
 										</div>
 									</div>
-									
-									<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
 
-										
-										<form:button name="btnInsert" class="btn btn-success">
-											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-												height="24" alt="" />Thêm
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+
+
+											<form:button name="btnInsert" class="btn btn-success">
+												<img src="resources/images/if_Add_to_basket_132292.png"
+													width="24" height="24" alt="" />Thêm
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />Sửa
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<form:button name="btnUpdate" class="btn btn-success">
+												<img src="resources/images/if_edit1.png" width="24"
+													height="24" alt="" />Sửa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success">
-											<img src="resources/images/if_Delete.png" width="24" height="24"
-												alt="" />Xóa
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<form:button name="btnDelete" class="btn btn-success">
+												<img src="resources/images/if_Delete.png" width="24"
+													height="24" alt="" />Xóa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
 								</div>
 							</form:form>
 						</div>
@@ -269,23 +266,23 @@ th {
 					<div class="clearfix"></div>
 				</div>
 				<script>
-			function myFunction() {
-				var input, filter, table, tr, td, i;
-				input = document.getElementById("myInput");
-				filter = input.value.toUpperCase();
-				table = document.getElementById("myTable");
-				tr = table.getElementsByTagName("tr");
-				for (i = 0; i < tr.length; i++) {
-					td = tr[i].getElementsByTagName("td")[0];
-					if (td) {
-						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-							tr[i].style.display = "";
-						} else {
-							tr[i].style.display = "none";
+					function myFunction() {
+						var input, filter, table, tr, td, i;
+						input = document.getElementById("myInput");
+						filter = input.value.toUpperCase();
+						table = document.getElementById("myTable");
+						tr = table.getElementsByTagName("tr");
+						for (i = 0; i < tr.length; i++) {
+							td = tr[i].getElementsByTagName("td")[0];
+							if (td) {
+								if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+								} else {
+									tr[i].style.display = "none";
+								}
+							}
 						}
 					}
-				}
-			}
-		</script>
+				</script>
 </body>
 </html>

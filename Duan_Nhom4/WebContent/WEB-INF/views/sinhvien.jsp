@@ -151,7 +151,7 @@ th {
 
 		</header>
 		<br>
-		
+
 		<form:form modelAttribute="sinhvien" action="sinhvien.poly">
 			<table id="myTable">
 				<tr>
@@ -176,7 +176,7 @@ th {
 						<td>${u.hinhanh}</td>
 						<td>${u.matkhau}</td>
 						<td><a href="#" data-toggle="modal" data-target="#myModal1"
-				class="offer-img"
+							class="offer-img"
 							href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 
 					</tr>
@@ -300,20 +300,20 @@ th {
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 
-										
+
 										<form:button name="btnInsert" class="btn btn-success">
-											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-												height="24" alt="" />Thêm
+											<img src="resources/images/if_Add_to_basket_132292.png"
+												width="24" height="24" alt="" />Thêm
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />Sửa
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />Sửa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<form:button name="btnDelete" class="btn btn-success">
-											<img src="resources/images/if_Delete.png" width="24" height="24"
-												alt="" />Xóa
+											<img src="resources/images/if_Delete.png" width="24"
+												height="24" alt="" />Xóa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>

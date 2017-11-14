@@ -3,6 +3,8 @@ package edu.poy.bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,19 +13,20 @@ public class DanhMucLoaiSach {
 	@Id
 	@Column(name = "MaLoaiSach")
 	private String maloaisach;
-	@Column(name = "MaDanhMuc")
-	private String madanhmuc;
+	@ManyToOne
+	@JoinColumn(name="madanhmuc")
+	Danhmuc danhmuc;
 	public String getMaloaisach() {
 		return maloaisach;
 	}
 	public void setMaloaisach(String maloaisach) {
 		this.maloaisach = maloaisach;
 	}
-	public String getMadanhmuc() {
-		return madanhmuc;
+	public Danhmuc getDanhmuc() {
+		return danhmuc;
 	}
-	public void setMadanhmuc(String madanhmuc) {
-		this.madanhmuc = madanhmuc;
+	public void setDanhmuc(Danhmuc danhmuc) {
+		this.danhmuc = danhmuc;
 	}
 	
 }
