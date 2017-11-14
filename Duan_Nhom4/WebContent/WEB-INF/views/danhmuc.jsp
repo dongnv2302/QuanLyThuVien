@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
 <html>
 <title>W3.CSS Template</title>
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
@@ -44,7 +43,7 @@ th {
 	color: white;
 }
 </style>
-<link href="bootstrap.css" rel="stylesheet" type="text/css">
+<link href="resources/bootstrap.css" rel="stylesheet" type="text/css">
 <body class="w3-light-grey">
 
 	<!-- Top container -->
@@ -63,10 +62,10 @@ th {
 	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
+		<center>
 		<div class="w3-container w3-row">
 			<div class="w3-col s4">
-				<img src="/w3images/avatar2.png" class="w3-circle w3-margin-right"
-					style="width: 46px">
+				
 			</div>
 			<div class="w3-col s8 w3-bar">
 				<span><h3 style="color: #906">
@@ -87,6 +86,7 @@ th {
 
 			</div>
 		</div>
+		</center>
 		<hr>
 
 		<div class="w3-bar-block">
@@ -96,21 +96,21 @@ th {
 				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
-				href="quanlynhanvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a> <a
-				href="sinhvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="sinhvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a> <a
-				href="sach.html" class="w3-bar-item w3-button w3-padding"><i
+				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
-				href="danhmuc.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.html"
+				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.html"
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
-				href="muontra.html" class="w3-bar-item w3-button w3-padding"><i
+				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
-				href="muontract.html" class="w3-bar-item w3-button w3-padding"><i
+				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
 
 
@@ -142,16 +142,13 @@ th {
 
 
 
+
 			<div id="search" style="float: right">
 
 				<form class="searchform" action="" method="get">
 
-					<input class="s"
-						onfocus="if (this.value == 'Tìm kiếm theo MSV') {this.value = '';}"
-						onblur="if (this.value == '') {this.value = 'Tìm kiếm theo MSV';}"
-						type="text" name="s" value="Tìm kiếm	" /> <input
-						class="searchsubmit" type="submit" value="Tìm Kiếm" />
-
+					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
+						name="s" placeholder="Tìm kiếm" />
 				</form>
 
 			</div>
@@ -159,21 +156,26 @@ th {
 		</header>
 		<br>
 
-		<table>
-			<tr>
-				<th>Mã Danh Mục</th>
-				<th>Tên Danh Mục</th>
-				<th>Action</th>
-			</tr>
-			<td>huyen</td>
-			<td>huyen</td>
+		<form:form modelAttribute="danhmuc" action="danhmuc.poly" id="myTable">
+			<table>
+				<tr>
+					<th>Mã Danh Mục</th>
+					<th>Tên Danh Mục</th>
+					
+					<th>Action</th>
+				</tr>
+				<c:forEach var="u" items="${danhmucs}">
+					<tr>
+						<td>${u.madanhmuc}</td>
+						<td>${u.tendanhmuc}</td>
+						
+						<td><a
+							href="danhmuc.poly?lnkEdit&madanhmuc=${u.madanhmuc}">Edit</a></td>
 
-			<td><a href="#">Edit</a>|<a href="#">Del</a></td>
-		</table>
-
-
-
-
+					</tr>
+				</c:forEach>
+			</table>
+		</form:form>
 
 
 	</div>
@@ -218,51 +220,72 @@ th {
 					<div class="col-md-7 span-1 ">
 						<div class="container">
 							<h2 style="color: #390">Thêm Danh Mục</h2>
-							<form class="form-horizontal" action="/action_page.php"
-								style="width: 800px">
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="email">Mã
-										Danh Mục:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="email" class="form-control" id="email"
-											placeholder="Mã Danh Mục" name="email">
+							<form:form class="form-horizontal" modelAttribute="danhmuc"
+								action="danhmuc.poly">
+								<div class="container">
+
+									<div class="form-group">
+										<label class="control-label col-sm-2">Mã Danh Mục:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="madanhmuc" class="form-control"
+												placeholder="Mã Danh Mục" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tên
+											Danh Mục:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:input path="tendanhmuc" class="form-control"
+												placeholder="Tên Danh Mục" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+
+										
+										<form:button name="btnInsert" class="btn btn-success">
+											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
+												height="24" alt="" />Thêm
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnUpdate" class="btn btn-success">
+											<img src="resources/images/if_edit1.png" width="24" height="24"
+												alt="" />Sửa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnDelete" class="btn btn-success">
+											<img src="resources/images/if_Delete.png" width="24" height="24"
+												alt="" />Xóa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tên
-										Danh Mục:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Tên Danh Mục" name="pwd">
-									</div>
 								</div>
+							</form:form>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10" style="text-align: center">
 
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_Add_to_basket_132292.png"
-										width="24" height="24" alt="" />Thêm
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_edit1.png" width="24" height="24"
-										alt="" />Sửa
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_Delete.png" width="24"
-										height="24" alt="" />Xóa
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-							</div>
-						</div>
-						</form>
 					</div>
-
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
-			</div>
+				<script>
+			function myFunction() {
+				var input, filter, table, tr, td, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[0];
+					if (td) {
+						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
 </body>
 </html>

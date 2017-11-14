@@ -15,45 +15,45 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.poy.bean.Muontra;
-import edu.poy.bean.Sinhvien;
+import edu.poy.bean.DanhMucLoaiSach;
+import edu.poy.bean.Danhmuc;
 
 @Transactional
-@RequestMapping("muontra.poly")
+@RequestMapping("dmls.poly")
 @Controller
-public class MuontraController {
+public class DanhMucLoaiSachController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping()
 	public String index(ModelMap model) {
-		model.addAttribute("muontra", new Muontra());
-		return "muontra";
+		model.addAttribute("dmls", new DanhMucLoaiSach());
+		return "dmls";
 	}
-	@ModelAttribute("muontras")
-	public List<Muontra> getMuontras() {
+	@ModelAttribute("dmlss")
+	public List<DanhMucLoaiSach> getDanhMucLoaiSachs() {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Muontra";
+		String hql = "FROM DanhMucLoaiSach";
 		Query query = session.createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Muontra> list = query.list();
+		List<DanhMucLoaiSach> list = query.list();
 		return list;
 	}
-	@ModelAttribute("sinhvien")
-	public List<Sinhvien> getSinhviens() {
+	@ModelAttribute("danhmuc")
+	public List<Danhmuc> getDanhmucs() {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Sinhvien";
+		String hql = "FROM Danhmuc";
 		Query query = session.createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Sinhvien> list = query.list();
+		List<Danhmuc> list = query.list();
 		return list;
 	}
-		
+
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("muontra") Muontra muontra) {
+	public String insert(ModelMap model, @ModelAttribute("dmls") DanhMucLoaiSach dmls) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.save(muontra);
+			session.save(dmls);
 			transaction.commit();
 			model.addAttribute("message", "Insert successfully !");
 		} catch (Exception e) {
@@ -61,17 +61,17 @@ public class MuontraController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("muontra", new Muontra());
-		model.addAttribute("muontras", getMuontras());
-		return "muontra";
+		model.addAttribute("dmls", new DanhMucLoaiSach());
+		model.addAttribute("dmlss", getDanhMucLoaiSachs());
+		return "dmls";
 	}
 
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("muontra") Muontra muontra) {
+	public String update(ModelMap model, @ModelAttribute("dmls") DanhMucLoaiSach dmls) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.update(muontra);
+			session.update(dmls);
 			transaction.commit();
 			model.addAttribute("message", "Update successfully !");
 		} catch (Exception e) {
@@ -79,34 +79,33 @@ public class MuontraController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("muontras", getMuontras());
-		return "muontra";
+		model.addAttribute("dmlss", getDanhMucLoaiSachs());
+		return "dmls";
 	}
 
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("Muontra") Muontra muontra) {
+	public String delete(ModelMap model, @ModelAttribute("dmls") DanhMucLoaiSach dmls) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.delete(muontra);
+			session.delete(dmls);
 			transaction.commit();
 			model.addAttribute("message", "Delete successfully !");
 		} catch (Exception e) {
 			model.addAttribute("message", "Delete fails !");
 			transaction.rollback();
 		}
-		session.close();
-		model.addAttribute("muontra", new Muontra());
-		model.addAttribute("muontras", getMuontras());
-		return "muontra";
+		model.addAttribute("dmls", new DanhMucLoaiSach());
+		model.addAttribute("dmlss", getDanhMucLoaiSachs());
+		return "dmls";
 	}
 
 	@RequestMapping(params = "lnkEdit")
-	public String edit(ModelMap model, @RequestParam("mamuontra") String mamuontra) {
+	public String edit(ModelMap model, @RequestParam("maloaisach") String maloaisach) {
 		Session session = factory.getCurrentSession();
-		Muontra muontra = (Muontra) session.get(Muontra.class, mamuontra);
-		model.addAttribute("muontra", muontra);
-		return "muontra";
+		DanhMucLoaiSach dmls = (DanhMucLoaiSach) session.get(DanhMucLoaiSach.class, maloaisach);
+		model.addAttribute("dmls", dmls);
+		return "dmls";
 	}
 	
 			
