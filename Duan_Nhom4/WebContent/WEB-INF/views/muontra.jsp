@@ -159,17 +159,11 @@ th {
 
 		<table>
 			<tr>
-				<<<<<<< HEAD
 				<th>Mã Mượn Trả</th>
 				<th>Mã Sinh Viên</th>
 				<th>Ngày Mượn</th>
 				<th>Ngày Hẹn Trả</th>
-				<th>Ngày Trả</th> 
-				<th>Mã mượn trả</th>
-				<th>Mã sinh viên</th>
-				<th>Ngày mượn</th>
-				<th>Ngày hẹn trả</th>
-				<th>Ngày trả</th> 
+				<th>Ngày Trả</th>
 				<th>Action</th>
 			</tr>
 			<td>huyen</td>
@@ -186,8 +180,8 @@ th {
 
 
 	</div>
-	<script src="../js/jquery-1.11.1.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="resources/js/jquery-1.11.1.min.js"></script>
+	<script src="resources/js/bootstrap.js"></script>
 	<script>
 		// Get the Sidebar
 		var mySidebar = document.getElementById("mySidebar");
@@ -274,16 +268,16 @@ th {
 							<div class="col-sm-offset-2 col-sm-10" style="text-align: center">
 
 								<button type="button" class="btn btn-success">
-									<img src="../images/if_Add_to_basket_132292.png" width="24"
+									<img src="resources/images/if_Add_to_basket_132292.png" width="24"
 										height="24" alt="" />Thêm
 								</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<button type="button" class="btn btn-success">
-									<img src="../images/if_edit1.png" width="24" height="24" alt="" />Sửa
+									<img src="resources/images/if_edit1.png" width="24" height="24" alt="" />Sửa
 								</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<button type="button" class="btn btn-success">
-									<img src="../images/if_Delete.png" width="24" height="24"
+									<img src="resources/images/if_Delete.png" width="24" height="24"
 										alt="" />Xóa
 								</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

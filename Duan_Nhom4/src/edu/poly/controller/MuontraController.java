@@ -27,7 +27,7 @@ public class MuontraController {
 	@RequestMapping()
 	public String index(ModelMap model) {
 		model.addAttribute("muontra", new Muontra());
-		return "themmuontra";
+		return "muontra";
 	}
 	@ModelAttribute("muontras")
 	public List<Muontra> getMuontras() {
@@ -106,7 +106,7 @@ public class MuontraController {
 		Session session = factory.getCurrentSession();
 		Muontra muontra = (Muontra) session.get(Muontra.class, mamuontra);
 		model.addAttribute("muontra", muontra);
-		return "themmuontra";
+		return "muontra";
 	}
 	
 			

@@ -175,7 +175,8 @@ th {
 						<td>${u.email}</td>
 						<td>${u.hinhanh}</td>
 						<td>${u.matkhau}</td>
-						<td><a
+						<td><a href="#" data-toggle="modal" data-target="#myModal1"
+				class="offer-img"
 							href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 
 					</tr>
