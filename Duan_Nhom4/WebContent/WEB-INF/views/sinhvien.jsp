@@ -10,7 +10,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/bootstrap.css">
-
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,6 +17,10 @@
 	href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Raleway", sans-serif
@@ -162,7 +165,7 @@ th {
 					<th>Ngày sinh</th>
 					<th>Email</th>
 					<th>Hình ảnh</th>
-					
+
 					<th>Action</th>
 				</tr>
 				<c:forEach var="u" items="${sinhviens}">
@@ -173,18 +176,128 @@ th {
 						<td>${u.sdt}</td>
 						<td>${u.ngaysinh}</td>
 						<td>${u.email}</td>
-						<td>
-								<img src="<c:url value="/resources/images/${u.hinhanh}"/>"
-									width="30px" height="30px">
-							</td>
-						
-						<td><a href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
+						<td><img
+							src="<c:url value="/resources/images/${u.hinhanh}"/>"
+							width="30px" height="30px"></td>
+
+						<td ><a
+							href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
 			</table>
 		</form:form>
+<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
 
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sửa Sinh Viên</h4>
+        </div>
+        <div class="modal-body">
+          	<form:form class="form-horizontal" modelAttribute="sinhvien"
+							action="sinhvien.poly">
+							<div class="container">
+
+								<div class="form-group">
+									<label class="control-label col-sm-2">Mã sinh viên:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="masinhvien" class="form-control"
+											placeholder="Mã sinh viên"></form:input>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tên
+										sinh viên:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="tensinhvien" class="form-control"
+											placeholder="Tên sinh viên" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Giới
+										tính:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="gioitinh" class="form-control"
+											placeholder="Gioi Tinh" />
+									</div>
+
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Số điện
+										thoại:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="sdt" class="form-control"
+											placeholder="Số điện thoại" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Ngày
+										sinh:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="ngaysinh" class="form-control"
+											placeholder="Ngày sinh" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Email:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="email" class="form-control"
+											placeholder="Tên đăng nhập" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Hình
+										ảnh:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="hinhanh" class="form-control" type="file"
+											name="fileUpload" placeholder="Tên đăng nhập" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Mật
+										khẩu:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="matkhau" class="form-control"
+											placeholder="mật khẩu" />
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+
+
+										
+										<form:button name="btnUpdate" class="btn btn-success">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />Sửa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnDelete" class="btn btn-success"
+											onclick="return confirm('Bạn có muốn xóa hay không?');">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />xóa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</div>
+								</div>
+							</div>
+						</form:form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
 
 
@@ -236,7 +349,7 @@ th {
 
 								<div class="form-group">
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
 											placeholder="Mã sinh viên"></form:input>
 									</div>
@@ -244,7 +357,7 @@ th {
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Tên
 										sinh viên:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tensinhvien" class="form-control"
 											placeholder="Tên sinh viên" />
 									</div>
@@ -252,7 +365,7 @@ th {
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Giới
 										tính:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="gioitinh" class="form-control"
 											placeholder="Gioi Tinh" />
 									</div>
@@ -261,7 +374,7 @@ th {
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Số điện
 										thoại:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="sdt" class="form-control"
 											placeholder="Số điện thoại" />
 									</div>
@@ -269,7 +382,7 @@ th {
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Ngày
 										sinh:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="ngaysinh" class="form-control"
 											placeholder="Ngày sinh" />
 									</div>
@@ -277,7 +390,7 @@ th {
 
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
 											placeholder="Tên đăng nhập" />
 									</div>
@@ -285,15 +398,15 @@ th {
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Hình
 										ảnh:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="hinhanh" class="form-control" type="file"
-												name="fileUpload" placeholder="Tên đăng nhập" />
+											name="fileUpload" placeholder="Tên đăng nhập" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Mật
 										khẩu:</label>
-									<div class="col-sm-10" style="width: 500px">
+									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" class="form-control"
 											placeholder="mật khẩu" />
 									</div>
@@ -306,17 +419,7 @@ th {
 											<img src="resources/images/if_Add_to_basket_132292.png"
 												width="24" height="24" alt="" />Thêm
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24"
-												height="24" alt="" />Sửa
-										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />xóa
-										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									
 									</div>
 								</div>
 							</div>
