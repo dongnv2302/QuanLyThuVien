@@ -177,19 +177,12 @@ th {
 								<img src="<c:url value="/resources/images/${u.hinhanh}"/>"
 									width="30px" height="30px">
 							</td>
-						
 						<td><a href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
 			</table>
 		</form:form>
-
-
-
-
-
-
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
