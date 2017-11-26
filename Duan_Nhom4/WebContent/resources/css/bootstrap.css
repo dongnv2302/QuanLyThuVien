@@ -1656,7 +1656,9 @@ input[type="search"] {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-input[type="radio"],
+input[type="radio"] {
+  margin: 12px 90px 0px 50px;
+}
 input[type="checkbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9;
@@ -1735,7 +1737,12 @@ input[type="search"] {
   -webkit-appearance: none;
 }
 input[type="date"] {
-  line-height: 34px;
+  line-height: 27px;
+  width: 90%;
+}
+input[type="email"] {
+  line-height: 27px;
+  width: 92%;
 }
 .form-group {
   margin-bottom: 15px;

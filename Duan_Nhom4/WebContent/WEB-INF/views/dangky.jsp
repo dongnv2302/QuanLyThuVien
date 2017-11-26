@@ -244,47 +244,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="form-w3agile form1">
 					<h3>Đăng ký</h3>
 					<form:form action="dangkyaction.poly" modelAttribute="sinhvien">
-					<p><form:errors path="*" element="ul" />ca</p>
+					<form:errors path="*" element="ul" />
 						<div class="key">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<form:input path="masinhvien" placeholder="User Name"/>
-							
+							<form:input path="masinhvien"/>
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<form:input path="tensinhvien" placeholder="Tên sinh viên"/>
-							
+							<form:input path="tensinhvien"/>
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<form:input path="gioitinh" placeholder="Giới tính"/>
+							<form:radiobutton path="gioitinh" value="Nam"/>Nam
+							<form:radiobutton path="gioitinh" value="Nữ"/>Nữ
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
 							<i class="fa fa-mobile" aria-hidden="true"></i>
-							<form:input path="sdt" placeholder="Số điện thoại"/>
+							<form:input path="sdt" />
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
 							<i class="fa fa-birthday-cake" aria-hidden="true"></i>
-							<form:input path="ngaysinh" placeholder="Ngày sinh"/>
+							<form:input type="date" path="ngaysinh"/>
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
-							<i class="fa fa-picture-o" aria-hidden="true"></i>
-							<form:input  type="file" path="hinhanh" placeholder="Hình ảnh"/>
+							<i class="fa fa-birthday-cake" aria-hidden="true"></i>
+							<form:input type="file" path="hinhanh"/>
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+							<form:input path="email" />
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
 							<i class="fa fa-lock" aria-hidden="true"></i>
-							<form:password path="matkhau" placeholder="Mật khẩu"/>
-							<div class="clearfix"></div>
-						</div>
-						<div class="key">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-							<form:password path="matkhau" placeholder="Nhập lại mật khẩu"/>
+							<form:password path="matkhau" />
 							<div class="clearfix"></div>
 						</div>
 						<form:button class="btn btn-success">

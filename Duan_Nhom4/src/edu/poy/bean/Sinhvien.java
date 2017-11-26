@@ -1,62 +1,48 @@
 package edu.poy.bean;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
-import com.sun.istack.internal.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
+
+
 
 @Entity
 @Table(name = "sinhvien")
 public class Sinhvien {
 	@Id
 	@Column(name = "MaSinhVien")
-	@NotBlank(message = "you must fill out this field")
+	@NotBlank(message = "Bạn cần nhập mã sinh viên")
 	private String masinhvien;
 	@Column(name = "TenSinhVien")
-	@NotBlank(message = "you must fill out this field")
+	@NotBlank(message = "Bạn cần nhập tên sinh viên")
 	private String tensinhvien;
 	@Column(name = "GioiTinh")
-	@NotBlank(message = "you must fill out this field")
+	@NotBlank(message = "Bạn cần nhập giới tính")
 	private String gioitinh;
 	@Column(name = "SDT ")
-	@NotBlank(message = "you must fill out this field")
+	@NotBlank(message = "Bạn cần nhập Số điện thoại")
 	private String sdt;
 	@Column(name = "NgaySinh ")
-	@NotBlank(message = "you must fill out this field")
+	@NotBlank(message = "Bạn cần nhập ngày")
 	private String ngaysinh;
 	@Column(name = "Email ")
-	@NotBlank(message = "you must fill out this field")
+	@NotBlank(message = "Bạn cần phải nhập email")
 	private String email;
 	@Column(name = "HinhAnh")
-	@NotBlank(message = "you must fill out this field")
 	private String hinhanh;
-	@NotBlank(message = "Please enter your password.")
-	@Size(min = 6, max = 15, message = "Your password must between 6 and 15 characters")
 	@Column(name = "MatKhau ")
+	@NotBlank(message = "Bạn cần phải nhập mật khẩu")
 	private String matkhau;
-
-	public Sinhvien(String masinhvien, String tensinhvien, String gioitinh, String sdt, String ngaysinh, String email,
-			String hinhanh, String matkhau) {
-		super();
-		this.masinhvien = masinhvien;
-		this.tensinhvien = tensinhvien;
-		this.gioitinh = gioitinh;
-		this.sdt = sdt;
-		this.ngaysinh = ngaysinh;
-		this.email = email;
-		this.hinhanh = hinhanh;
-		this.matkhau = matkhau;
-	}
-
-	public Sinhvien() {
-		super();
-	}
 
 	public String getMasinhvien() {
 		return masinhvien;
@@ -121,5 +107,7 @@ public class Sinhvien {
 	public void setMatkhau(String matkhau) {
 		this.matkhau = matkhau;
 	}
+
+	
 
 }

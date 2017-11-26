@@ -30,16 +30,14 @@ public class DangkyController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping("dangky.poly")
-	public String index(ModelMap model,@Validated@ModelAttribute("sinhvien") Sinhvien sinhvien) {
-		
+	public String index(ModelMap model,@ModelAttribute("sinhvien") Sinhvien sinhvien) {
 		return "dangky";
 	}
-	
-
 	@RequestMapping("dangkyaction.poly")
 	public String insert(ModelMap model,@Validated@ModelAttribute("sinhvien") Sinhvien sinhvien, BindingResult errors) {
 		
 		if(errors.hasErrors()){
+			System.out.println(errors.getErrorCount());
 			return "dangky";
 		}else {
 			System.out.println(errors.getErrorCount());
@@ -53,7 +51,9 @@ public class DangkyController {
 				model.addAttribute("message", "Insert fails !");
 				transaction.rollback();
 			}
+			
 			session.close();
+			model.addAttribute("sinhvien", new Sinhvien());
 			return "dangky";
 		}
 		
