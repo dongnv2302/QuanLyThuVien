@@ -144,10 +144,11 @@ th {
 
 			<div id="search" style="float: right">
 
-				<form class="searchform" action="" method="get">
+				<form class="searchform" action="seachsv">
 
 					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
-						name="s" placeholder="Tìm kiếm" />
+						name="data" placeholder="Tìm kiếm" />
+						
 				</form>
 
 			</div>
@@ -180,14 +181,11 @@ th {
 								<img src="<c:url value="/resources/images/${u.hinhanh}"/>"
 									width="30px" height="30px">
 							</td>
-						<td><a href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
-						<td><img
-							src="<c:url value="/resources/images/${u.hinhanh}"/>"
-							width="30px" height="30px"></td>
-						<td ><a
-							href="sinhvien.poly?lnkEdit&masinhvien=${u.masinhvien}">Edit</a></td>
+						<td><a href="#" data-toggle="modal" data-target="#myModal1${u.masinhvien}"
+				class="offer-img">Edit</a></td>
 
 					</tr>
+<<<<<<< HEAD
 				</c:forEach>
 			</table>
 		</form:form>
@@ -197,22 +195,29 @@ th {
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
+=======
+					
+					
+					
+	<!-- Modal -->
+  <div class="modal fade" id="myModal1${u.masinhvien}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+>>>>>>> a31dcd04e7556c2da819b08d87b7c4d5f12bdafb
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Sửa Sinh Viên</h4>
         </div>
-        <div class="modal-body">
-          	<form:form class="form-horizontal" modelAttribute="sinhvien"
-							action="sinhvien.poly">
+        <div class="modal-body modal-spa">
+          	<form:form class="form-horizontal" modelAttribute="sinhvien">
 							<div class="container">
 
 								<div class="form-group">
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên"></form:input>
+											placeholder="Mã sinh viên" value="${u.masinhvien}"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
@@ -220,7 +225,7 @@ th {
 										sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tensinhvien" class="form-control"
-											placeholder="Tên sinh viên" />
+											placeholder="Tên sinh viên" value="${u.tensinhvien}"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
@@ -228,7 +233,7 @@ th {
 										tính:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="gioitinh" class="form-control"
-											placeholder="Gioi Tinh" />
+											placeholder="Gioi Tinh" value="${u.gioitinh}"/>
 									</div>
 
 								</div>
@@ -237,7 +242,7 @@ th {
 										thoại:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="sdt" class="form-control"
-											placeholder="Số điện thoại" />
+											placeholder="Số điện thoại" value="${u.sdt}" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -245,7 +250,7 @@ th {
 										sinh:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="ngaysinh" class="form-control"
-											placeholder="Ngày sinh" />
+											placeholder="Ngày sinh" value="${u.ngaysinh}" />
 									</div>
 								</div>
 
@@ -253,7 +258,7 @@ th {
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
-											placeholder="Tên đăng nhập" />
+											placeholder="Tên đăng nhập" value="${u.email}" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -261,7 +266,7 @@ th {
 										ảnh:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="hinhanh" class="form-control" type="file"
-											name="fileUpload" placeholder="Tên đăng nhập" />
+											name="fileUpload" placeholder="Tên đăng nhập" value="/resources/images/${u.hinhanh}"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -269,7 +274,7 @@ th {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" />
+											placeholder="mật khẩu" value="${u.matkhau}"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -285,7 +290,7 @@ th {
 										<form:button name="btnDelete" class="btn btn-success"
 											onclick="return confirm('Bạn có muốn xóa hay không?');">
 											<img src="resources/images/if_edit1.png" width="24"
-												height="24" alt="" />xóa
+												height="24" alt="" />Xóa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
@@ -293,13 +298,21 @@ th {
 							</div>
 						</form:form>
         </div>
+        <div class="clearfix"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
     </div>
-  </div>
+    </div>
+  
+				</c:forEach>
+			</table>
+		</form:form>
+
+<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
+
+
   
 </div>
 
@@ -429,6 +442,7 @@ th {
 					<div class="clearfix"></div>
 				</div>
 			</div>
+		</div>
 		</div>
 		<script>
 			function myFunction() {
