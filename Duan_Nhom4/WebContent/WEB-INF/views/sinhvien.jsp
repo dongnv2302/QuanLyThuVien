@@ -191,8 +191,6 @@ th {
 				</c:forEach>
 			</table>
 		</form:form>
-<<<<<<< HEAD
-=======
 <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
 
 <!-- Modal -->
@@ -305,11 +303,6 @@ th {
   
 </div>
 
-
-
-
-
->>>>>>> 50224394f9d37ca625703fe69fdfcf78af775e30
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
