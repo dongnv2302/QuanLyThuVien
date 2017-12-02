@@ -2,6 +2,7 @@ package edu.poly.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -97,7 +98,16 @@ public class SinhvienController {
 		model.addAttribute("sinhvien", sinhvien);
 		return "sinhvien";
 	}
-	
+	@RequestMapping("seachsv")
+	public List<Sinhvien> seachSinhVien(HttpServletRequest httpServletRequest) {
+		String data = httpServletRequest.getParameter("data");
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Sinhvien where masinhvien='"+data+"'";
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Sinhvien> list = query.list();
+		return list;
+	}
 			
 
 }
