@@ -63,29 +63,27 @@ th {
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
 		<center>
-		<div class="w3-container w3-row">
-			<div class="w3-col s4">
-				
-			</div>
-			<div class="w3-col s8 w3-bar">
-				<span><h3 style="color: #906">
-						<b>Thư Viện</b>
-					</h3> <strong>FPT Polytechnic</strong></span><br>
+			<div class="w3-container w3-row">
+				<div class="w3-col s4"></div>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
 
-				<div class="header-ri">
-					<ul class="social-top">
-						<li><a href="#" class="icon facebook"><i
-								class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon twitter"><i
-								class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon pinterest"><i
-								class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
 
-					</ul>
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
 		</center>
 		<hr>
 
@@ -161,42 +159,53 @@ th {
 				<tr>
 					<th>Mã Danh Mục</th>
 					<th>Tên Danh Mục</th>
-					
+
 					<th>Action</th>
 				</tr>
 				<c:forEach var="u" items="${danhmucs}">
 					<tr>
 						<td>${u.madanhmuc}</td>
 						<td>${u.tendanhmuc}</td>
-						
-						<td><a
-							href="danhmuc.poly?btnUpdate&madanhmuc=${u.madanhmuc}">Edit</a></td>
+
+						<td><a href="danhmuc.poly?btnUpdate&madanhmuc=${u.madanhmuc}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
 			</table>
 		</form:form>
-		
-		
-		
-		
+
+
+
+
 		<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
-       <c:if test="${danhsach!=0}">
-<ul class="pagination" id="pagination" style="float: right;box-shadow: 1px 1px 5px #888888;">
-	<li class="page-item first"><a href="danhmuc.poly?phantrangbtn&page=${trangdau }" class="page-link">Trang đầu</a></li>
-	<li class="page-item prev"><a href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>" class="page-link"><</a></li>
-	
-	<c:forEach items="${listSoLuongTrang }" var="u">
-	<li class="page-item"><a <c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>  href="danhmuc.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
-	</c:forEach>
-	
-	<li class="page-item next"><a href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>" class="page-link">></a></li>
-	<li class="page-item last"><a href="danhmuc.poly?phantrangbtn&page=${trangcuoi }" class="page-link">Trang cuối</a></li>
-</ul>
-<br><br>
-</c:if>
-		
-		
+		<c:if test="${danhsach!=0}">
+			<ul class="pagination" id="pagination"
+				style="float: right; box-shadow: 1px 1px 5px #888888;">
+				<li class="page-item first"><a
+					href="danhmuc.poly?phantrangbtn&page=${trangdau }"
+					class="page-link">Trang đầu</a></li>
+				<li class="page-item prev"><a
+					href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
+					class="page-link"><</a></li>
+
+				<c:forEach items="${listSoLuongTrang }" var="u">
+					<li class="page-item"><a
+						<c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>
+						href="danhmuc.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
+				</c:forEach>
+
+				<li class="page-item next"><a
+					href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>"
+					class="page-link">></a></li>
+				<li class="page-item last"><a
+					href="danhmuc.poly?phantrangbtn&page=${trangcuoi }"
+					class="page-link">Trang cuối</a></li>
+			</ul>
+			<br>
+			<br>
+		</c:if>
+
+
 
 
 	</div>
@@ -260,28 +269,29 @@ th {
 												placeholder="Tên Danh Mục" />
 										</div>
 									</div>
-									
-									<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
 
-										
-										<form:button name="btnInsert" class="btn btn-success">
-											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-												height="24" alt="" />Thêm
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+
+
+											<form:button name="btnInsert" class="btn btn-success">
+												<img src="resources/images/if_Add_to_basket_132292.png"
+													width="24" height="24" alt="" />Thêm
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />Sửa
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<form:button name="btnUpdate" class="btn btn-success">
+												<img src="resources/images/if_edit1.png" width="24"
+													height="24" alt="" />Sửa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />xóa
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<form:button name="btnDelete" class="btn btn-success"
+												onclick="return confirm('Bạn có muốn xóa hay không?');">
+												<img src="resources/images/if_edit1.png" width="24"
+													height="24" alt="" />xóa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
 								</div>
 							</form:form>
 						</div>

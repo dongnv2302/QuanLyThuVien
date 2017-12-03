@@ -17,10 +17,13 @@
 	href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Raleway", sans-serif
@@ -44,6 +47,10 @@ tr:nth-child(even) {
 th {
 	background-color: #144E32;
 	color: white;
+}
+
+form-horizontal {
+	line-height: 5px;
 }
 </style>
 <body class="w3-light-grey">
@@ -148,7 +155,7 @@ th {
 
 					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
 						name="data" placeholder="Tìm kiếm" />
-						
+
 				</form>
 
 			</div>
@@ -177,145 +184,134 @@ th {
 						<td>${u.sdt}</td>
 						<td>${u.ngaysinh}</td>
 						<td>${u.email}</td>
-						<td>
-								<img src="<c:url value="/resources/images/${u.hinhanh}"/>"
-									width="30px" height="30px">
-							</td>
-						<td><a href="#" data-toggle="modal" data-target="#myModal1${u.masinhvien}"
-				class="offer-img">Edit</a></td>
+						<td><img
+							src="<c:url value="/resources/images/${u.hinhanh}"/>"
+							width="30px" height="30px"></td>
+						<td><a href="#" data-toggle="modal"
+							data-target="#myModal1${u.masinhvien}" class="offer-img"><button type="button" class="btn btn-info">Edit</button></a></td>
 
 					</tr>
-<<<<<<< HEAD
-				</c:forEach>
-			</table>
-		</form:form>
-<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
-
-<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-=======
-					
-					
-					
-	<!-- Modal -->
-  <div class="modal fade" id="myModal1${u.masinhvien}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
->>>>>>> a31dcd04e7556c2da819b08d87b7c4d5f12bdafb
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sửa Sinh Viên</h4>
-        </div>
-        <div class="modal-body modal-spa">
-          	<form:form class="form-horizontal" modelAttribute="sinhvien">
-							<div class="container">
-
-								<div class="form-group">
-									<label class="control-label col-sm-2">Mã sinh viên:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên" value="${u.masinhvien}"></form:input>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tên
-										sinh viên:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="tensinhvien" class="form-control"
-											placeholder="Tên sinh viên" value="${u.tensinhvien}"></form:input>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Giới
-										tính:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="gioitinh" class="form-control"
-											placeholder="Gioi Tinh" value="${u.gioitinh}"/>
-									</div>
-
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Số điện
-										thoại:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="sdt" class="form-control"
-											placeholder="Số điện thoại" value="${u.sdt}" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Ngày
-										sinh:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="ngaysinh" class="form-control"
-											placeholder="Ngày sinh" value="${u.ngaysinh}" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Email:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="email" class="form-control"
-											placeholder="Tên đăng nhập" value="${u.email}" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Hình
-										ảnh:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="hinhanh" class="form-control" type="file"
-											name="fileUpload" placeholder="Tên đăng nhập" value="/resources/images/${u.hinhanh}"/>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Mật
-										khẩu:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" value="${u.matkhau}"/>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
 
 
-										
-										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24"
-												height="24" alt="" />Sửa
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal1${u.masinhvien}" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Sửa Sinh Viên</h4>
+								</div>
+								<div class="modal-body modal-spa">
+									<form:form class="form-horizontal" modelAttribute="sinhvien">
+										<div class="container">
+
+											<div class="form-group">
+												<label class="control-label col-sm-2">Mã sinh viên:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="masinhvien" class="form-control"
+														placeholder="Mã sinh viên" value="${u.masinhvien}" ></form:input>
+												</div>
+												<br> <br>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tên
+													sinh viên:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tensinhvien" class="form-control"
+														placeholder="Tên sinh viên" value="${u.tensinhvien}"></form:input>
+												</div>
+												<br> <br>
+
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Giới
+													tính:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="gioitinh" class="form-control"
+														placeholder="Gioi Tinh" value="${u.gioitinh}" />
+												</div>
+												<br> <br>
+
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Số
+													điện thoại:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="sdt" class="form-control"
+														placeholder="Số điện thoại" value="${u.sdt}" />
+												</div>
+												<br> <br>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Ngày
+													sinh:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="ngaysinh" class="form-control"
+														placeholder="Ngày sinh" value="${u.ngaysinh}" />
+												</div>
+												<br> <br>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Email:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="email" class="form-control"
+														placeholder="Tên đăng nhập" value="${u.email}" />
+												</div>
+												<br> <br>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Hình
+													ảnh:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="hinhanh" class="form-control" type="file"
+														name="fileUpload" placeholder="Tên đăng nhập"
+														value="/resources/images/${u.hinhanh}" />
+												</div>
+												<br> <br>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Mật
+													khẩu:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="matkhau" class="form-control"
+														placeholder="mật khẩu" value="${u.matkhau}" />
+												</div>
+												<br> <br>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-offset-2 col-sm-10">
+													<form:button name="btnUpdate" class="btn btn-success">
+														<img src="resources/images/if_edit1.png" width="24"
+															height="24" alt="" />Sửa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success"
-											onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24"
-												height="24" alt="" />Xóa
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<form:button name="btnDelete" class="btn btn-success"
+														onclick="return confirm('Bạn có muốn xóa hay không?');">
+														<img src="resources/images/if_edit1.png" width="24"
+															height="24" alt="" />Xóa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</div>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												</div>
+											</div>
+										</div>
+									</form:form>
+								</div>
+								<div class="clearfix"></div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
 								</div>
 							</div>
-						</form:form>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-    </div>
-  
+						</div>
+					</div>
+
 				</c:forEach>
 			</table>
 		</form:form>
-
-<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
-
-
-  
-</div>
-
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
@@ -357,14 +353,15 @@ th {
 					<div class="col-md-7 span-1 ">
 						<h2 style="color: #390">Thêm Sinh Viên</h2>
 						<form:form class="form-horizontal" modelAttribute="sinhvien"
-							action="sinhvien.poly">
+							action="sinhvienaction.poly">
+							<form:errors path="*" element="ul" />
 							<div class="container">
 
 								<div class="form-group">
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên"></form:input>
+											placeholder="Mã sinh viên" pattern="[A-Za-z]{3}" title="chỉ được nhập các ký tự "></form:input>
 									</div>
 								</div>
 								<div class="form-group">
@@ -428,11 +425,11 @@ th {
 									<div class="col-sm-offset-2 col-sm-10">
 
 
-										<form:button name="btnInsert" class="btn btn-success">
+										<form:button class="btn btn-success">
 											<img src="resources/images/if_Add_to_basket_132292.png"
 												width="24" height="24" alt="" />Thêm
 										</form:button>
-									
+
 									</div>
 								</div>
 							</div>
@@ -443,25 +440,26 @@ th {
 				</div>
 			</div>
 		</div>
-		</div>
-		<script>
-			function myFunction() {
-				var input, filter, table, tr, td, i;
-				input = document.getElementById("myInput");
-				filter = input.value.toUpperCase();
-				table = document.getElementById("myTable");
-				tr = table.getElementsByTagName("tr");
-				for (i = 0; i < tr.length; i++) {
-					td = tr[i].getElementsByTagName("td")[0];
-					if (td) {
-						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-							tr[i].style.display = "";
-						} else {
-							tr[i].style.display = "none";
-						}
+	</div>
+	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
 					}
 				}
 			}
-		</script>
+		}
+	</script>
 </body>
 </html>
+

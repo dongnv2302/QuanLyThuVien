@@ -63,29 +63,27 @@ th {
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
 		<center>
-		<div class="w3-container w3-row">
-			<div class="w3-col s4">
-				
-			</div>
-			<div class="w3-col s8 w3-bar">
-				<span><h3 style="color: #906">
-						<b>Thư Viện</b>
-					</h3> <strong>FPT Polytechnic</strong></span><br>
+			<div class="w3-container w3-row">
+				<div class="w3-col s4"></div>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
 
-				<div class="header-ri">
-					<ul class="social-top">
-						<li><a href="#" class="icon facebook"><i
-								class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon twitter"><i
-								class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon pinterest"><i
-								class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
 
-					</ul>
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
 		</center>
 		<hr>
 
@@ -182,14 +180,11 @@ th {
 						<td>${u.ngaynhap}</td>
 						<td>${u.giasach}</td>
 						<td>${u.tinhtrang}</td>
-						<td>
-								<img src="<c:url value="/resources/images/${u.anhbia}"/>"
-									width="30px" height="30px">
-							</td>
+						<td><img src="<c:url value="/resources/images/${u.anhbia}"/>"
+							width="30px" height="30px"></td>
 						<td>${u.sotrang}</td>
 						<td>${u.mota}</td>
-						<td><a
-							href="sach.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
+						<td><a href="sach.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
@@ -262,7 +257,7 @@ th {
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Tác
 											giả:</label>
-										<div class="col-sm-10" style="width:500px">
+										<div class="col-sm-10" style="width: 500px">
 											<form:input path="tacgia" class="form-control"
 												placeholder="Tác giả" />
 										</div>
@@ -332,26 +327,27 @@ th {
 										</div>
 									</div>
 									<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
+										<div class="col-sm-offset-2 col-sm-10">
 
-										
-										<form:button name="btnInsert" class="btn btn-success">
-											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-												height="24" alt="" />Thêm
+
+											<form:button name="btnInsert" class="btn btn-success">
+												<img src="resources/images/if_Add_to_basket_132292.png"
+													width="24" height="24" alt="" />Thêm
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />Sửa
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<form:button name="btnUpdate" class="btn btn-success">
+												<img src="resources/images/if_edit1.png" width="24"
+													height="24" alt="" />Sửa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />xóa
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<form:button name="btnDelete" class="btn btn-success"
+												onclick="return confirm('Bạn có muốn xóa hay không?');">
+												<img src="resources/images/if_edit1.png" width="24"
+													height="24" alt="" />xóa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
 								</div>
 							</form:form>
 						</div>

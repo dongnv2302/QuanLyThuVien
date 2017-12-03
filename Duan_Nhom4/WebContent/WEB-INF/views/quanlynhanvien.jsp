@@ -88,7 +88,7 @@ th {
 			</div>
 		</center>
 		<hr>
-<div class="w3-bar-block">
+		<div class="w3-bar-block">
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
@@ -153,10 +153,10 @@ th {
 
 		</header>
 		<br>
-		
+
 		<form:form modelAttribute="staff" action="quanlynhanvien.poly">
 			<table id="myTable">
-			
+
 				<tr>
 					<th>Mã nhân viên</th>
 					<th>Tên nhân viên</th>
@@ -166,7 +166,7 @@ th {
 					<th>Email</th>
 					<th>Chức vụ</th>
 					<th>Tên đăng nhập</th>
-					
+
 					<th>Action</th>
 				</tr>
 				<c:forEach var="u" items="${staffs}">
@@ -182,13 +182,14 @@ th {
 						<td><a
 							href="quanlynhanvien.poly?lnkEdit&manhanvien=${u.manhanvien}">Edit</a></span>
 
-</a>
-							</td>
+							</a></td>
 
 					</tr>
 				</c:forEach>
 			</table>
-			<center><h3 style ="color:red">${message}</h3></center>
+			<center>
+				<h3 style="color: red">${message}</h3>
+			</center>
 		</form:form>
 
 
@@ -289,14 +290,16 @@ th {
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Chức vụ:</label>
+									<label class="control-label col-sm-2" for="pwd">Chức
+										vụ:</label>
 									<div class="col-sm-10" style="width: 500px">
 										<form:input path="chucvu" class="form-control"
 											placeholder="Chức vụ" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tên đăng nhập:</label>
+									<label class="control-label col-sm-2" for="pwd">Tên
+										đăng nhập:</label>
 									<div class="col-sm-10" style="width: 500px">
 										<form:input path="tendangnhap" class="form-control"
 											placeholder="Tên đăng nhập" />
@@ -313,26 +316,27 @@ th {
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 
-										
+
 										<form:button name="btnInsert" class="btn btn-success">
-											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-												height="24" alt="" />Thêm
+											<img src="resources/images/if_Add_to_basket_132292.png"
+												width="24" height="24" alt="" />Thêm
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />Sửa
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />Sửa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />xóa
+										<form:button name="btnDelete" class="btn btn-success"
+											onclick="return confirm('Bạn có muốn xóa hay không?');">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />xóa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
 							</div>
-						
+
 						</form:form>
 
 					</div>

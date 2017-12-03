@@ -87,7 +87,7 @@ th {
 		</center>
 		<hr>
 
-	<div class="w3-bar-block">
+		<div class="w3-bar-block">
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
@@ -282,9 +282,10 @@ th {
 												height="24" alt="" />Sửa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />xóa
+										<form:button name="btnDelete" class="btn btn-success"
+											onclick="return confirm('Bạn có muốn xóa hay không?');">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />xóa
 										</form:button>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
