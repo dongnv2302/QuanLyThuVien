@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="sach")
@@ -22,12 +23,10 @@ public class Sach {
 	private String tacgia;
 	@Column(name = "NhaXuatBan")
 	private String nhaxuatban;
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy/MM/dd")
-	private Date ngayxuatban;
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy/MM/dd")
-	private Date ngaynhap;
+	@Column(name = "NgayXuatBan")
+	private String ngayxuatban;
+	@Column(name = "NgayNhap")
+	private String ngaynhap;
 	@Column(name = "GiaSach")
 	private String giasach;
 	@Column(name = "TinhTrang")
@@ -40,10 +39,10 @@ public class Sach {
 	private String mota;
 	public Sach() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
-	public Sach(String maloaisach, String tensach, String tacgia, String nhaxuatban, Date ngayxuatban, Date ngaynhap,
-			String giasach, String tinhtrang, String anhbia, String sotrang, String mota) {
+	public Sach(String maloaisach, String tensach, String tacgia, String nhaxuatban, String ngayxuatban,
+			String ngaynhap, String giasach, String tinhtrang, String anhbia, String sotrang, String mota) {
 		super();
 		this.maloaisach = maloaisach;
 		this.tensach = tensach;
@@ -81,16 +80,16 @@ public class Sach {
 	public void setNhaxuatban(String nhaxuatban) {
 		this.nhaxuatban = nhaxuatban;
 	}
-	public Date getNgayxuatban() {
+	public String getNgayxuatban() {
 		return ngayxuatban;
 	}
-	public void setNgayxuatban(Date ngayxuatban) {
+	public void setNgayxuatban(String ngayxuatban) {
 		this.ngayxuatban = ngayxuatban;
 	}
-	public Date getNgaynhap() {
+	public String getNgaynhap() {
 		return ngaynhap;
 	}
-	public void setNgaynhap(Date ngaynhap) {
+	public void setNgaynhap(String ngaynhap) {
 		this.ngaynhap = ngaynhap;
 	}
 	public String getGiasach() {
@@ -123,6 +122,5 @@ public class Sach {
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
-	
 	
 }

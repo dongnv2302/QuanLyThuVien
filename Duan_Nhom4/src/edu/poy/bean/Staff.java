@@ -22,9 +22,8 @@ public class Staff {
 	private String gioitinh;
 	@Column(name = "SDT")
 	private String sdt;
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy/MM/dd")
-	private Date ngaysinh;
+	@Column(name = "NgaySinh")
+	private String ngaysinh;
 	@Column(name = "Email")
 	private String email;
 	@Column(name = "ChucVu")
@@ -57,10 +56,10 @@ public class Staff {
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
-	public Date getNgaysinh() {
+	public String getNgaysinh() {
 		return ngaysinh;
 	}
-	public void setNgaysinh(Date ngaysinh) {
+	public void setNgaysinh(String ngaysinh) {
 		this.ngaysinh = ngaysinh;
 	}
 	public String getEmail() {
@@ -87,7 +86,7 @@ public class Staff {
 	public void setMatkhau(String matkhau) {
 		this.matkhau = matkhau;
 	}
-	public Staff(String manhanvien, String tennhanvien, String gioitinh, String sdt, Date ngaysinh, String email,
+	public Staff(String manhanvien, String tennhanvien, String gioitinh, String sdt, String ngaysinh, String email,
 			String chucvu, String tendangnhap, String matkhau) {
 		super();
 		this.manhanvien = manhanvien;

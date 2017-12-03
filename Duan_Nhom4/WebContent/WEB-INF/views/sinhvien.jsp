@@ -185,7 +185,7 @@ th {
 				class="offer-img">Edit</a></td>
 
 					</tr>
-<<<<<<< HEAD
+
 				</c:forEach>
 			</table>
 		</form:form>
@@ -195,14 +195,14 @@ th {
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
-=======
+
 					
 					
 					
 	<!-- Modal -->
   <div class="modal fade" id="myModal1${u.masinhvien}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
->>>>>>> a31dcd04e7556c2da819b08d87b7c4d5f12bdafb
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -306,9 +306,7 @@ th {
     </div>
     </div>
   
-				</c:forEach>
-			</table>
-		</form:form>
+				
 
 <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
 
