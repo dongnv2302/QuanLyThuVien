@@ -113,7 +113,7 @@ th {
 
 
 
-		
+
 		</div>
 	</nav>
 
@@ -168,7 +168,7 @@ th {
 						<td>${u.maloaisach}</td>
 						<td>${u.danhmuc.madanhmuc}</td>
 
-						<td><a 	href="dmls.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
+						<td><a href="dmls.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
@@ -234,7 +234,7 @@ th {
 											Danh Mục:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
-													itemValue="madanhmuc" itemLabel="tendanhmuc"></form:select>
+												itemValue="madanhmuc" itemLabel="tendanhmuc"></form:select>
 										</div>
 									</div>
 
@@ -252,9 +252,10 @@ th {
 													height="24" alt="" />Sửa
 										</form:button>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<form:button name="btnDelete" class="btn btn-success" onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24" height="24"
-												alt="" />xóa
+											<form:button name="btnDelete" class="btn btn-success"
+												onclick="return confirm('Bạn có muốn xóa hay không?');">
+												<img src="resources/images/if_edit1.png" width="24"
+													height="24" alt="" />xóa
 										</form:button>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</div>

@@ -10,34 +10,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="login">
+	<div class="login">
 		<div class="main-agileits">
-				<div class="form-w3agile form1">
-					<h3>Đăng ký</h3>
-					<form:form action="actionbook.poly" modelAttribute="book">
+			<div class="form-w3agile form1">
+				<h3>Đăng ký</h3>
+				<form:form action="actionbook.poly" modelAttribute="book">
 					<form:errors path="*" element="ul" />
-						<div class="key">
-							<i class="fa fa-user" aria-hidden="true"></i>
-							<form:input path="id" placeholder="User Name"/>
-							
-							<div class="clearfix"></div>
-						</div>
-						<div class="key">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<form:input path="name" placeholder="Tên sinh viên"/>
-							
-							<div class="clearfix"></div>
-						</div>
-						<form:button class="btn btn-success">
+					<div class="key">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						<form:input path="id" placeholder="User Name" />
+
+						<div class="clearfix"></div>
+					</div>
+					<div class="key">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						<form:input path="name" placeholder="Tên sinh viên" />
+
+						<div class="clearfix"></div>
+					</div>
+					<form:button class="btn btn-success">
 						Đăng ký
 						</form:button>
-						
-					</form:form>
-				
-				
-				</div>
-				
+
+				</form:form>
+
+
 			</div>
+
 		</div>
+	</div>
 </body>
 </html>
