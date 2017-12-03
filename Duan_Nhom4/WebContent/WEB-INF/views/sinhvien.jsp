@@ -191,36 +191,6 @@ form-horizontal {
 							data-target="#myModal1${u.masinhvien}" class="offer-img"><button type="button" class="btn btn-info">Edit</button></a></td>
 
 					</tr>
-<<<<<<< HEAD
-
-				</c:forEach>
-			</table>
-		</form:form>
-<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
-
-<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-
-					
-					
-					
-	<!-- Modal -->
-  <div class="modal fade" id="myModal1${u.masinhvien}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sửa Sinh Viên</h4>
-        </div>
-        <div class="modal-body modal-spa">
-          	<form:form class="form-horizontal" modelAttribute="sinhvien">
-							<div class="container">
-=======
->>>>>>> 33af0fb948be02a2a201ea4dc72d2b6ff4451dae
 
 
 
@@ -336,33 +306,12 @@ form-horizontal {
 										data-dismiss="modal">Close</button>
 								</div>
 							</div>
-<<<<<<< HEAD
-						</form:form>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-    </div>
-  
-				
-
-<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</a>
-
-
-  
-</div>
-
-=======
 						</div>
 					</div>
 
 				</c:forEach>
 			</table>
 		</form:form>
->>>>>>> 33af0fb948be02a2a201ea4dc72d2b6ff4451dae
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
@@ -412,7 +361,7 @@ form-horizontal {
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên" pattern="[A-Za-z]{3}" title="VD: PD01754 "></form:input>
+											placeholder="Mã sinh viên" pattern="[A-Za-z]{3}" title="VD: PD01754"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
