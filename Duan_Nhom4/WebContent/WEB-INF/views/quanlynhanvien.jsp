@@ -260,8 +260,8 @@ th {
 									<label class="control-label col-sm-2" for="pwd">Giới
 										tính:</label>
 									<div class="col-sm-10" style="width: 500px">
-										<form:input path="gioitinh" class="form-control"
-											placeholder="Gioi Tinh" />
+										<form:radiobutton path="gioitinh" value="Nam"/>Nam
+							            <form:radiobutton path="gioitinh" value="Nữ"/>Nữ
 									</div>
 
 								</div>
@@ -277,7 +277,7 @@ th {
 									<label class="control-label col-sm-2" for="pwd">Ngày
 										sinh:</label>
 									<div class="col-sm-10" style="width: 500px">
-										<form:input path="ngaysinh" class="form-control"
+										<form:input path="ngaysinh" type="date" class="form-control"
 											placeholder="Ngày sinh" />
 									</div>
 								</div>

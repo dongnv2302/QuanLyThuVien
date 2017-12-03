@@ -189,6 +189,7 @@ th {
 					</tr>
 				</c:forEach>
 			</table>
+			<center><h3 style ="color:red">${message}</h3></center>
 		</form:form>
 
 
@@ -241,8 +242,13 @@ th {
 									<div class="form-group">
 										<label class="control-label col-sm-2">Mã loại sách:</label>
 										<div class="col-sm-10" style="width: 500px">
-											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã loại sách" />
+										<form:select path="maloaisach">
+											<form:option value="mls1" >Mls1</form:option>
+											<form:option value="mls2" >Mls2</form:option>
+											<form:option value="mls3" >Mls3</form:option>
+											<form:option value="mls4" >Mls4</form:option>
+											<form:option value="mls5" >Mls5</form:option>
+											</form:select>
 										</div>
 									</div>
 									<div class="form-group">
@@ -275,7 +281,7 @@ th {
 										<label class="control-label col-sm-2" for="pwd">Ngày
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 500px">
-											<form:input path="ngayxuatban" class="form-control"
+											<form:input path="ngayxuatban" type="date" class="form-control"
 												placeholder="ngayxuatban" />
 										</div>
 									</div>
@@ -283,7 +289,7 @@ th {
 										<label class="control-label col-sm-2" for="pwd">Ngày
 											nhập:</label>
 										<div class="col-sm-10" style="width: 500px">
-											<form:input path="ngaynhap" class="form-control"
+											<form:input path="ngaynhap" type="date" class="form-control"
 												placeholder="ngaynhap" />
 										</div>
 									</div>
@@ -299,8 +305,11 @@ th {
 										<label class="control-label col-sm-2" for="pwd">Tình
 											trạng:</label>
 										<div class="col-sm-10" style="width: 500px">
-											<form:input path="tinhtrang" class="form-control"
-												placeholder="tinh trang" />
+											<form:radiobutton path="tinhtrang" value="moi"
+												placeholder="tinh trang" />mới
+											<form:radiobutton path="tinhtrang" value="cu"
+												placeholder="tinh trang" />cũ
+												
 										</div>
 									</div>
 									<div class="form-group">

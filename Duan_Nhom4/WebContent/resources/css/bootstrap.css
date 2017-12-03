@@ -1788,8 +1788,13 @@ input[type="search"] {
 }
 
 input[type="date"] {
+<<<<<<< HEAD
+  line-height: 27px;
+  width: 100%;
+=======
 	line-height: 27px;
 	width: 90%;
+>>>>>>> 33af0fb948be02a2a201ea4dc72d2b6ff4451dae
 }
 
 input[type="email"] {
