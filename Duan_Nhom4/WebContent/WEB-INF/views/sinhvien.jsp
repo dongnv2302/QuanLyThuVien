@@ -110,7 +110,7 @@ form-horizontal {
 				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
@@ -424,7 +424,7 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Mật
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="password" class="form-control"
+										<form:input path="matkhau" class="form-control"
 											placeholder="mật khẩu" />
 									</div>
 								</div>
