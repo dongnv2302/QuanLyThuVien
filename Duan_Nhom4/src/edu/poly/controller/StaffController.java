@@ -45,9 +45,9 @@ public class StaffController {
 		try {
 			session.save(staff);
 			transaction.commit();
-			model.addAttribute("message", "Insert successfully !");
+			model.addAttribute("message", "Thêm Thành công !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Insert fails !");
+			model.addAttribute("message", "Thêm Thất bại !");
 			transaction.rollback();
 		}
 		session.close();
@@ -62,9 +62,9 @@ public class StaffController {
 		try {
 			session.update(staff);
 			transaction.commit();
-			model.addAttribute("message", "Update successfully !");
+			model.addAttribute("message", "Sửa thành công !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Update fails !");
+			model.addAttribute("message", "Sửa thất bại !");
 			transaction.rollback();
 		}
 		session.close();
@@ -78,9 +78,9 @@ public class StaffController {
 		try {
 			session.delete(staff);
 			transaction.commit();
-			model.addAttribute("message", "Delete successfully !");
+			model.addAttribute("message", "Xóa thành công !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Delete fails !");
+			model.addAttribute("message", "Xóa Thất bại !");
 			transaction.rollback();
 		}
 		session.close();
