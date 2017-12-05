@@ -9,12 +9,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 import org.hibernate.validator.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-
 
 @Entity
 @Table(name = "sinhvien")
@@ -27,10 +24,10 @@ public class Sinhvien {
 
 	private String tensinhvien;
 	@Column(name = "GioiTinh")
-	
+
 	private String gioitinh;
 	@Column(name = "SDT ")
-	
+
 	private String sdt;
 	@Column(name = "NgaySinh ")
 
@@ -107,7 +104,5 @@ public class Sinhvien {
 	public void setMatkhau(String matkhau) {
 		this.matkhau = matkhau;
 	}
-
-	
 
 }
