@@ -376,12 +376,16 @@ form-horizontal {
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Giới
-										tính:</label>
+										Tính:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="gioitinh" class="form-control"
-											placeholder="Gioi Tinh" />
-									</div>
+										<form:radiobutton path="gioitinh" value="Nam"
+											placeholder="Tình trạng" />
+										Nam
+										<form:radiobutton path="gioitinh" value="Nu"
+											placeholder="Tình trạng" />
+										Nữ
 
+									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Số điện
@@ -395,7 +399,7 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Ngày
 										sinh:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="ngaysinh" class="form-control"
+										<form:input path="ngaysinh" type="date" class="form-control"
 											placeholder="Ngày sinh" />
 									</div>
 								</div>
@@ -404,7 +408,8 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
-											placeholder="Tên đăng nhập" />
+											placeholder="dongnvpd01754@fpt.edu.vn" required="required"
+											pattern="^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -419,7 +424,7 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Mật
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="matkhau" class="form-control"
+										<form:input path="password" class="form-control"
 											placeholder="mật khẩu" />
 									</div>
 								</div>
