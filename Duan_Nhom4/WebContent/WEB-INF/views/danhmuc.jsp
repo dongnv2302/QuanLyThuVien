@@ -266,7 +266,7 @@ th {
 											Danh Mục:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="tendanhmuc" class="form-control"
-												placeholder="Tên Danh Mục" required="required" pattern="[a-zA-Z0-9]+" title="VD: hoai"/>
+												placeholder="Tên Danh Mục" required="required" pattern="[a-zA-Z0-9]+" title="VD: "/>
 										</div>
 									</div>
 
