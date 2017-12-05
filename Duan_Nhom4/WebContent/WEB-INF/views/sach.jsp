@@ -242,8 +242,19 @@ th {
 									<div class="form-group">
 										<label class="control-label col-sm-2">Mã loại sách:</label>
 										<div class="col-sm-10" style="width: 500px">
+
 											<form:input path="maloaisach" class="form-control"
 												placeholder="Mã Loại sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1" />
+
+										<form:select path="maloaisach">
+											<form:option value="mls1" >Mls1</form:option>
+											<form:option value="mls2" >Mls2</form:option>
+											<form:option value="mls3" >Mls3</form:option>
+											<form:option value="mls4" >Mls4</form:option>
+											<form:option value="mls5" >Mls5</form:option>
+											<form:option value="hoai" >hoai</form:option>
+											</form:select>
+
 										</div>
 									</div>
 									<div class="form-group">

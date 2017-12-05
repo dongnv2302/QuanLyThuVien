@@ -188,7 +188,8 @@ form-horizontal {
 							src="<c:url value="/resources/images/${u.hinhanh}"/>"
 							width="30px" height="30px"></td>
 						<td><a href="#" data-toggle="modal"
-							data-target="#myModal1${u.masinhvien}" class="offer-img"><button type="button" class="btn btn-info">Edit</button></a></td>
+							data-target="#myModal1${u.masinhvien}" class="offer-img"><button
+									type="button" class="btn btn-info">Edit</button></a></td>
 
 					</tr>
 
@@ -212,7 +213,7 @@ form-horizontal {
 												<label class="control-label col-sm-2">Mã sinh viên:</label>
 												<div class="col-sm-10" style="width: 350px">
 													<form:input path="masinhvien" class="form-control"
-														placeholder="Mã sinh viên" value="${u.masinhvien}" ></form:input>
+														placeholder="Mã sinh viên" value="${u.masinhvien}"></form:input>
 												</div>
 												<br> <br>
 											</div>
@@ -353,15 +354,16 @@ form-horizontal {
 					<div class="col-md-7 span-1 ">
 						<h2 style="color: #390">Thêm Sinh Viên</h2>
 						<form:form class="form-horizontal" modelAttribute="sinhvien"
-							action="sinhvienaction.poly">
-							<form:errors path="*" element="ul" />
+							action="sinhvien.poly">
+
 							<div class="container">
 
 								<div class="form-group">
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên" pattern="[A-Za-z]{3}" title="VD: PD01754"></form:input>
+											placeholder="Mã sinh viên" required="required"
+											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$" title="VD: PD01754"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
@@ -374,12 +376,16 @@ form-horizontal {
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Giới
-										tính:</label>
+										Tính:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="gioitinh" class="form-control"
-											placeholder="Gioi Tinh" />
-									</div>
+										<form:radiobutton path="gioitinh" value="Nam"
+											placeholder="Tình trạng" />
+										Nam
+										<form:radiobutton path="gioitinh" value="Nu"
+											placeholder="Tình trạng" />
+										Nữ
 
+									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Số điện
@@ -393,7 +399,7 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Ngày
 										sinh:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="ngaysinh" class="form-control"
+										<form:input path="ngaysinh" type="date" class="form-control"
 											placeholder="Ngày sinh" />
 									</div>
 								</div>
@@ -402,7 +408,8 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
-											placeholder="Tên đăng nhập" />
+											placeholder="dongnvpd01754@fpt.edu.vn" required="required"
+											pattern="^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -417,7 +424,7 @@ form-horizontal {
 									<label class="control-label col-sm-2" for="pwd">Mật
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="matkhau" class="form-control"
+										<form:input path="password" class="form-control"
 											placeholder="mật khẩu" />
 									</div>
 								</div>
@@ -425,7 +432,7 @@ form-horizontal {
 									<div class="col-sm-offset-2 col-sm-10">
 
 
-										<form:button class="btn btn-success">
+										<form:button name="btnInsert" class="btn btn-success">
 											<img src="resources/images/if_Add_to_basket_132292.png"
 												width="24" height="24" alt="" />Thêm
 										</form:button>
