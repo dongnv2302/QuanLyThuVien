@@ -101,7 +101,7 @@ th {
 				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.poly"
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
@@ -242,13 +242,8 @@ th {
 									<div class="form-group">
 										<label class="control-label col-sm-2">Mã loại sách:</label>
 										<div class="col-sm-10" style="width: 500px">
-										<form:select path="maloaisach">
-											<form:option value="mls1" >Mls1</form:option>
-											<form:option value="mls2" >Mls2</form:option>
-											<form:option value="mls3" >Mls3</form:option>
-											<form:option value="mls4" >Mls4</form:option>
-											<form:option value="mls5" >Mls5</form:option>
-											</form:select>
+											<form:input path="maloaisach" class="form-control"
+												placeholder="Mã Loại sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -256,7 +251,7 @@ th {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách" />
+												placeholder="Tên sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong" />
 										</div>
 									</div>
 
@@ -265,7 +260,7 @@ th {
 											giả:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="tacgia" class="form-control"
-												placeholder="Tác giả" />
+												placeholder="Tác giả" required="required" pattern="[a-zA-Z0-9]+" title="VD: kim dong"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -273,7 +268,7 @@ th {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nhà xuất bản" />
+												placeholder="Nhà xuất bản" required="required" pattern="[a-zA-Z0-9]+" title="VD: kim dong"/>
 										</div>
 									</div>
 
@@ -298,7 +293,7 @@ th {
 											sách:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="giasach" class="form-control"
-												placeholder="Giá sách" />
+												placeholder="Giá sách" required="required" pattern="([1-9])+(?:-?\d){3,}" title="VD: 1754" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -325,7 +320,7 @@ th {
 											trang:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="sotrang" class="form-control"
-												placeholder="Số trang" />
+												placeholder="Số trang"  required="required" pattern="([1-9])+(?:-?\d){1,}" title="VD: 754" />
 										</div>
 									</div>
 									<div class="form-group">

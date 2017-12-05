@@ -101,7 +101,7 @@ th {
 				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.poly"
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
@@ -226,7 +226,7 @@ th {
 										<label class="control-label col-sm-2">Mã Loại Sách</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại Sách" />
+												placeholder="Mã Loại Sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: PD01754"/>
 										</div>
 									</div>
 									<div class="form-group">

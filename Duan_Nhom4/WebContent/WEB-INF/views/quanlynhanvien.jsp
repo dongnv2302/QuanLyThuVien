@@ -102,7 +102,7 @@ th {
 				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.poly"
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
@@ -245,7 +245,7 @@ th {
 									<label class="control-label col-sm-2">Mã nhân viên:</label>
 									<div class="col-sm-10" style="width: 500px">
 										<form:input path="manhanvien" class="form-control"
-											placeholder="Mã nhân viên"></form:input>
+											placeholder="Mã nhân viên" required="required" pattern="[a-zA-Z0-9]+" title="VD: PD01754"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
@@ -253,7 +253,7 @@ th {
 										nhân viên:</label>
 									<div class="col-sm-10" style="width: 500px">
 										<form:input path="tennhanvien" class="form-control"
-											placeholder="Tên nhân viên" />
+											placeholder="Tên nhân viên" required="required" pattern="[a-zA-Z0-9]+" title="VD: huyen" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -286,7 +286,7 @@ th {
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 500px">
 										<form:input path="email" class="form-control"
-											placeholder="Tên đăng nhập" />
+											placeholder="huyen@gmail.com"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -310,7 +310,7 @@ th {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 500px">
 										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" />
+											placeholder="mật khẩu" type="password"/>
 									</div>
 								</div>
 								<div class="form-group">
