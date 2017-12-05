@@ -62,30 +62,29 @@ th {
 	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
-		<div class="w3-container w3-row">
-			<div class="w3-col s4">
-				<img src="/w3images/avatar2.png" class="w3-circle w3-margin-right"
-					style="width: 46px">
-			</div>
-			<div class="w3-col s8 w3-bar">
-				<span><h3 style="color: #906">
-						<b>Thư Viện</b>
-					</h3> <strong>FPT Polytechnic</strong></span><br>
+		<center>
+			<div class="w3-container w3-row">
 
-				<div class="header-ri">
-					<ul class="social-top">
-						<li><a href="#" class="icon facebook"><i
-								class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon twitter"><i
-								class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon pinterest"><i
-								class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
 
-					</ul>
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
+		</center>
 		<hr>
 
 		<div class="w3-bar-block">
@@ -95,21 +94,21 @@ th {
 				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
-				href="quanlynhanvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a> <a
-				href="sinhvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="sinhvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a> <a
-				href="sach.html" class="w3-bar-item w3-button w3-padding"><i
+				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
-				href="danhmuc.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="Ma.html"
+				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.html"
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
-				href="muontra.html" class="w3-bar-item w3-button w3-padding"><i
+				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
-				href="muontract.html" class="w3-bar-item w3-button w3-padding"><i
+				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
 
 
@@ -129,7 +128,7 @@ th {
 		<!-- Header -->
 		<header class="w3-container" style="padding-top: 22px">
 			<h5>
-				<b><i class="fa fa-dashboard"></i> Danh sách Mã</b>
+				<b><i class="fa fa-dashboard"></i> Danh sách Mượn Trả</b>
 			</h5>
 
 
@@ -145,34 +144,35 @@ th {
 
 				<form class="searchform" action="" method="get">
 
-					<input class="s"
-						onfocus="if (this.value == 'Tìm kiếm theo MSV') {this.value = '';}"
-						onblur="if (this.value == '') {this.value = 'Tìm kiếm theo MSV';}"
-						type="text" name="s" value="Tìm kiếm	" /> <input
-						class="searchsubmit" type="submit" value="Tìm Kiếm" />
-
+					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
+						name="s" placeholder="Tìm kiếm" />
 				</form>
 
 			</div>
 
 		</header>
 		<br>
+		<form:form class="form-horizontal" modelAttribute="ma"
+			action="ma.poly">
+			<table id="myTable">
+				<tr>
+					<th>Mã Số Sách</th>
+					<th>Mã Loại Sách</th>
+					<th>Tình Trạng</th>
+					
+					<th>Action</th>
+				</tr>
+				<c:forEach var="u" items="${mas}">
+					<tr>
+						<td>${u.masosach}</td>
+						<td>${u.sach.maloaisach}</td>
+						<td>${u.tinhtrang}</td>
+						<td><a href="ma.poly?lnkEdit&masosach=${u.masosach}">Edit</a></td>
 
-		<table>
-			<tr>
-				<th>Mã Số Sách</th>
-				<th>Mã Loại Sách</th>
-				<th>Tình Trạng</th>
-				<th>Action</th>
-			</tr>
-			<td>huyen</td>
-			<td>huyen</td>
-			<td>huyen</td>
-
-			<td><a href="#">Edit</a>|<a href="#">Del</a></td>
-		</table>
-
-
+					</tr>
+				</c:forEach>
+			</table>
+		</form:form>
 
 
 
@@ -219,59 +219,81 @@ th {
 					<div class="col-md-7 span-1 ">
 						<div class="container">
 							<h2 style="color: #390">Thêm Mã</h2>
-							<form class="form-horizontal" action="/action_page.php"
-								style="width: 800px">
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="email">Mã Số
-										Sách:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="email" class="form-control" id="email"
-											placeholder="Mã Số Sách" name="email">
-									</div>
+							<form:form class="form-horizontal" modelAttribute="ma"
+								action="ma.poly">
+								<div class="container">
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="email">Mã
+												Số Sách:</label>
+											<div class="col-sm-10" style="width: 500px">
+												<form:input path="masosach" class="form-control"
+													placeholder="Mã Số Sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: mss1"></form:input>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="pwd">Mã Loại Sách :</label>
+											<div class="col-sm-10" style="width: 500px">
+												<form:select items="${sach}" path="sach.maloaisach"
+													itemValue="maloaisach" itemLabel="tensach" ></form:select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="pwd">Tình Trạng
+												</label>
+											<div class="col-sm-10" style="width: 500px">
+												<form:input path="tinhtrang" class="form-control"
+													placeholder="Mã mượn trả"></form:input>
+											</div>
+										</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Mã Loại
-										Sách:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Mã Loại Sách" name="pwd">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tình
-										Trạng:</label>
-									<div class="col-sm-10" style="width: 500px">
-										<input type="password" class="form-control" id="pwd"
-											placeholder="Tình Trạng" name="pwd">
+									<div class="col-sm-offset-2 col-sm-10">
+
+
+										<form:button name="btnInsert" class="btn btn-success">
+											<img src="resources/images/if_Add_to_basket_132292.png"
+												width="24" height="24" alt="" />Thêm
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnUpdate" class="btn btn-success">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />Sửa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnDelete" class="btn btn-success"
+											onclick="return confirm('Bạn có muốn xóa hay không?');">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />xóa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10" style="text-align: center">
+						</form:form>
 
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_Add_to_basket_132292.png"
-										width="24" height="24" alt="" />Thêm
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_edit1.png" width="24" height="24"
-										alt="" />Sửa
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="button" class="btn btn-success">
-									<img src="resources/images/if_Delete.png" width="24"
-										height="24" alt="" />Xóa
-								</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-							</div>
-						</div>
-						</form>
 					</div>
-
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
+		</div>
+		<script>
+			function myFunction() {
+				var input, filter, table, tr, td, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[0];
+					if (td) {
+						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
 </body>
 </html>

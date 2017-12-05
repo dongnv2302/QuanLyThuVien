@@ -15,21 +15,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.poy.bean.Ma;
 import edu.poy.bean.Sach;
-import edu.poy.bean.Sinhvien;
+
+
+
 @Transactional
-@RequestMapping("sach.poly")
+@RequestMapping("ma.poly")
 @Controller
-public class BookController {
+public class MaController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping()
 	public String index(ModelMap model) {
-		model.addAttribute("sach", new Sach());
-		return "sach";
+		model.addAttribute("ma", new Ma());
+		return "ma";
 	}
-
-	@ModelAttribute("sachs")
+	@ModelAttribute("mas")
+	public List<Ma> getMas() {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Ma";
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Ma> list = query.list();
+		return list;
+	}
+	@ModelAttribute("sach")
 	public List<Sach> getSachs() {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Sach";
@@ -38,66 +49,68 @@ public class BookController {
 		List<Sach> list = query.list();
 		return list;
 	}
-
+		
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("Sach") Sach sach) {
+	public String insert(ModelMap model, @ModelAttribute("ma") Ma ma) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.save(sach);
+			session.save(ma);
 			transaction.commit();
-			model.addAttribute("message", "Thêm thành công !");
+			model.addAttribute("message", "Insert successfully !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Thêm lỗi !");
+			model.addAttribute("message", "Insert fails !");
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sach", new Sach());
-		model.addAttribute("sachs", getSachs());
-		return "sach";
+		model.addAttribute("ma", new Ma());
+		model.addAttribute("mas", getMas());
+		return "ma";
 	}
 
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("sach") Sach sach) {
+	public String update(ModelMap model, @ModelAttribute("ma") Ma ma) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.update(sach);
+			session.update(ma);
 			transaction.commit();
-			model.addAttribute("message", "Sửa thành công !");
+			model.addAttribute("message", "Update successfully !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Sửa thất bại!");
+			model.addAttribute("message", "Update fails !");
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sachs", getSachs());
-		return "sach";
+		model.addAttribute("mas", getMas());
+		return "ma";
 	}
 
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("Sach") Sach sach) {
+	public String delete(ModelMap model, @ModelAttribute("Ma") Ma ma) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.delete(sach);
+			session.delete(ma);
 			transaction.commit();
-			model.addAttribute("message", "Xóa thành công !");
+			model.addAttribute("message", "Delete successfully !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Xóa thất bại !");
+			model.addAttribute("message", "Delete fails !");
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("sach", new Sach());
-		model.addAttribute("sachs", getSachs());
-		return "sach";
+		model.addAttribute("ma", new Ma());
+		model.addAttribute("mas", getMas());
+		return "ma";
 	}
 
 	@RequestMapping(params = "lnkEdit")
-	public String edit(ModelMap model, @RequestParam("maloaisach") String maloaisach) {
+	public String edit(ModelMap model, @RequestParam("masosach") String masosach) {
 		Session session = factory.getCurrentSession();
-		Sach sach = (Sach) session.get(Sach.class, maloaisach);
-		model.addAttribute("sach", sach);
-		return "sach";
+		Ma ma = (Ma) session.get(Ma.class, masosach);
+		model.addAttribute("ma", ma);
+		return "ma";
 	}
+	
+			
 
 }
