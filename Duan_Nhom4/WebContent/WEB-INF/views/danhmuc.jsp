@@ -258,7 +258,7 @@ th {
 										<label class="control-label col-sm-2">Mã Danh Mục:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="madanhmuc" class="form-control"
-												placeholder="Mã Danh Mục" />
+												placeholder="Mã Danh Mục" required="required" pattern="[a-zA-Z0-9]+" title="VD: PD01754"></form:input>
 										</div>
 									</div>
 									<div class="form-group">

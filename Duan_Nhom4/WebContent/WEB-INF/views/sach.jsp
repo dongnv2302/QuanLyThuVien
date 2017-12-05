@@ -256,7 +256,7 @@ th {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Ten sach" />
+												placeholder="Tên sách" />
 										</div>
 									</div>
 
@@ -273,7 +273,7 @@ th {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nha Xuat Ban" />
+												placeholder="Nhà xuất bản" />
 										</div>
 									</div>
 
@@ -282,7 +282,7 @@ th {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="ngayxuatban" type="date" class="form-control"
-												placeholder="ngayxuatban" />
+												placeholder="Ngày xuất bản" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -290,7 +290,7 @@ th {
 											nhập:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="ngaynhap" type="date" class="form-control"
-												placeholder="ngaynhap" />
+												placeholder="Ngày nhập" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -298,7 +298,7 @@ th {
 											sách:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="giasach" class="form-control"
-												placeholder="gia sach" />
+												placeholder="Giá sách" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -306,9 +306,9 @@ th {
 											trạng:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:radiobutton path="tinhtrang" value="moi"
-												placeholder="tinh trang" />mới
+												placeholder="Tình trạng" />mới
 											<form:radiobutton path="tinhtrang" value="cu"
-												placeholder="tinh trang" />cũ
+												placeholder="Tình trạng" />cũ
 												
 										</div>
 									</div>
@@ -317,7 +317,7 @@ th {
 											bìa:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="anhbia" class="form-control" type="file"
-												name="fileUpload" placeholder="anh bia" />
+												name="fileUpload" placeholder="Ảnh bìa" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -325,14 +325,14 @@ th {
 											trang:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="sotrang" class="form-control"
-												placeholder="so trang" />
+												placeholder="Số trang" />
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:input path="mota" class="form-control"
-												placeholder="mo ta" />
+												placeholder="Mô tả" />
 										</div>
 									</div>
 									<div class="form-group">
