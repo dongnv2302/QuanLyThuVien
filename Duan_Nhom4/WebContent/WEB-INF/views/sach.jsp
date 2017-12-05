@@ -10,7 +10,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/bootstrap.css">
-
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,6 +17,13 @@
 	href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Raleway", sans-serif
@@ -42,8 +48,11 @@ th {
 	background-color: #144E32;
 	color: white;
 }
+
+form-horizontal {
+	line-height: 5px;
+}
 </style>
-<link href="resources/bootstrap.css" rel="stylesheet" type="text/css">
 <body class="w3-light-grey">
 
 	<!-- Top container -->
@@ -54,7 +63,7 @@ th {
 			<i class="fa fa-bars"></i>  Menu
 		</button>
 		<span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img
-			src="resources/images/if_User_group_132235.png" width="24"
+			src="resources//images/if_User_group_132235.png" width="24"
 			height="24" alt="" /></span>
 	</div>
 
@@ -64,7 +73,7 @@ th {
 		<br>
 		<center>
 			<div class="w3-container w3-row">
-				<div class="w3-col s4"></div>
+
 				<div class="w3-col s8 w3-bar">
 					<span><h3 style="color: #906">
 							<b>Thư Viện</b>
@@ -128,7 +137,7 @@ th {
 		<!-- Header -->
 		<header class="w3-container" style="padding-top: 22px">
 			<h5>
-				<b><i class="fa fa-dashboard"></i> Danh sách Sách</b>
+				<b><i class="fa fa-dashboard"></i> Danh sách sách</b>
 			</h5>
 
 
@@ -140,13 +149,13 @@ th {
 
 
 
-
 			<div id="search" style="float: right">
 
-				<form class="searchform" action="" method="get">
+				<form class="searchform" action="seachsv">
 
 					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
-						name="s" placeholder="Tìm kiếm" />
+						name="data" placeholder="Tìm ki?m" />
+
 				</form>
 
 			</div>
@@ -154,8 +163,8 @@ th {
 		</header>
 		<br>
 
-		<form:form modelAttribute="sach" action="sach.poly" id="myTable">
-			<table>
+		<form:form modelAttribute="sach" action="sach.poly">
+			<table id="myTable">
 				<tr>
 					<th>Mã loại sách</th>
 					<th>Tên sách</th>
@@ -184,15 +193,152 @@ th {
 							width="30px" height="30px"></td>
 						<td>${u.sotrang}</td>
 						<td>${u.mota}</td>
-						<td><a href="sach.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
+						<td><a href="#" data-toggle="modal"
+							data-target="#myModal1${u.maloaisach}" class="offer-img"><button
+									type="button" class="btn btn-info">Edit</button></a></td>
 
 					</tr>
+
+
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal1${u.maloaisach}" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Sửa sách</h4>
+								</div>
+								<div class="modal-body modal-spa">
+									<form:form class="form-horizontal" modelAttribute="sach">
+										<div class="container">
+
+											<div class="form-group">
+										<label class="control-label col-sm-2">Mã loại sách:</label>
+										<div class="col-sm-10" style="width: 350px">
+
+											<form:input path="maloaisach" class="form-control"
+												placeholder="Mã Loại sách" value="${u.maloaisach}" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+										</div>
+									</div>
+									<br><br>
+											<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tên
+											Sách:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="tensach" class="form-control"
+												placeholder="Tên sách"  value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kimdong"  />
+										</div>
+									</div><br><br>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tác
+											giả:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="tacgia" class="form-control"
+												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kimdong"/>
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Nhà
+											xuất bản:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="nhaxuatban" class="form-control"
+												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
+										</div>
+									</div><br><br>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Ngày
+											xuất bản:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="ngayxuatban" type="date" class="form-control"
+												placeholder="Ngày xuất bản" value="${u.ngayxuatban}" />
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Ngày
+											nhập:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="ngaynhap" type="date" class="form-control"
+												placeholder="Ngày nhập" value="${u.ngaynhap}" />
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Giá
+											sách:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="giasach" class="form-control"
+												placeholder="Giá sách" value="${u.giasach}" required="required" pattern="([1-9])+(?:-?\d){3,}" title="VD: 1754"/>
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Tình
+											trạng:</label>
+										<div class="col-sm-10" style="width: 350px">
+										<form:input path="tinhtrang" class="form-control"
+														placeholder="Tình trạng" value="${u.tinhtrang}" />
+												
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Ảnh
+											bìa:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="anhbia" class="form-control" type="file"
+												name="fileUpload" placeholder="Ảnh bìa" value="${u.anhbia}"/>
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Số
+											trang:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="sotrang" class="form-control"
+												placeholder="Số trang"  value="${u.sotrang}" required="required" pattern="([1-9])+(?:-?\d){1,}" title="VD: 754"/>
+										</div>
+									</div><br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
+										<div class="col-sm-10" style="width: 350px">
+											<form:input path="mota" class="form-control"
+												placeholder="Mô tả" value="${u.mota}" />
+										</div>
+									</div><br><br>
+											<div class="form-group">
+												<div class="col-sm-offset-2 col-sm-10">
+													<form:button name="btnUpdate" class="btn btn-success">
+														<img src="resources/images/if_edit1.png" width="24"
+															height="24" alt="" />Sửa
+										</form:button>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<form:button name="btnDelete" class="btn btn-success"
+														onclick="return confirm('Bạn có muốn xóa hay không?');">
+														<img src="resources/images/if_edit1.png" width="24"
+															height="24" alt="" />Xóa
+										</form:button>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												</div>
+											</div>
+										</div>
+									</form:form>
+								</div>
+								<div class="clearfix"></div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</c:forEach>
 			</table>
-			<center><h3 style ="color:red">${message}</h3></center>
+			<center>
+				<h3 style="color: red">${message}</h3>
+			</center>
 		</form:form>
-
-
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
@@ -231,153 +377,145 @@ th {
 					</button>
 				</div>
 				<div class="modal-body modal-spa">
-
 					<div class="col-md-7 span-1 ">
-						<div class="container">
-							<h2 style="color: #390">Thêm Sách</h2>
-							<form:form class="form-horizontal" modelAttribute="sach"
-								action="sach.poly">
-								<div class="container">
+						<h2 style="color: #390">Thêm Sách</h2>
+						<form:form class="form-horizontal" modelAttribute="sach"
+							action="sach.poly">
 
-									<div class="form-group">
+							<div class="container">
+
+								<div class="form-group">
 										<label class="control-label col-sm-2">Mã loại sách:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1" />
+												placeholder="Mã Loại sách" value="${u.maloaisach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Tên
 											Sách:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong" />
+												placeholder="Tên sách" value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Tác
 											giả:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tacgia" class="form-control"
-												placeholder="Tác giả" required="required" pattern="[a-zA-Z0-9]+" title="VD: kim dong"/>
+												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Nhà
 											xuất bản:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nhà xuất bản" required="required" pattern="[a-zA-Z0-9]+" title="VD: kim dong"/>
+												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Ngày
 											xuất bản:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngayxuatban" type="date" class="form-control"
-												placeholder="Ngày xuất bản" />
+												placeholder="Ngày xuất bản" value="${u.ngayxuatban}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Ngày
-											nhập:</label>
-										<div class="col-sm-10" style="width: 500px">
+											nh?p:</label>
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngaynhap" type="date" class="form-control"
-												placeholder="Ngày nhập" />
+												placeholder="Ngày nhập" value="${u.ngaynhap}" />
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Giá
 											sách:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="giasach" class="form-control"
-												placeholder="Giá sách" required="required" pattern="([1-9])+(?:-?\d){3,}" title="VD: 1754" />
+												placeholder="Giá sách" value="${u.giasach}" required="required" pattern="([1-9])+(?:-?\d){3,}" title="VD: 1754"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Tình
 											trạng:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:radiobutton path="tinhtrang" value="moi"
-												placeholder="Tình trạng" />mới
-											<form:radiobutton path="tinhtrang" value="cu"
-												placeholder="Tình trạng" />cũ
+										<div class="col-sm-10" style="width: 350px">
+											<form:radiobutton path="tinhtrang" 
+												placeholder="Tình trạng" value="Moi"/>Mới
+											<form:radiobutton path="tinhtrang" 
+												placeholder="Tình trạng" value="Cu"/>Cũ
 												
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Ảnh
 											bìa:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="anhbia" class="form-control" type="file"
-												name="fileUpload" placeholder="Ảnh bìa" />
+														name="fileUpload" placeholder="Ảnh bìa"
+														value="/resources/images/${u.anhbia}" />
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Số
 											trang:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="sotrang" class="form-control"
-												placeholder="Số trang"  required="required" pattern="([1-9])+(?:-?\d){1,}" title="VD: 754" />
+												placeholder="Số trang" value="${u.sotrang}" required="required" pattern="([1-9])+(?:-?\d){1,}" title="VD: 754"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="mota" class="form-control"
-												placeholder="Mô tả" />
+												placeholder="Mô tả" value="${u.mota}" />
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="col-sm-offset-2 col-sm-10">
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
 
 
-											<form:button name="btnInsert" class="btn btn-success">
-												<img src="resources/images/if_Add_to_basket_132292.png"
-													width="24" height="24" alt="" />Thêm
+										<form:button name="btnInsert" class="btn btn-success">
+											<img src="resources/images/if_Add_to_basket_132292.png"
+												width="24" height="24" alt="" />Thêm
 										</form:button>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<form:button name="btnUpdate" class="btn btn-success">
-												<img src="resources/images/if_edit1.png" width="24"
-													height="24" alt="" />Sửa
-										</form:button>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<form:button name="btnDelete" class="btn btn-success"
-												onclick="return confirm('Bạn có muốn xóa hay không?');">
-												<img src="resources/images/if_edit1.png" width="24"
-													height="24" alt="" />xóa
-										</form:button>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</div>
+
 									</div>
 								</div>
-							</form:form>
-						</div>
+							</div>
+						</form:form>
 
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<script>
-			function myFunction() {
-				var input, filter, table, tr, td, i;
-				input = document.getElementById("myInput");
-				filter = input.value.toUpperCase();
-				table = document.getElementById("myTable");
-				tr = table.getElementsByTagName("tr");
-				for (i = 0; i < tr.length; i++) {
-					td = tr[i].getElementsByTagName("td")[0];
-					if (td) {
-						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-							tr[i].style.display = "";
-						} else {
-							tr[i].style.display = "none";
-						}
+			</div>
+		</div>
+	</div>
+	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
 					}
 				}
 			}
-		</script>
+		}
+	</script>
 </body>
 </html>
+
