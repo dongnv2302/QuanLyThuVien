@@ -154,7 +154,7 @@ form-horizontal {
 				<form class="searchform" action="seachsv">
 
 					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
-						name="data" placeholder="Tìm ki?m" />
+						name="data" placeholder="Tìm kiếm" />
 
 				</form>
 
