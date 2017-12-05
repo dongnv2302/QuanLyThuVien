@@ -1,5 +1,9 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=70a164dce3e70f6befb1083e25e4cf29e489626e
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/dangky.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/lienhe.jsp=UTF-8
 encoding//src/edu/poly/controller/BookController.java=UTF-8
 encoding//src/edu/poly/controller/DangkyController.java=UTF-8
 encoding//src/edu/poly/controller/DanhMucController.java=UTF-8

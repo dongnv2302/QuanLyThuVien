@@ -7,6 +7,8 @@
 <title>W3.CSS Template</title>
 
 
+  
+
 
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
@@ -46,7 +48,7 @@ th {
 	color: white;
 }
 </style>
-<body class="w3-light-grey">
+<body class="w3-light-grey"id="tableID">
 
 	<!-- Top container -->
 	<div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
@@ -128,6 +130,7 @@ th {
 
 		<!-- Header -->
 		<header class="w3-container" style="padding-top: 22px">
+		
 			<h5>
 				<b><i class="fa fa-dashboard"></i> Danh sách nhân viên</b>
 			</h5>
@@ -179,25 +182,15 @@ th {
 						<td>${u.email}</td>
 						<td>${u.chucvu}</td>
 						<td>${u.tendangnhap}</td>
-						<td><a
-							href="quanlynhanvien.poly?lnkEdit&manhanvien=${u.manhanvien}">Edit</a></span>
-
-							</a></td>
+						<td><a href="quanlynhanvien.poly?lnkEdit&manhanvien=${u.manhanvien}">Edit</a></td>
 
 					</tr>
 				</c:forEach>
+
 			</table>
-			<center>
-				<h3 style="color: red">${message}</h3>
-			</center>
-		</form:form>
-
-
-
-
-
-
-	</div>
+			<center><h3 style ="color:red">${message}</h3></center>
+	</form:form>
+</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
 	<script>
@@ -338,8 +331,8 @@ th {
 							</div>
 
 						</form:form>
-
-					</div>
+</div>
+				
 					<div class="clearfix"></div>
 				</div>
 			</div>
