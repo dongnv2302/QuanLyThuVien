@@ -21,22 +21,22 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Sinhvien {
 	@Id
 	@Column(name = "MaSinhVien")
-	@NotBlank(message = "Bạn cần nhập mã sinh viên")
+
 	private String masinhvien;
 	@Column(name = "TenSinhVien")
-	@NotBlank(message = "Bạn cần nhập tên sinh viên")
+
 	private String tensinhvien;
 	@Column(name = "GioiTinh")
-	@NotBlank(message = "Bạn cần nhập giới tính")
+	
 	private String gioitinh;
 	@Column(name = "SDT ")
-	@NotBlank(message = "Bạn cần nhập Số điện thoại")
+	
 	private String sdt;
 	@Column(name = "NgaySinh ")
-	@NotBlank(message = "Bạn cần nhập ngày")
+
 	private String ngaysinh;
 	@Column(name = "Email ")
-	@NotBlank(message = "Bạn cần phải nhập email")
+
 	private String email;
 	@Column(name = "HinhAnh")
 	private String hinhanh;

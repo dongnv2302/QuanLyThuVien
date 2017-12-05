@@ -248,6 +248,7 @@ th {
 											<form:option value="mls3" >Mls3</form:option>
 											<form:option value="mls4" >Mls4</form:option>
 											<form:option value="mls5" >Mls5</form:option>
+											<form:option value="hoai" >hoai</form:option>
 											</form:select>
 										</div>
 									</div>
