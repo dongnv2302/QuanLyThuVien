@@ -361,7 +361,7 @@ form-horizontal {
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên" pattern="[A-Za-z]{3}" title="VD: PD01754"></form:input>
+											placeholder="Mã sinh viên" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$" title="VD: PD01754"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
