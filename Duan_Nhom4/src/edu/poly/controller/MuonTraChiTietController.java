@@ -16,39 +16,50 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.poy.bean.Sach;
-import edu.poy.bean.Sinhvien;
+import edu.poy.bean.Ma;
+import edu.poy.bean.MuonTraChiTiet;
 import edu.poy.bean.Staff;
 
+
 @Transactional
-@RequestMapping("quanlynhanvien.poly")
+@RequestMapping("muontract.poly")
 @Controller
-public class StaffController {
+public class MuonTraChiTietController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping()
 	public String index(ModelMap model) {
-		model.addAttribute("staff", new Staff());
-		return "quanlynhanvien";
+		model.addAttribute("muontract", new MuonTraChiTiet());
+		return "muontract";
 	}
-	@ModelAttribute("staffs")
-	public List<Staff> getStaffs(ModelMap model) {
+	@ModelAttribute("muontracts")
+	public List<MuonTraChiTiet> getMuontracts( ModelMap model) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Staff";
+		String hql = "FROM MuonTraChiTiet";
 		Query query = session.createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Staff> list = query.list();
-			
-		model.addAttribute("staffs", phantrangstaff(vitrihientai, list)); // hiện danh sách đã phân trang 10 item 1 trang
+		List<MuonTraChiTiet> list = query.list();
+		
+		model.addAttribute("muontracts", phantrangmuontract(vitrihientai, list)); // hiện danh sách đã phân trang 10 item 1 trang
 		model.addAttribute("listSoLuongTrang", listSoLuongTrang(list, model));//
-		return phantrangstaff(vitrihientai, list);
+		return phantrangmuontract(vitrihientai, list);
 	}
+	@ModelAttribute("ma")
+	public List<Ma> getMas() {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Ma";
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Ma> list = query.list();
+		return list;
+	}
+		
 	@RequestMapping(params = "btnInsert")
-	public String insert(ModelMap model, @ModelAttribute("staff") Staff staff) {
+	public String insert(ModelMap model, @ModelAttribute("muontract") MuonTraChiTiet muontract) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.save(staff);
+			session.save(muontract);
 			transaction.commit();
 			model.addAttribute("message", "Thêm Thành công !");
 		} catch (Exception e) {
@@ -56,16 +67,17 @@ public class StaffController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("staff", new Staff());
-		model.addAttribute("staffs", getStaffs(model));
-		return "quanlynhanvien";
+		model.addAttribute("muontract", new MuonTraChiTiet());
+		model.addAttribute("muontracts", getMuontracts(model));
+		return "muontract";
 	}
+
 	@RequestMapping(params = "btnUpdate")
-	public String update(ModelMap model, @ModelAttribute("staff") Staff staff) {
+	public String update(ModelMap model, @ModelAttribute("muontract") MuonTraChiTiet muontract) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.update(staff);
+			session.update(muontract);
 			transaction.commit();
 			model.addAttribute("message", "Sửa thành công !");
 		} catch (Exception e) {
@@ -73,15 +85,16 @@ public class StaffController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("staffs", getStaffs(model));
-		return "quanlynhanvien";
+		model.addAttribute("muontracts", getMuontracts(model));
+		return "muontract";
 	}
+
 	@RequestMapping(params = "btnDelete")
-	public String delete(ModelMap model, @ModelAttribute("Staff") Staff staff) {
+	public String delete(ModelMap model, @ModelAttribute("muontract") MuonTraChiTiet muontract) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.delete(staff);
+			session.delete(muontract);
 			transaction.commit();
 			model.addAttribute("message", "Xóa thành công !");
 		} catch (Exception e) {
@@ -89,24 +102,25 @@ public class StaffController {
 			transaction.rollback();
 		}
 		session.close();
-		model.addAttribute("staff", new Staff());
-		model.addAttribute("staffs", getStaffs(model));
-		return "quanlynhanvien";
+		model.addAttribute("muontract", new MuonTraChiTiet());
+		model.addAttribute("muontracts", getMuontracts(model));
+		return "muontract";
 	}
+
 	@RequestMapping(params = "lnkEdit")
-	public String edit(ModelMap model, @RequestParam("manhanvien") String manhanvien) {
+	public String edit(ModelMap model, @RequestParam("mamuontra") String mamuontra) {
 		Session session = factory.getCurrentSession();
-		Staff staff = (Staff) session.get(Staff.class, manhanvien);
-		model.addAttribute("staff", staff);
-		return "quanlynhanvien";
+		MuonTraChiTiet muontract = (MuonTraChiTiet) session.get(MuonTraChiTiet.class, mamuontra);
+		model.addAttribute("muontract", muontract);
+		return "muontract";
 	}
-	
+
 	// phân 10 item trên 1 trang. phải có vị trí để tính xuất 10 item thứ bao nhiêu
 		int vitrihientai = 1;
 
-		public List<Staff> phantrangstaff(int vitrihientai, List<Staff> danhsach) {
-			List<Staff> l = danhsach;
-			List<Staff> lreturn = new ArrayList<>();
+		public List<MuonTraChiTiet> phantrangmuontract(int vitrihientai, List<MuonTraChiTiet> danhsach) {
+			List<MuonTraChiTiet> l = danhsach;
+			List<MuonTraChiTiet> lreturn = new ArrayList<>();
 			// lay ra 10 item
 			for (int i = (vitrihientai - 1) * 10; i < (vitrihientai) * 10; i++) {
 				try {
@@ -120,7 +134,7 @@ public class StaffController {
 		}
 
 		// số lượng button bấm chuyển trang
-		public List<Integer> listSoLuongTrang(List<Staff> danhsach, ModelMap model) {
+		public List<Integer> listSoLuongTrang(List<MuonTraChiTiet> danhsach, ModelMap model) {
 			List<Integer> lreturn = new ArrayList<>();
 			double temp = Double.parseDouble(danhsach.size() + "") / 10.0;
 			int tempfor = (int) Math.ceil(temp);
@@ -302,20 +316,20 @@ public class StaffController {
 
 		// khi chọn button thì chạy cái này. lấy page xuất danh sách
 		@RequestMapping(params = "phantrangbtn")
-		public String sachpage(ModelMap model, @RequestParam("page") int page, @ModelAttribute("staff") Staff sach) {
+		public String sachpage(ModelMap model, @RequestParam("page") int page, @ModelAttribute("muontract") MuonTraChiTiet muontract) {
 			Session session = factory.getCurrentSession();
-			String hql = "FROM Staff";
+			String hql = "FROM MuonTraChiTiet";
 			Query query = session.createQuery(hql);
 			@SuppressWarnings("unchecked")
-			List<Staff> list = query.list();
+			List<MuonTraChiTiet> list = query.list();
 
 			vitrihientai = page;
 
 			model.addAttribute("vitrihientai", vitrihientai);
 
-			model.addAttribute("staffs", phantrangstaff(vitrihientai, list)); // hiện danh sách đã phân trang 10 item 1 trang
+			model.addAttribute("muontracts", phantrangmuontract(vitrihientai, list)); // hiện danh sách đã phân trang 10 item 1 trang
 			model.addAttribute("listSoLuongTrang", listSoLuongTrang(list, model));//
-			return "quanlynhanvien";
+			return "muontract";
 
 		}
 

@@ -442,6 +442,33 @@ form-horizontal {
 				<h3 style="color: red">${message}</h3>
 			</center>
 		</form:form>
+		<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
+		<c:if test="${danhsach!=0}">
+			<ul class="pagination" id="pagination"
+				style="float: right; box-shadow: 1px 1px 5px #888888;">
+				<li class="page-item first"><a
+					href="sach.poly?phantrangbtn&page=${trangdau }"
+					class="page-link">Trang đầu</a></li>
+				<li class="page-item prev"><a
+					href="sach.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
+					class="page-link"><</a></li>
+
+				<c:forEach items="${listSoLuongTrang }" var="u">
+					<li class="page-item"><a
+						<c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>
+						href="sach.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
+				</c:forEach>
+
+				<li class="page-item next"><a
+					href="sach.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>"
+					class="page-link">></a></li>
+				<li class="page-item last"><a
+					href="sach.poly?phantrangbtn&page=${trangcuoi }"
+					class="page-link">Trang cuối</a></li>
+			</ul>
+			<br>
+			<br>
+		</c:if>
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
