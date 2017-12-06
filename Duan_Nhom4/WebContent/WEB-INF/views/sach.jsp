@@ -229,7 +229,7 @@ form-horizontal {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách"  value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kimdong"  />
+												placeholder="Tên sách"  value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"  />
 										</div>
 									</div><br><br>
 
@@ -238,7 +238,7 @@ form-horizontal {
 											giả:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tacgia" class="form-control"
-												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kimdong"/>
+												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kimdong"/>
 										</div>
 									</div><br><br>
 									<div class="form-group">
@@ -246,7 +246,7 @@ form-horizontal {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
+												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
 										</div>
 									</div><br><br>
 
@@ -397,7 +397,7 @@ form-horizontal {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách" value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
+												placeholder="Tên sách" value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 
@@ -406,7 +406,7 @@ form-horizontal {
 											giả:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tacgia" class="form-control"
-												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
+												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -414,7 +414,7 @@ form-horizontal {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
+												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 
