@@ -275,7 +275,6 @@ th {
 						<td>${u.ngayhentra}</td>
 						<td>${u.ngaytra}</td>
 						<td><a href="muontra.poly?lnkEdit&mamuontra=${u.mamuontra}">Edit</a></td>
-
 					</tr>
 				</c:forEach>
 			</table>

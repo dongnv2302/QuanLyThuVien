@@ -7,104 +7,107 @@
 <title>Nhân Viên</title>
 
 <!--script export excel  -->
-<script type="text/javascript">var xport = {
-		  _fallbacktoCSV: true,  
-		  toXLS: function(tableId, filename) {   
-		    this._filename = (typeof filename == 'undefined') ? tableId : filename;
-		    
-		    //var ieVersion = this._getMsieVersion();
-		    //Fallback to CSV for IE & Edge
-		    if ((this._getMsieVersion() || this._isFirefox()) && this._fallbacktoCSV) {
-		      return this.toCSV(tableId);
-		    } else if (this._getMsieVersion() || this._isFirefox()) {
-		      alert("Not supported browser");
-		    }
+<script type="text/javascript">
+	var xport = {
+		_fallbacktoCSV : true,
+		toXLS : function(tableId, filename) {
+			this._filename = (typeof filename == 'undefined') ? tableId
+					: filename;
 
-		    //Other Browser can download xls
-		    var htmltable = document.getElementById(tableId);
-		    var html = htmltable.outerHTML;
+			//var ieVersion = this._getMsieVersion();
+			//Fallback to CSV for IE & Edge
+			if ((this._getMsieVersion() || this._isFirefox())
+					&& this._fallbacktoCSV) {
+				return this.toCSV(tableId);
+			} else if (this._getMsieVersion() || this._isFirefox()) {
+				alert("Not supported browser");
+			}
 
-		    this._downloadAnchor("data:application/vnd.ms-excel" + encodeURIComponent(html), 'xls'); 
-		  },
-		  toCSV: function(tableId, filename) {
-		    this._filename = (typeof filename === 'undefined') ? tableId : filename;
-		    // Generate our CSV string from out HTML Table
-		    var csv = this._tableToCSV(document.getElementById(tableId));
-		    // Create a CSV Blob
-		    var blob = new Blob([csv], { type: "text/csv" });
+			//Other Browser can download xls
+			var htmltable = document.getElementById(tableId);
+			var html = htmltable.outerHTML;
 
-		    // Determine which approach to take for the download
-		    if (navigator.msSaveOrOpenBlob) {
-		      // Works for Internet Explorer and Microsoft Edge
-		      navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
-		    } else {      
-		      this._downloadAnchor(URL.createObjectURL(blob), 'csv');      
-		    }
-		  },
-		  _getMsieVersion: function() {
-		    var ua = window.navigator.userAgent;
+			this._downloadAnchor("data:application/vnd.ms-excel"
+					+ encodeURIComponent(html), 'xls');
+		},
+		toCSV : function(tableId, filename) {
+			this._filename = (typeof filename === 'undefined') ? tableId
+					: filename;
+			// Generate our CSV string from out HTML Table
+			var csv = this._tableToCSV(document.getElementById(tableId));
+			// Create a CSV Blob
+			var blob = new Blob([ csv ], {
+				type : "text/csv"
+			});
 
-		    var msie = ua.indexOf("MSIE ");
-		    if (msie > 0) {
-		      // IE 10 or older => return version number
-		      return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-		    }
+			// Determine which approach to take for the download
+			if (navigator.msSaveOrOpenBlob) {
+				// Works for Internet Explorer and Microsoft Edge
+				navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
+			} else {
+				this._downloadAnchor(URL.createObjectURL(blob), 'csv');
+			}
+		},
+		_getMsieVersion : function() {
+			var ua = window.navigator.userAgent;
 
-		    var trident = ua.indexOf("Trident/");
-		    if (trident > 0) {
-		      // IE 11 => return version number
-		      var rv = ua.indexOf("rv:");
-		      return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
-		    }
+			var msie = ua.indexOf("MSIE ");
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)),
+						10);
+			}
 
-		    var edge = ua.indexOf("Edge/");
-		    if (edge > 0) {
-		      // Edge (IE 12+) => return version number
-		      return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
-		    }
+			var trident = ua.indexOf("Trident/");
+			if (trident > 0) {
+				// IE 11 => return version number
+				var rv = ua.indexOf("rv:");
+				return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+			}
 
-		    // other browser
-		    return false;
-		  },
-		  _isFirefox: function(){
-		    if (navigator.userAgent.indexOf("Firefox") > 0) {
-		      return 1;
-		    }
-		    
-		    return 0;
-		  },
-		  _downloadAnchor: function(content, ext) {
-		      var anchor = document.createElement("a");
-		      anchor.style = "display:none !important";
-		      anchor.id = "downloadanchor";
-		      document.body.appendChild(anchor);
+			var edge = ua.indexOf("Edge/");
+			if (edge > 0) {
+				// Edge (IE 12+) => return version number
+				return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)),
+						10);
+			}
 
-		      // If the [download] attribute is supported, try to use it
-		      
-		      if ("download" in anchor) {
-		        anchor.download = this._filename + "." + ext;
-		      }
-		      anchor.href = content;
-		      anchor.click();
-		      anchor.remove();
-		  },
-		  _tableToCSV: function(table) {
-		    // We'll be co-opting `slice` to create arrays
-		    var slice = Array.prototype.slice;
+			// other browser
+			return false;
+		},
+		_isFirefox : function() {
+			if (navigator.userAgent.indexOf("Firefox") > 0) {
+				return 1;
+			}
 
-		    return slice
-		      .call(table.rows)
-		      .map(function(row) {
-		        return slice
-		          .call(row.cells)
-		          .map(function(cell) {
-		            return '"t"'.replace("t", cell.textContent);
-		          })
-		          .join(",");
-		      })
-		      .join("\r\n");
-		  }
-		};
+			return 0;
+		},
+		_downloadAnchor : function(content, ext) {
+			var anchor = document.createElement("a");
+			anchor.style = "display:none !important";
+			anchor.id = "downloadanchor";
+			document.body.appendChild(anchor);
+
+			// If the [download] attribute is supported, try to use it
+
+			if ("download" in anchor) {
+				anchor.download = this._filename + "." + ext;
+			}
+			anchor.href = content;
+			anchor.click();
+			anchor.remove();
+		},
+		_tableToCSV : function(table) {
+			// We'll be co-opting `slice` to create arrays
+			var slice = Array.prototype.slice;
+
+			return slice.call(table.rows).map(function(row) {
+				return slice.call(row.cells).map(function(cell) {
+					return '"t"'.replace("t", cell.textContent);
+				}).join(",");
+			}).join("\r\n");
+		}
+	};
 </script>
 <!--script export excel  -->
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
@@ -264,8 +267,11 @@ form-horizontal {
 
 		</header>
 		<br>
-<p> <button id="btnExport" onclick="javascript:xport.toCSV('myTable');"> Export </button> <em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
-  </p>
+		<p>
+			<button id="btnExport" onclick="javascript:xport.toCSV('myTable');">
+				Export</button>
+			<em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
+		</p>
 		<form:form modelAttribute="staff" action="quanlynhanvien.poly">
 			<table id="myTable">
 
@@ -322,72 +328,96 @@ form-horizontal {
 														title="VD: mls1" />
 												</div>
 											</div>
-											<br><br>
+											<br>
+											<br>
 											<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tên
-											Nhân Viên:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tennhanvien" class="form-control"
-												placeholder="Tên Nhân Viên"  value="${u.tennhanvien}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"  />
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Giới Tính
-											:</label>
-										<div class="col-sm-10" style="width: 350px">
-										<form:input path="gioitinh" class="form-control"
+												<label class="control-label col-sm-2" for="pwd">Tên
+													Nhân Viên:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tennhanvien" class="form-control"
+														placeholder="Tên Nhân Viên" value="${u.tennhanvien}"
+														required="required" pattern="[a-zA-Z0-9\s]+"
+														title="VD: Kim dong" />
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Giới
+													Tính :</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="gioitinh" class="form-control"
 														placeholder="Giới Tính" value="${u.gioitinh}" />
-												
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">SDT
-											:</label>
-										<div class="col-sm-10" style="width: 350px">
-										<form:input path="sdt" class="form-control"
-														placeholder="sdt" value="${u.sdt}" pattern="([0-9])+(?:-?\d){9,13}" title="VD: 097789789"  />
-												
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ngày
-											Sinh:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="ngaysinh" type="date" class="form-control"
-												placeholder="Ngày Sinh" value="${u.ngaysinh}" />
-										</div>
-									</div><br><br>
-									<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Email:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="email" class="form-control"
-											placeholder="huyen@gmail.com" value="${u.email}"/>
-									</div>
-									</div><br><br>
-									<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Chức
-										vụ:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="chucvu" class="form-control"
-											placeholder="Chức vụ" value="${u.chucvu}"/>
-									</div>
-								</div><br><br>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tên
-										đăng nhập:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="tendangnhap" class="form-control"
-											placeholder="Tên đăng nhập" value="${u.tendangnhap}" required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
-									</div>
-								</div><br><br>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Mật
-										khẩu:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" type="password" value="${u.matkhau}"/>
-									</div>
-								</div><br><br>
+
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">SDT
+													:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="sdt" class="form-control"
+														placeholder="sdt" value="${u.sdt}"
+														pattern="([0-9])+(?:-?\d){9,13}" title="VD: 097789789" />
+
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Ngày
+													Sinh:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="ngaysinh" type="date"
+														class="form-control" placeholder="Ngày Sinh"
+														value="${u.ngaysinh}" />
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Email:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="email" class="form-control"
+														placeholder="huyen@gmail.com" value="${u.email}" />
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Chức
+													vụ:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="chucvu" class="form-control"
+														placeholder="Chức vụ" value="${u.chucvu}" />
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tên
+													đăng nhập:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tendangnhap" class="form-control"
+														placeholder="Tên đăng nhập" value="${u.tendangnhap}"
+														required="required" pattern="[a-zA-Z0-9]+"
+														title="VD: Kim dong" />
+												</div>
+											</div>
+											<br>
+											<br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Mật
+													khẩu:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="matkhau" class="form-control"
+														placeholder="mật khẩu" type="password"
+														value="${u.matkhau}" />
+												</div>
+											</div>
+											<br>
+											<br>
 											<div class="form-group">
 												<div class="col-sm-offset-2 col-sm-10">
 													<form:button name="btnUpdate" class="btn btn-success">
@@ -435,7 +465,8 @@ form-horizontal {
 				<c:forEach items="${listSoLuongTrang }" var="u">
 					<li class="page-item"><a
 						<c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>
-						href="quanlynhanvien.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
+						href="quanlynhanvien.poly?phantrangbtn&page=${u }"
+						class="page-link">${u }</a></li>
 				</c:forEach>
 
 				<li class="page-item next"><a
@@ -493,65 +524,68 @@ form-horizontal {
 
 							<div class="container">
 
-									<div class="form-group">
-												<label class="control-label col-sm-2">Mã Nhân Viên:</label>
-												<div class="col-sm-10" style="width: 350px">
+								<div class="form-group">
+									<label class="control-label col-sm-2">Mã Nhân Viên:</label>
+									<div class="col-sm-10" style="width: 350px">
 
-													<form:input path="manhanvien" class="form-control"
-														placeholder="Mã Nhân viên" value="${u.manhanvien}"
-														required="required" pattern="[a-zA-Z0-9]+"
-														title="VD: nv1" />
-												</div>
-											</div>
-											<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tên
-											Nhân Viên:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tennhanvien" class="form-control"
-												placeholder="Tên Nhân Viên"  value="${u.tennhanvien}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"  />
-										</div>
+										<form:input path="manhanvien" class="form-control"
+											placeholder="Mã Nhân viên" value="${u.manhanvien}"
+											required="required" pattern="[a-zA-Z0-9]+" title="VD: nv1" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Giới Tính
-											:</label>
-										<div class="col-sm-10" style="width: 350px">
-										<form:radiobutton path="gioitinh" 
-												placeholder="Giới Tính" value="Nam"/>Nam
-											<form:radiobutton path="gioitinh" 
-												placeholder="Giới Tính" value="Nu"/>Nữ
-												
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tên
+										Nhân Viên:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="tennhanvien" class="form-control"
+											placeholder="Tên Nhân Viên" value="${u.tennhanvien}"
+											required="required" pattern="[a-zA-Z0-9\s]+"
+											title="VD: Kim dong" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">SDT
-											:</label>
-										<div class="col-sm-10" style="width: 350px">
-										<form:input path="sdt" class="form-control" 
-														placeholder="sdt" value="${u.sdt}" pattern="([0-9])+(?:-?\d){9,13}" title="VD: 097789789" />
-												
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Giới
+										Tính :</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:radiobutton path="gioitinh" placeholder="Giới Tính"
+											value="Nam" />
+										Nam
+										<form:radiobutton path="gioitinh" placeholder="Giới Tính"
+											value="Nu" />
+										Nữ
+
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ngày
-											Sinh:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="ngaysinh" type="date" class="form-control"
-												placeholder="Ngày Sinh" value="${u.ngaysinh}" />
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">SDT :</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="sdt" class="form-control" placeholder="sdt"
+											value="${u.sdt}" pattern="([0-9])+(?:-?\d){9,13}"
+											title="VD: 097789789" />
+
 									</div>
-									<div class="form-group">
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Ngày
+										Sinh:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="ngaysinh" type="date" class="form-control"
+											placeholder="Ngày Sinh" value="${u.ngaysinh}" />
+									</div>
+								</div>
+								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
-											placeholder="huyen@gmail.com" value="${u.email}"/>
+											placeholder="huyen@gmail.com" value="${u.email}" />
 									</div>
-									</div>
-									<div class="form-group">
+								</div>
+								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Chức
 										vụ:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="chucvu" class="form-control"
-											placeholder="Chức vụ" value="${u.chucvu}"/>
+											placeholder="Chức vụ" value="${u.chucvu}" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -559,7 +593,9 @@ form-horizontal {
 										đăng nhập:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tendangnhap" class="form-control"
-											placeholder="Tên đăng nhập" value="${u.tendangnhap}" required="required" pattern="[a-zA-Z0-9]+" title="VD: Kim dong"/>
+											placeholder="Tên đăng nhập" value="${u.tendangnhap}"
+											required="required" pattern="[a-zA-Z0-9]+"
+											title="VD: Kim dong" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -567,7 +603,7 @@ form-horizontal {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" type="password" value="${u.matkhau}"/>
+											placeholder="mật khẩu" type="password" value="${u.matkhau}" />
 									</div>
 								</div>
 								<div class="form-group">
