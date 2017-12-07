@@ -292,7 +292,7 @@ form-horizontal {
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Sửa sách</h4>
+									<h4 class="modal-title">Sửa Mã</h4>
 								</div>
 								<div class="modal-body modal-spa">
 									<form:form class="form-horizontal" modelAttribute="ma" action="ma.poly">
@@ -309,7 +309,7 @@ form-horizontal {
 									<br><br>
 											<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Mã loại sách:</label>
-										<div class="col-sm-10" style="width: 350px">
+										<div class="col-sm-10" style="width: 500px">
 											<form:select items="${sach}" path="sach.maloaisach"
 												itemValue="maloaisach" itemLabel="maloaisach"></form:select>
 										</div>
@@ -440,7 +440,7 @@ form-horizontal {
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Mã Loại
 											Sách:</label>
-										<div class="col-sm-10" style="width: 350px">
+										<div class="col-sm-10" style="width: 500px">
 											<form:select items="${sach}" path="sach.maloaisach"
 												itemValue="maloaisach" itemLabel="maloaisach"></form:select>
 										</div>
