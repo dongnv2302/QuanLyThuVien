@@ -6,16 +6,51 @@
 <html>
 <title>W3.CSS Template</title>
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Raleway", sans-serif
+}
+</style>
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #99CCFF
+}
+
+th {
+	background-color: #144E32;
+	color: white;
+}
+
+form-horizontal {
+	line-height: 5px;
 }
 </style>
 <body class="w3-light-grey">
@@ -27,71 +62,64 @@ html, body, h1, h2, h3, h4, h5 {
 			onclick="w3_open();">
 			<i class="fa fa-bars"></i>  Menu
 		</button>
-		<span class="w3-bar-item w3-right">Welcome Admin</span>
+		<span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img
+			src="resources//images/if_User_group_132235.png" width="24"
+			height="24" alt="" /></span>
 	</div>
 
 	<!-- Sidebar/menu -->
 	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
-		<div class="w3-container w3-row">
-			<div class="w3-col s4"></div>
-			<div class="w3-col s8 w3-bar">
-				<span>Welcome, <strong>Mike</strong></span><br> <a href="#"
-					class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a> <a
-					href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+		<center>
+			<div class="w3-container w3-row">
 
-				<a href="../index.html" class="w3-bar-item w3-button"><img
-					src="resources/images/index.png" width="20" height="20" alt="" /></i></a>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
+
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+
+						</ul>
+					</div>
+
+				</div>
 			</div>
-		</div>
+		</center>
 		<hr>
-		<div class="w3-container">
-			<h5>Quản lý</h5>
 
-
-		</div>
 		<div class="w3-bar-block">
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
-				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
+				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.poly"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
-				href="quanlynhanvien.html" class="w3-bar-item w3-button w3-padding"><i
+				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a> <a
-				href="themnv.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm
-				Nhân Viên</a> <a href="sinhvien.html"
-				class="w3-bar-item w3-button w3-padding"><i
+				href="sinhvien.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a> <a
-				href="themsv.html" class="w3-bar-item w3-button w3-padding w3-blue">Thêm
-				Sinh Viên</a> <a href="sach.html"
-				class="w3-bar-item w3-button w3-padding"><i
+				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
-				href="themsach.html"
-				class="w3-bar-item w3-button w3-padding w3-blue">Thêm Sách</a> <a
-				href="danhmuc.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a
-				href="themdanhmuc.html"
-				class="w3-bar-item w3-button w3-padding w3-blue">Thêm danh mục </a>
-
-			<a href="Ma.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="themma.html"
-				class="w3-bar-item w3-button w3-padding w3-blue">Thêm Mã</a> <a
-				href="dmls.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
-				href="them_dmls.html"
-				class="w3-bar-item w3-button w3-padding w3-blue">Thêm Danh Mục
-				Loại Sách</a> <a href="muontra.html"
+				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
+				class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
+				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
-				href="themmuontra.html"
-				class="w3-bar-item w3-button w3-padding w3-blue">Thêm Mượn trả</a> <a
-				href="muontract.html" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a> <a
-				href="them_mtct.html"
-				class="w3-bar-item w3-button w3-padding w3-blue">Thêm mượn trả
-				chi tiết </a>
+				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
+
 
 
 		</div>
@@ -109,17 +137,14 @@ html, body, h1, h2, h3, h4, h5 {
 		<!-- Header -->
 		<header class="w3-container" style="padding-top: 22px">
 			<h5>
-				<b><i class="fa fa-dashboard"></i> Danh sách sinh viên</b>
+				<b><i class="fa fa-dashboard"></i> Danh sách Truy Cập</b>
 			</h5>
 			<div id="search" style="float: right">
 
-				<form class="searchform" action="" method="get">
+				<form class="searchform" action="seachsv">
 
-					<input class="s"
-						onfocus="if (this.value == 'Search this website …') {this.value = '';}"
-						onblur="if (this.value == '') {this.value = 'Search this website …';}"
-						type="text" name="s" value="Search this website …" /> <input
-						class="searchsubmit" type="submit" value="Search" />
+					<input class="s" id="myInput" onkeyup="myFunction()" type="text"
+						name="data" placeholder="Tìm kiếm" />
 
 				</form>
 
@@ -137,7 +162,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<h3>52</h3>
 					</div>
 					<div class="w3-clear"></div>
-					<h4>Messages</h4>
+					<h4>Tin Nhắn</h4>
 				</div>
 			</div>
 			<div class="w3-quarter">
@@ -149,7 +174,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<h3>99</h3>
 					</div>
 					<div class="w3-clear"></div>
-					<h4>Views</h4>
+					<h4>Lượt xem</h4>
 				</div>
 			</div>
 			<div class="w3-quarter">
@@ -161,7 +186,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<h3>23</h3>
 					</div>
 					<div class="w3-clear"></div>
-					<h4>Shares</h4>
+					<h4>Chia sẻ</h4>
 				</div>
 			</div>
 			<div class="w3-quarter">
@@ -173,7 +198,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<h3>50</h3>
 					</div>
 					<div class="w3-clear"></div>
-					<h4>Users</h4>
+					<h4>Người dùng</h4>
 				</div>
 			</div>
 		</div>

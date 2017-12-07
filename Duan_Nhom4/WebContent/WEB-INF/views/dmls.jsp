@@ -4,8 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
-<title>W3.CSS Template</title>
-<!--script export excel  -->
+<title>Danh Mục Loại Sách</title>
 <script type="text/javascript">var xport = {
 		  _fallbacktoCSV: true,  
 		  toXLS: function(tableId, filename) {   
@@ -105,8 +104,6 @@
 		  }
 		};
 </script>
-<!--script export excel  -->
-
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <meta charset="UTF-8">
@@ -193,7 +190,7 @@ th {
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
-				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
+				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.poly"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
 				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
@@ -215,7 +212,7 @@ th {
 
 
 
-
+		
 		</div>
 	</nav>
 
@@ -235,7 +232,7 @@ th {
 			</h5>
 
 
-			<a href="#" data-toggle="modal" data-target="#myModal1"
+			<a href="#" data-toggle="modal" data-target="#myModal"
 				class="offer-img"><button type="button" class="btn btn-success">
 					<img src="resources/images/if_edit1.png" width="24" height="24"
 						alt="" />Thêm
@@ -258,8 +255,8 @@ th {
 		<br>
 <p> <button id="btnExport" onclick="javascript:xport.toCSV('myTable');"> Export </button> <em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
   </p>
-		<form:form modelAttribute="dmls" action="dmls.poly" >
-			<table id="myTable">
+		<form:form modelAttribute="dmls" action="dmls.poly" id="myTable">
+			<table>
 				<tr>
 					<th>Mã Loại Sách</th>
 					<th>Mã Danh Mục</th>
@@ -271,12 +268,87 @@ th {
 						<td>${u.maloaisach}</td>
 						<td>${u.danhmuc.madanhmuc}</td>
 
-						<td><a href="dmls.poly?lnkEdit&maloaisach=${u.maloaisach}">Edit</a></td>
+						<td><a href="#" data-toggle="modal"
+							data-target="#myModal1${u.maloaisach}" class="offer-img"><button
+									type="button" class="btn btn-info">Edit</button></a></td>
 
 					</tr>
+					<!-- Modal -->
+  <div class="modal fade" id="myModal1${u.maloaisach}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sửa </h4>
+        </div>
+        <div class="modal-body modal-spa">
+          	<form:form class="form-horizontal" modelAttribute="dmls">
+							<div class="container">
+
+								<div class="form-group">
+									<label class="control-label col-sm-2">Mã loại sách:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="maloaisach" class="form-control"
+											placeholder="Mã loại sách" value="${u.maloaisach}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"></form:input>
+									</div>
+								</div><br><br>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Mã
+										danh mục:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
+													itemValue="madanhmuc" itemLabel="madanhmuc" value="${u.danhmuc.madanhmuc}"></form:select>
+									</div>
+								</div><br><br>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+
+
+										
+										<form:button name="btnUpdate" class="btn btn-success">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />Sửa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:button name="btnDelete" class="btn btn-success"
+											onclick="return confirm('Bạn có muốn xóa hay không?');">
+											<img src="resources/images/if_edit1.png" width="24"
+												height="24" alt="" />Xóa
+										</form:button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</div>
+								</div>
+							</div>
+						</form:form>
+        </div>
+        <div class="clearfix"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
 				</c:forEach>
 			</table>
 		</form:form>
+
+
+<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
+       <c:if test="${danhsach!=0}">
+	<ul class="pagination" id="pagination" style="float: right;box-shadow: 1px 1px 5px #888888;">
+	<li class="page-item first"><a href="dmls.poly?phantrangbtn&page=${trangdau }" class="page-link">Trang đầu</a></li>
+	<li class="page-item prev"><a href="dmls.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>" class="page-link"><</a></li>
+	
+	<c:forEach items="${listSoLuongTrang }" var="u">
+	<li class="page-item"><a <c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>  href="dmls.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
+	</c:forEach>
+	
+	<li class="page-item next"><a href="dmls.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>" class="page-link">></a></li>
+	<li class="page-item last"><a href="dmls.poly?phantrangbtn&page=${trangcuoi }" class="page-link">Trang cuối</a></li>
+</ul>
+<br><br>
+</c:if>
 
 
 	</div>
@@ -306,7 +378,7 @@ th {
 			overlayBg.style.display = "none";
 		}
 	</script>
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-info">
@@ -317,27 +389,25 @@ th {
 					</button>
 				</div>
 				<div class="modal-body modal-spa">
-
 					<div class="col-md-7 span-1 ">
-						<div class="container">
-							<h2 style="color: #390">Thêm Danh Mục Loại Sách</h2>
+						<h2 style="color: #390">Thêm </h2>
 							<form:form class="form-horizontal" modelAttribute="dmls"
 								action="dmls.poly">
 								<div class="container">
 
 									<div class="form-group">
 										<label class="control-label col-sm-2">Mã Loại Sách</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại Sách" required="required" pattern="[a-zA-Z0-9]+" title="VD: PD01754"/>
+												placeholder="Mã Loại Sách" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1" />
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Mã
 											Danh Mục:</label>
-										<div class="col-sm-10" style="width: 500px">
+										<div class="col-sm-10" style="width: 350px">
 											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
-												itemValue="madanhmuc" itemLabel="tendanhmuc"></form:select>
+													itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
 										</div>
 									</div>
 
@@ -349,26 +419,16 @@ th {
 												<img src="resources/images/if_Add_to_basket_132292.png"
 													width="24" height="24" alt="" />Thêm
 										</form:button>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<form:button name="btnUpdate" class="btn btn-success">
-												<img src="resources/images/if_edit1.png" width="24"
-													height="24" alt="" />Sửa
-										</form:button>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<form:button name="btnDelete" class="btn btn-success"
-												onclick="return confirm('Bạn có muốn xóa hay không?');">
-												<img src="resources/images/if_edit1.png" width="24"
-													height="24" alt="" />xóa
-										</form:button>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</div>
 									</div>
 								</div>
 							</form:form>
 						</div>
-
-					</div>
 					<div class="clearfix"></div>
+					
+					</div>
+					</div>
+					</div>
 				</div>
 				<script>
 					function myFunction() {

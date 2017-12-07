@@ -58,7 +58,7 @@ public class LoginController {
 		} else {
 			redirect = null;
 			try {
-				response.sendRedirect("sinhvien.poly");
+				response.sendRedirect("demo.poly");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}

@@ -205,7 +205,7 @@ form-horizontal {
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
-				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
+				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.poly"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
 				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
@@ -324,7 +324,7 @@ form-horizontal {
 													<form:input path="masinhvien" class="form-control"
 														placeholder="Mã sinh viên" value="${u.masinhvien}"
 														required="required"
-														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$"
+														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"
 														title="VD: PD01754"></form:input>
 												</div>
 												<br> <br>
@@ -510,7 +510,7 @@ form-horizontal {
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
 											placeholder="Mã sinh viên" required="required"
-											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$" title="VD: PD01754"></form:input>
+											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: PD01754"></form:input>
 									</div>
 								</div>
 								<div class="form-group">

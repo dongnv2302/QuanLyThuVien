@@ -121,7 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<div class="main-agileits">
 			<div class="form-w3agile">
-				<h3>Login</h3>
+				<h3>Đăng Nhập</h3>
 				<form:form action="login.poly" method="POST" modelAttribute="users">
 					<div class="key">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -135,7 +135,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="clearfix"></div>
 					</div>
 					<form:button class="button">
-						Login
+						Đăng Nhập
 				        </form:button>
 				</form:form>
 				<c:if test="${not empty message }">
@@ -143,8 +143,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</c:if>
 			</div>
 			<div class="forg">
-				<a href="#" class="forg-left">Forgot Password</a> <a
-					href="register.html" class="forg-right">Register</a>
+				<a href="#" class="forg-left">Quên Mật khẩu</a> <a
+					href="dangky.poly" class="forg-right">Đăng kí</a>
 				<div class="clearfix"></div>
 			</div>
 		</div>
