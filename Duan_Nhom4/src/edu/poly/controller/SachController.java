@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.poy.bean.Danhmuc;
 import edu.poy.bean.Ma;
 import edu.poy.bean.Sach;
 import edu.poy.bean.Sinhvien;
@@ -45,7 +46,15 @@ public class SachController {
 		model.addAttribute("listSoLuongTrang", listSoLuongTrang(list, model));//
 		return phantrangsach(vitrihientai, list);
 	}
-
+	@ModelAttribute("danhmuc")
+	public List<Danhmuc> getDanhmucs() {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Danhmuc";
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Danhmuc> list = query.list();
+		return list;
+	}
 	@RequestMapping(params = "btnInsert")
 	public String insert(ModelMap model, @ModelAttribute("Sach") Sach sach) {
 		Session session = factory.openSession();

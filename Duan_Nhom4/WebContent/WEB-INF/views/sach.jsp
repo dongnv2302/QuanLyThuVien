@@ -214,9 +214,7 @@ form-horizontal {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
-				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
 				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
@@ -270,6 +268,7 @@ form-horizontal {
 			<table id="myTable">
 				<tr>
 					<th>Mã loại sách</th>
+					<th>Mã Danh Mục</th>
 					<th>Tên sách</th>
 					<th>Tác giả</th>
 					<th>Nhà xuất bản</th>
@@ -285,6 +284,7 @@ form-horizontal {
 				<c:forEach var="u" items="${sachs}">
 					<tr>
 						<td>${u.maloaisach}</td>
+						<td>${u.danhmuc.madanhmuc}</td>
 						<td>${u.tensach}</td>
 						<td>${u.tacgia}</td>
 						<td>${u.nhaxuatban}</td>
@@ -324,6 +324,15 @@ form-horizontal {
 
 											<form:input path="maloaisach" class="form-control"
 												placeholder="Mã Loại sách" value="${u.maloaisach}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mls1"/>
+										</div>
+									</div>
+									<br><br>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Mã
+											Danh Mục:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
+												itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
 										</div>
 									</div>
 									<br><br>
@@ -520,6 +529,14 @@ form-horizontal {
 
 											<form:input path="maloaisach" class="form-control"
 												placeholder="Mã Loại sách" value="${u.maloaisach}"  required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="pwd">Mã
+											Danh Mục:</label>
+										<div class="col-sm-10" style="width: 500px">
+											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
+												itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
 										</div>
 									</div>
 									<div class="form-group">

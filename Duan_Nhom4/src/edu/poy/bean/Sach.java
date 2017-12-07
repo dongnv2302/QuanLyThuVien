@@ -5,18 +5,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="sach")
 public class Sach {
 	@Id
 	@Column(name = "MaLoaiSach")
 	private String maloaisach;
+	@ManyToOne
+	@JoinColumn(name="madanhmuc")
+	Danhmuc danhmuc;
 	@Column(name = "TenSach")
 	private String tensach;
 	@Column(name = "TacGia")
@@ -37,30 +38,17 @@ public class Sach {
 	private String sotrang;
 	@Column(name = "Mota")
 	private String mota;
-	public Sach() {
-		super();
-		
-	}
-	public Sach(String maloaisach, String tensach, String tacgia, String nhaxuatban, String ngayxuatban,
-			String ngaynhap, String giasach, String tinhtrang, String anhbia, String sotrang, String mota) {
-		super();
-		this.maloaisach = maloaisach;
-		this.tensach = tensach;
-		this.tacgia = tacgia;
-		this.nhaxuatban = nhaxuatban;
-		this.ngayxuatban = ngayxuatban;
-		this.ngaynhap = ngaynhap;
-		this.giasach = giasach;
-		this.tinhtrang = tinhtrang;
-		this.anhbia = anhbia;
-		this.sotrang = sotrang;
-		this.mota = mota;
-	}
 	public String getMaloaisach() {
 		return maloaisach;
 	}
 	public void setMaloaisach(String maloaisach) {
 		this.maloaisach = maloaisach;
+	}
+	public Danhmuc getDanhmuc() {
+		return danhmuc;
+	}
+	public void setDanhmuc(Danhmuc danhmuc) {
+		this.danhmuc = danhmuc;
 	}
 	public String getTensach() {
 		return tensach;
