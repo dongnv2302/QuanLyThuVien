@@ -4,10 +4,10 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/dangky.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/lienhe.jsp=UTF-8
-encoding//src/edu/poly/controller/BookController.java=UTF-8
 encoding//src/edu/poly/controller/DangkyController.java=UTF-8
 encoding//src/edu/poly/controller/DanhMucController.java=UTF-8
 encoding//src/edu/poly/controller/MaController.java=UTF-8
-encoding//src/edu/poly/controller/StaffController.java=UTF-8
+encoding//src/edu/poly/controller/NhanVienController.java=UTF-8
+encoding//src/edu/poly/controller/SachController.java=UTF-8
 encoding//src/edu/poy/bean/Sach.java=UTF-8
 encoding//src/edu/poy/bean/Sinhvien.java=UTF-8

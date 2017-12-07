@@ -310,7 +310,7 @@ form-horizontal {
 									<h4 class="modal-title">Sửa Nhân Viên</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="staff">
+									<form:form class="form-horizontal" modelAttribute="staff" action="quanlynhanvien.poly">
 										<div class="container">
 											<div class="form-group">
 												<label class="control-label col-sm-2">Mã Nhân Viên:</label>
@@ -318,7 +318,7 @@ form-horizontal {
 
 													<form:input path="manhanvien" class="form-control"
 														placeholder="Mã Nhân viên" value="${u.manhanvien}"
-														required="required" pattern="[a-zA-Z0-9]+"
+														required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" 
 														title="VD: mls1" />
 												</div>
 											</div>
@@ -336,7 +336,7 @@ form-horizontal {
 											:</label>
 										<div class="col-sm-10" style="width: 350px">
 										<form:input path="gioitinh" class="form-control"
-														placeholder="Giới Tính" value="${u.gioitinh}" />
+														placeholder="Giới Tính" value="${u.gioitinh}"  required="required"/>
 												
 										</div>
 									</div><br><br>
@@ -354,14 +354,14 @@ form-horizontal {
 											Sinh:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngaysinh" type="date" class="form-control"
-												placeholder="Ngày Sinh" value="${u.ngaysinh}" />
+												placeholder="Ngày Sinh" value="${u.ngaysinh}"  required="required" />
 										</div>
 									</div><br><br>
 									<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
-											placeholder="huyen@gmail.com" value="${u.email}"/>
+											placeholder="huyen@gmail.com" value="${u.email}"  required="required"/>
 									</div>
 									</div><br><br>
 									<div class="form-group">
@@ -369,7 +369,7 @@ form-horizontal {
 										vụ:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="chucvu" class="form-control"
-											placeholder="Chức vụ" value="${u.chucvu}"/>
+											placeholder="Chức vụ" value="${u.chucvu}"  required="required"/>
 									</div>
 								</div><br><br>
 								<div class="form-group">
@@ -385,7 +385,7 @@ form-horizontal {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" type="password" value="${u.matkhau}"/>
+											placeholder="mật khẩu" type="password" value="${u.matkhau}"  required="required"/>
 									</div>
 								</div><br><br>
 											<div class="form-group">
@@ -499,7 +499,7 @@ form-horizontal {
 
 													<form:input path="manhanvien" class="form-control"
 														placeholder="Mã Nhân viên" value="${u.manhanvien}"
-														required="required" pattern="[a-zA-Z0-9]+"
+														required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" 
 														title="VD: nv1" />
 												</div>
 											</div>
@@ -536,14 +536,14 @@ form-horizontal {
 											Sinh:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngaysinh" type="date" class="form-control"
-												placeholder="Ngày Sinh" value="${u.ngaysinh}" />
+												placeholder="Ngày Sinh" value="${u.ngaysinh}"  required="required"/>
 										</div>
 									</div>
 									<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">Email:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="email" class="form-control"
-											placeholder="huyen@gmail.com" value="${u.email}"/>
+											placeholder="huyen@gmail.com" value="${u.email}"  required="required"/>
 									</div>
 									</div>
 									<div class="form-group">
@@ -551,7 +551,7 @@ form-horizontal {
 										vụ:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="chucvu" class="form-control"
-											placeholder="Chức vụ" value="${u.chucvu}"/>
+											placeholder="Chức vụ" value="${u.chucvu}"  required="required"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -567,7 +567,7 @@ form-horizontal {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" type="password" value="${u.matkhau}"/>
+											placeholder="mật khẩu" type="password" value="${u.matkhau}"  required="required"/>
 									</div>
 								</div>
 								<div class="form-group">

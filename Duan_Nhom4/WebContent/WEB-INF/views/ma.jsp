@@ -295,24 +295,23 @@ form-horizontal {
 									<h4 class="modal-title">Sửa sách</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="ma">
+									<form:form class="form-horizontal" modelAttribute="ma" action="ma.poly">
 										<div class="container">
 
 											<div class="form-group">
-										<label class="control-label col-sm-2">Mã so sách:</label>
+										<label class="control-label col-sm-2">Mã số sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="masosach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.masosach}" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+												placeholder="Mã Loại sách" value="${u.masosach}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"/>
 										</div>
 									</div>
 									<br><br>
 											<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tên
-											Sách:</label>
+										<label class="control-label col-sm-2" for="pwd">Mã loại sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:select items="${sach}" path="sach.maloaisach"
-												itemValue="maloaisach" itemLabel="tensach"></form:select>
+												itemValue="maloaisach" itemLabel="maloaisach"></form:select>
 										</div>
 									</div><br><br>
 
@@ -435,7 +434,7 @@ form-horizontal {
 										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="masosach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.masosach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+												placeholder="Mã Loại sách" value="${u.masosach}"  required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mls1"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -443,7 +442,7 @@ form-horizontal {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:select items="${sach}" path="sach.maloaisach"
-												itemValue="maloaisach" itemLabel="tensach"></form:select>
+												itemValue="maloaisach" itemLabel="maloaisach"></form:select>
 										</div>
 									</div>
 
@@ -452,7 +451,7 @@ form-horizontal {
 											:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tinhtrang" class="form-control"
-												placeholder="Tình trạng" value="${u.tinhtrang}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
+												placeholder="Tình trạng" value="${u.tinhtrang}"  required="required" pattern="[a-zA-Z0-9\s]+"   title="VD: Kim dong"/>
 										</div>
 									</div>
 									
