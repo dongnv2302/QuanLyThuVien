@@ -23,7 +23,7 @@ import edu.poy.bean.Staff;
 @Transactional
 @RequestMapping("quanlynhanvien.poly")
 @Controller
-public class StaffController {
+public class NhanVienController {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping()

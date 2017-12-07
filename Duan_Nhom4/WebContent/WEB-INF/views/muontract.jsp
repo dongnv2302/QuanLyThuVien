@@ -306,7 +306,7 @@ form-horizontal {
 									<h4 class="modal-title">Sửa Mượn trả Chi Tiết</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="muontract">
+									<form:form class="form-horizontal" modelAttribute="muontract" action="muontract.poly">>
 										<div class="container">
 
 											<div class="form-group">
@@ -314,7 +314,7 @@ form-horizontal {
 										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="mamuontra" class="form-control"
-												placeholder="Mã Loại sách" value="${u.mamuontra}" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+												placeholder="Mã Loại sách" value="${u.mamuontra}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mls1"/>
 										</div>
 									</div>
 									<br><br>
@@ -322,7 +322,7 @@ form-horizontal {
 										<label class="control-label col-sm-2" for="pwd">Mã Số sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:select items="${ma}" path="ma.masosach"
-													itemValue="masosach" itemLabel="tinhtrang"></form:select>
+													itemValue="masosach" itemLabel="masosach"></form:select>
 										</div>
 									</div><br><br>
 
@@ -474,7 +474,7 @@ form-horizontal {
 										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="mamuontra" class="form-control"
-												placeholder="Mã Loại sách" value="${u.mamuontra}" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+												placeholder="Mã Loại sách" value="${u.mamuontra}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mt1"/>
 										</div>
 									</div>
 											<div class="form-group">
@@ -482,7 +482,7 @@ form-horizontal {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:select items="${ma}" path="ma.masosach"
-													itemValue="masosach" itemLabel="tinhtrang"></form:select>
+													itemValue="masosach" itemLabel="masosach"></form:select>
 										</div>
 									</div>
 

@@ -23,7 +23,7 @@ import edu.poy.bean.Sinhvien;
 @Transactional
 @RequestMapping("sach.poly")
 @Controller
-public class BookController {
+public class SachController {
 	@Autowired
 	SessionFactory factory;
 

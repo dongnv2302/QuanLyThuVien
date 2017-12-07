@@ -315,7 +315,7 @@ form-horizontal {
 									<h4 class="modal-title">Sửa sách</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="sach">
+									<form:form class="form-horizontal" modelAttribute="sach" action="sach.poly">>
 										<div class="container">
 
 											<div class="form-group">
@@ -323,7 +323,7 @@ form-horizontal {
 										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.maloaisach}" required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+												placeholder="Mã Loại sách" value="${u.maloaisach}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mls1"/>
 										</div>
 									</div>
 									<br><br>
@@ -332,7 +332,7 @@ form-horizontal {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách"  value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"  />
+												placeholder="Tên sách"  value="${u.tensach}"  required="required" pattern="[a-zA-Z\s]+" title="VD: Kim dong"  />
 										</div>
 									</div><br><br>
 
@@ -358,7 +358,7 @@ form-horizontal {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngayxuatban" type="date" class="form-control"
-												placeholder="Ngày xuất bản" value="${u.ngayxuatban}" />
+												placeholder="Ngày xuất bản" value="${u.ngayxuatban}" required="required" />
 										</div>
 									</div><br><br>
 									<div class="form-group">
@@ -366,7 +366,7 @@ form-horizontal {
 											nhập:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngaynhap" type="date" class="form-control"
-												placeholder="Ngày nhập" value="${u.ngaynhap}" />
+												placeholder="Ngày nhập" value="${u.ngaynhap}" required="required"/>
 										</div>
 									</div><br><br>
 									<div class="form-group">
@@ -382,7 +382,7 @@ form-horizontal {
 											trạng:</label>
 										<div class="col-sm-10" style="width: 350px">
 										<form:input path="tinhtrang" class="form-control"
-														placeholder="Tình trạng" value="${u.tinhtrang}" />
+														placeholder="Tình trạng" value="${u.tinhtrang}" required="required" />
 												
 										</div>
 									</div><br><br>
@@ -406,7 +406,7 @@ form-horizontal {
 										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="mota" class="form-control"
-												placeholder="Mô tả" value="${u.mota}" />
+												placeholder="Mô tả" value="${u.mota}" required="required" />
 										</div>
 									</div><br><br>
 											<div class="form-group">
@@ -519,7 +519,7 @@ form-horizontal {
 										<div class="col-sm-10" style="width: 350px">
 
 											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.maloaisach}"  required="required" pattern="[a-zA-Z0-9]+" title="VD: mls1"/>
+												placeholder="Mã Loại sách" value="${u.maloaisach}"  required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -527,7 +527,7 @@ form-horizontal {
 											Sách:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách" value="${u.tensach}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
+												placeholder="Tên sách" value="${u.tensach}"  required="required" pattern="[a-zA-Z\s]+" title="VD: Kim dong"/>
 										</div>
 									</div>
 
@@ -553,15 +553,15 @@ form-horizontal {
 											xuất bản:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngayxuatban" type="date" class="form-control"
-												placeholder="Ngày xuất bản" value="${u.ngayxuatban}"/>
+												placeholder="Ngày xuất bản" value="${u.ngayxuatban}" required="required"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="pwd">Ngày
-											nh?p:</label>
+											nhập:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="ngaynhap" type="date" class="form-control"
-												placeholder="Ngày nhập" value="${u.ngaynhap}" />
+												placeholder="Ngày nhập" value="${u.ngaynhap}" required="required"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -589,7 +589,7 @@ form-horizontal {
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="anhbia" class="form-control" type="file"
 														name="fileUpload" placeholder="Ảnh bìa"
-														value="/resources/images/${u.anhbia}" />
+														value="/resources/images/${u.anhbia}" required="required" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -604,7 +604,7 @@ form-horizontal {
 										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
 										<div class="col-sm-10" style="width: 350px">
 											<form:input path="mota" class="form-control"
-												placeholder="Mô tả" value="${u.mota}" />
+												placeholder="Mô tả" value="${u.mota}" required="required" />
 										</div>
 									</div>
 								<div class="form-group">
