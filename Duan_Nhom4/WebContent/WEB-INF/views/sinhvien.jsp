@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
-<title>W3.CSS Template</title>
+<title>Sinh viên</title>
 <!--script export excel  -->
 <script type="text/javascript">
 	var xport = {

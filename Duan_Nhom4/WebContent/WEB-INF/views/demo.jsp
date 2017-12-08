@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
-<title>W3.CSS Template</title>
+<title>Index</title>
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <meta charset="UTF-8">
