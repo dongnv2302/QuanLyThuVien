@@ -378,7 +378,7 @@ form-horizontal {
 						đầu</a></li>
 				<li class="page-item prev"><a
 					href="ma.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
-					class="page-link"></a></li>
+					class="page-link"><</a></li>
 
 				<c:forEach items="${listSoLuongTrang }" var="u">
 					<li class="page-item"><a

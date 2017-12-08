@@ -54,9 +54,9 @@ public class SinhvienController {
 		try {
 			session.save(sinhvien);
 			transaction.commit();
-			model.addAttribute("message", "Insert successfully !");
+			model.addAttribute("message", "Thêm thành công !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Insert fails !");
+			model.addAttribute("message", "Thêm lỗi !");
 			transaction.rollback();
 		}
 		session.close();
@@ -72,9 +72,9 @@ public class SinhvienController {
 		try {
 			session.update(sinhvien);
 			transaction.commit();
-			model.addAttribute("message", "Update successfully !");
+			model.addAttribute("message", "Sửa thành công !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Update fails !");
+			model.addAttribute("message", "Sửa thất bại!");
 			transaction.rollback();
 		}
 		session.close();
@@ -89,9 +89,9 @@ public class SinhvienController {
 		try {
 			session.delete(sinhvien);
 			transaction.commit();
-			model.addAttribute("message", "Delete successfully !");
+			model.addAttribute("message", "Xóa thành công !");
 		} catch (Exception e) {
-			model.addAttribute("message", "Delete fails !");
+			model.addAttribute("message", "Xóa thất bại !");
 			transaction.rollback();
 		}
 		session.close();

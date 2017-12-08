@@ -444,7 +444,7 @@ form-horizontal {
 				</c:forEach>
 			</table>
 			<center>
-				<h3 style="color: red">${message}</h3>
+				<h4 style="color: red">${message}</h4>
 			</center>
 		</form:form>
 		<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
@@ -456,7 +456,7 @@ form-horizontal {
 					class="page-link">Trang đầu</a></li>
 				<li class="page-item prev"><a
 					href="quanlynhanvien.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
-					class="page-link"></a></li>
+					class="page-link"><</a></li>
 
 				<c:forEach items="${listSoLuongTrang }" var="u">
 					<li class="page-item"><a
@@ -524,7 +524,7 @@ form-horizontal {
 									<label class="control-label col-sm-2">Mã Nhân Viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="manhanvien" class="form-control"
-											placeholder="Mã Nhân viên" value="${u.manhanvien}"
+											placeholder="PD01759" value="${u.manhanvien}"
 											required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$"
 											title="VD: NV01754" />
 									</div>
@@ -534,7 +534,7 @@ form-horizontal {
 										Nhân Viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tennhanvien" class="form-control"
-											placeholder="Tên Nhân Viên" value="${u.tennhanvien}"
+											placeholder=" Tran Thi Thanh Huyen" value="${u.tennhanvien}"
 											required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,50}$"
 											title="VD: Nguyen Van Dong" />
 									</div>
@@ -554,7 +554,7 @@ form-horizontal {
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="pwd">SDT :</label>
 									<div class="col-sm-10" style="width: 350px">
-										<form:input path="sdt" class="form-control" placeholder="sdt"
+										<form:input path="sdt" class="form-control" placeholder="097789789"
 											value="${u.sdt}" pattern="([0-9])+(?:-?\d){9,13}"
 											title="VD: 097789789" required="required"/>
 									</div>
@@ -581,7 +581,7 @@ form-horizontal {
 										vụ:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="chucvu" class="form-control"
-											placeholder="Chức vụ" value="${u.chucvu}" required="required" />
+											placeholder="Admin" value="${u.chucvu}" required="required" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -589,9 +589,9 @@ form-horizontal {
 										đăng nhập:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tendangnhap" class="form-control"
-											placeholder="Tên đăng nhập" value="${u.tendangnhap}"
+											placeholder="huyen" value="${u.tendangnhap}"
 											required="required" pattern="[a-zA-Z0-9]+"
-											title="VD: Kim dong"  />
+											title="VD: Kimdong"  />
 									</div>
 								</div>
 								<div class="form-group">
@@ -599,7 +599,7 @@ form-horizontal {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" class="form-control"
-											placeholder="mật khẩu" type="password" value="${u.matkhau}"
+											placeholder="*****" type="password" value="${u.matkhau}"
 											required="required" />
 									</div>
 								</div>

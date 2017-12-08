@@ -433,6 +433,9 @@ form-horizontal {
 
 				</c:forEach>
 			</table>
+			<center>
+				<h4 style="color: red">${message}</h4>
+			</center>
 		</form:form>
 		<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
 		<c:if test="${danhsach!=0}">
@@ -510,7 +513,7 @@ form-horizontal {
 									<label class="control-label col-sm-2">Mã sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
-											placeholder="Mã sinh viên" required="required"
+											placeholder="PD01754" required="required"
 											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$" title="VD: PD01754"></form:input>
 									</div>
 								</div>
@@ -519,7 +522,7 @@ form-horizontal {
 										sinh viên:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tensinhvien" class="form-control"
-											placeholder="Tên sinh viên" required="required"
+											placeholder="Nguyen Van Dong" required="required"
 											pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
 											title="VD: Nguyen Van Dong" />
 									</div>
@@ -577,7 +580,7 @@ form-horizontal {
 										khẩu:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="matkhau" type="password"
-											class="form-control" placeholder="mật khẩu" />
+											class="form-control" placeholder="******" />
 									</div>
 								</div>
 								<div class="form-group">

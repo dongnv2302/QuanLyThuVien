@@ -482,7 +482,7 @@ form-horizontal {
 				</c:forEach>
 			</table>
 			<center>
-				<h3 style="color: red">${message}</h3>
+				<h4 style="color: red">${message}</h4>
 			</center>
 		</form:form>
 		<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
@@ -562,8 +562,8 @@ form-horizontal {
 									<div class="col-sm-10" style="width: 350px">
 
 										<form:input path="maloaisach" class="form-control"
-											placeholder="Mã Loại sách" value="${u.maloaisach}"
-											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$" title="VD: mls1" />
+											placeholder="mls01" value="${u.maloaisach}"
+											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$" title="VD: mls01" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -579,7 +579,7 @@ form-horizontal {
 										Sách:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tensach" class="form-control"
-											placeholder="Tên sách" value="${u.tensach}"
+											placeholder="Kim dong" value="${u.tensach}"
 											required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
 											title="VD: Kim dong" />
 									</div>
@@ -590,7 +590,7 @@ form-horizontal {
 										giả:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tacgia" class="form-control"
-											placeholder="Tác giả" value="${u.tacgia}" required="required"
+											placeholder="Kim dong" value="${u.tacgia}" required="required"
 											pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$" title="VD: Kim dong" />
 									</div>
 								</div>
@@ -599,7 +599,7 @@ form-horizontal {
 										xuất bản:</label>
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="nhaxuatban" class="form-control"
-											placeholder="Nhà xuất bản" value="${u.nhaxuatban}"
+											placeholder="Kim dong" value="${u.nhaxuatban}"
 											required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
 											title="VD: Kim dong" />
 									</div>
