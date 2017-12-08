@@ -136,10 +136,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="main-agileits">
 			<div class="form-w3agile">
 				<h3>Đăng Nhập</h3>
-				<form:form action="login.poly" method="POST" modelAttribute="users">
+				<form:form action="loginsv.poly" method="POST" modelAttribute="users">
 					<div class="key">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
-						<form:input path="tendangnhap" placeholder="User Name" />
+						<form:input path="masinhvien" placeholder="User Name" />
 						<div class="clearfix"></div>
 					</div>
 

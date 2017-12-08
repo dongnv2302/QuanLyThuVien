@@ -108,7 +108,7 @@ public class NhanVienController {
 			List<Staff> l = danhsach;
 			List<Staff> lreturn = new ArrayList<>();
 			// lay ra 10 item
-			for (int i = (vitrihientai - 1) * 10; i < (vitrihientai) * 10; i++) {
+			for (int i = (vitrihientai - 1) * 7; i < (vitrihientai) * 7; i++) {
 				try {
 					lreturn.add(l.get(i));
 				} catch (Exception e) {
@@ -122,7 +122,7 @@ public class NhanVienController {
 		// số lượng button bấm chuyển trang
 		public List<Integer> listSoLuongTrang(List<Staff> danhsach, ModelMap model) {
 			List<Integer> lreturn = new ArrayList<>();
-			double temp = Double.parseDouble(danhsach.size() + "") / 10.0;
+			double temp = Double.parseDouble(danhsach.size() + "") / 7.0;
 			int tempfor = (int) Math.ceil(temp);
 			int a = 3;
 			int b = 3;
