@@ -97,7 +97,11 @@
 			anchor.remove();
 		},
 		_tableToCSV : function(table) {
+<<<<<<< HEAD
 			// We'll be co-opting slice to create arrays
+=======
+			// We'll be co-opting `slice` to create arrays
+>>>>>>> bec742d78ce0d1cb11d9bd326bd2f590994cc37b
 			var slice = Array.prototype.slice;
 
 			return slice.call(table.rows).map(function(row) {
@@ -196,7 +200,11 @@ th {
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
+<<<<<<< HEAD
 				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
+=======
+				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
+>>>>>>> bec742d78ce0d1cb11d9bd326bd2f590994cc37b
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
 				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
 				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
@@ -208,9 +216,15 @@ th {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
+<<<<<<< HEAD
 				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
 				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
+=======
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
+				class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
+>>>>>>> bec742d78ce0d1cb11d9bd326bd2f590994cc37b
 				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
