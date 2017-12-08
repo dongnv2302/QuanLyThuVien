@@ -97,13 +97,9 @@
 			anchor.remove();
 		},
 		_tableToCSV : function(table) {
-<<<<<<< HEAD
 			// We'll be co-opting slice to create arrays
-=======
 			// We'll be co-opting `slice` to create arrays
->>>>>>> bec742d78ce0d1cb11d9bd326bd2f590994cc37b
 			var slice = Array.prototype.slice;
-
 			return slice.call(table.rows).map(function(row) {
 				return slice.call(row.cells).map(function(cell) {
 					return '"t"'.replace("t", cell.textContent);
@@ -200,35 +196,23 @@ th {
 			<a href="#"
 				class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
 				onclick="w3_close()" title="close menu"><i
-<<<<<<< HEAD
-				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
-=======
-				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.html"
->>>>>>> bec742d78ce0d1cb11d9bd326bd2f590994cc37b
+				class="fa fa-remove fa-fw"></i>  Close Menu</a> <a href="demo.poly"
 				class="w3-bar-item w3-button w3-padding w3-blue"><i
-				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
+				class="fa fa-users fa-fw"></i>  Trang Chủ</a> <a
 				href="quanlynhanvien.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a> <a
+				class="fa fa-eye fa-fw"></i>  Quản Lý Nhân Viên</a> <a
 				href="sinhvien.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a> <a
+				class="fa fa-users fa-fw"></i>  Quản Lý Sinh Viên</a> <a
 				href="sach.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
+				class="fa fa-bullseye fa-fw"></i>  Quản Lý Sách</a> <a
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
+				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-<<<<<<< HEAD
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
-				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
-=======
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a> <a href="dmls.poly"
-				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Danh Mục Loại Sách</a> <a
->>>>>>> bec742d78ce0d1cb11d9bd326bd2f590994cc37b
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
 				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
+				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
+				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
 
 
 
@@ -329,7 +313,7 @@ th {
 													sinh viên :</label>
 												<div class="col-sm-10" style="width: 500px">
 													<form:select items="${sinhvien}" path="sinhvien.masinhvien"
-														itemValue="masinhvien" itemLabel="tensinhvien"
+														itemValue="masinhvien" itemLabel="masinhvien"
 														value="${u.sinhvien.masinhvien} " required="required"></form:select>
 												</div>
 											</div>
@@ -480,7 +464,7 @@ th {
 											sinh viên :</label>
 										<div class="col-sm-10" style="width: 500px">
 											<form:select items="${sinhvien}" path="sinhvien.masinhvien"
-												itemValue="masinhvien" itemLabel="tensinhvien"
+												itemValue="masinhvien" itemLabel="masinhvien"
 												required="required"></form:select>
 										</div>
 									</div>

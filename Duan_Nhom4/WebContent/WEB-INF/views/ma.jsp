@@ -255,7 +255,7 @@ form-horizontal {
 		<br>
 <p> <button id="btnExport" onclick="javascript:xport.toCSV('myTable');"> Export </button> <em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
   </p>
-		<form:form modelAttribute="sach" action="sach.poly">
+		<form:form modelAttribute="ma" action="ma.poly">
 			<table id="myTable">
 				<tr>
 					<th>Mã Số sách</th>
