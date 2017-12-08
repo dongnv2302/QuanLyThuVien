@@ -144,7 +144,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="forg">
 				<a href="#" class="forg-left">Quên Mật khẩu</a> <a
-					href="dangky.poly" class="forg-right">Đăng kí</a>
+					href="dangky.poly" class="forg-right">Đăng ký</a>
 				<div class="clearfix"></div>
 			</div>
 		</div>

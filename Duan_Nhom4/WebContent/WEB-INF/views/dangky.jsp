@@ -286,12 +286,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<form:errors path="*" element="ul" />
 					<div class="key">
 						<i class="fa fa-user" aria-hidden="true"></i>
-						<form:input path="masinhvien" />
+						<form:input path="masinhvien" required="required"
+														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"
+														title="VD: PD01754" ></form:input>
 						<div class="clearfix"></div>
 					</div>
 					<div class="key">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
-						<form:input path="tensinhvien" />
+						<form:input path="tensinhvien" required="required"/>
 						<div class="clearfix"></div>
 					</div>
 					<div class="key">
@@ -309,7 +311,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="key">
 						<i class="fa fa-birthday-cake" aria-hidden="true"></i>
-						<form:input type="date" path="ngaysinh" />
+						<form:input type="date" path="ngaysinh" required="required"/>
 						<div class="clearfix"></div>
 					</div>
 					<div class="key">
@@ -319,12 +321,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="key">
 						<i class="fa fa-mobile" aria-hidden="true"></i>
-						<form:input path="email" />
+						<form:input path="email" required="required" />
 						<div class="clearfix"></div>
 					</div>
 					<div class="key">
 						<i class="fa fa-lock" aria-hidden="true"></i>
-						<form:password path="matkhau" />
+						<form:password path="matkhau" required="required"/>
 						<div class="clearfix"></div>
 					</div>
 					<form:button class="btn btn-success">

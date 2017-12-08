@@ -44,16 +44,16 @@ public class LoginController {
 		@SuppressWarnings("unchecked")
 		List<Staff> list = query.list();
 		if (users.getTendangnhap().isEmpty() && users.getMatkhau().isEmpty()) {
-			model.addAttribute("message", "You are not empty");
+			model.addAttribute("message", "Vui lòng điền thông tin");
 			redirect = "login";
 		} else if (users.getTendangnhap().isEmpty()) {
-			model.addAttribute("message", "You have not entered the username");
+			model.addAttribute("message", "Vui lòng nhập Tên đăng nhập");
 			redirect = "login";
 		} else if (users.getMatkhau().isEmpty()) {
-			model.addAttribute("message", "You have not entered the password");
+			model.addAttribute("message", "Vui lòng nhập mật khẩu");
 			redirect = "login";
 		} else if (list.isEmpty()) {
-			model.addAttribute("message", "You have entered the incorrect username or password");
+			model.addAttribute("message", "Mật khẩu hoặc tên đăng nhập sai");
 			redirect = "login";
 		} else {
 			redirect = null;
