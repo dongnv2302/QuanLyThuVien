@@ -5,118 +5,127 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <title>Quản lí mã</title>
-<script type="text/javascript">var xport = {
-		  _fallbacktoCSV: true,  
-		  toXLS: function(tableId, filename) {   
-		    this._filename = (typeof filename == 'undefined') ? tableId : filename;
-		    
-		    //var ieVersion = this._getMsieVersion();
-		    //Fallback to CSV for IE & Edge
-		    if ((this._getMsieVersion() || this._isFirefox()) && this._fallbacktoCSV) {
-		      return this.toCSV(tableId);
-		    } else if (this._getMsieVersion() || this._isFirefox()) {
-		      alert("Not supported browser");
-		    }
+<script type="text/javascript">
+	var xport = {
+		_fallbacktoCSV : true,
+		toXLS : function(tableId, filename) {
+			this._filename = (typeof filename == 'undefined') ? tableId
+					: filename;
 
-		    //Other Browser can download xls
-		    var htmltable = document.getElementById(tableId);
-		    var html = htmltable.outerHTML;
+			//var ieVersion = this._getMsieVersion();
+			//Fallback to CSV for IE & Edge
+			if ((this._getMsieVersion() || this._isFirefox())
+					&& this._fallbacktoCSV) {
+				return this.toCSV(tableId);
+			} else if (this._getMsieVersion() || this._isFirefox()) {
+				alert("Not supported browser");
+			}
 
-		    this._downloadAnchor("data:application/vnd.ms-excel" + encodeURIComponent(html), 'xls'); 
-		  },
-		  toCSV: function(tableId, filename) {
-		    this._filename = (typeof filename === 'undefined') ? tableId : filename;
-		    // Generate our CSV string from out HTML Table
-		    var csv = this._tableToCSV(document.getElementById(tableId));
-		    // Create a CSV Blob
-		    var blob = new Blob([csv], { type: "text/csv" });
+			//Other Browser can download xls
+			var htmltable = document.getElementById(tableId);
+			var html = htmltable.outerHTML;
 
-		    // Determine which approach to take for the download
-		    if (navigator.msSaveOrOpenBlob) {
-		      // Works for Internet Explorer and Microsoft Edge
-		      navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
-		    } else {      
-		      this._downloadAnchor(URL.createObjectURL(blob), 'csv');      
-		    }
-		  },
-		  _getMsieVersion: function() {
-		    var ua = window.navigator.userAgent;
+			this._downloadAnchor("data:application/vnd.ms-excel"
+					+ encodeURIComponent(html), 'xls');
+		},
+		toCSV : function(tableId, filename) {
+			this._filename = (typeof filename === 'undefined') ? tableId
+					: filename;
+			// Generate our CSV string from out HTML Table
+			var csv = this._tableToCSV(document.getElementById(tableId));
+			// Create a CSV Blob
+			var blob = new Blob([ csv ], {
+				type : "text/csv"
+			});
 
-		    var msie = ua.indexOf("MSIE ");
-		    if (msie > 0) {
-		      // IE 10 or older => return version number
-		      return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-		    }
+			// Determine which approach to take for the download
+			if (navigator.msSaveOrOpenBlob) {
+				// Works for Internet Explorer and Microsoft Edge
+				navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
+			} else {
+				this._downloadAnchor(URL.createObjectURL(blob), 'csv');
+			}
+		},
+		_getMsieVersion : function() {
+			var ua = window.navigator.userAgent;
 
-		    var trident = ua.indexOf("Trident/");
-		    if (trident > 0) {
-		      // IE 11 => return version number
-		      var rv = ua.indexOf("rv:");
-		      return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
-		    }
+			var msie = ua.indexOf("MSIE ");
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)),
+						10);
+			}
 
-		    var edge = ua.indexOf("Edge/");
-		    if (edge > 0) {
-		      // Edge (IE 12+) => return version number
-		      return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
-		    }
+			var trident = ua.indexOf("Trident/");
+			if (trident > 0) {
+				// IE 11 => return version number
+				var rv = ua.indexOf("rv:");
+				return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+			}
 
-		    // other browser
-		    return false;
-		  },
-		  _isFirefox: function(){
-		    if (navigator.userAgent.indexOf("Firefox") > 0) {
-		      return 1;
-		    }
-		    
-		    return 0;
-		  },
-		  _downloadAnchor: function(content, ext) {
-		      var anchor = document.createElement("a");
-		      anchor.style = "display:none !important";
-		      anchor.id = "downloadanchor";
-		      document.body.appendChild(anchor);
+			var edge = ua.indexOf("Edge/");
+			if (edge > 0) {
+				// Edge (IE 12+) => return version number
+				return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)),
+						10);
+			}
 
-		      // If the [download] attribute is supported, try to use it
-		      
-		      if ("download" in anchor) {
-		        anchor.download = this._filename + "." + ext;
-		      }
-		      anchor.href = content;
-		      anchor.click();
-		      anchor.remove();
-		  },
-		  _tableToCSV: function(table) {
-		    // We'll be co-opting `slice` to create arrays
-		    var slice = Array.prototype.slice;
+			// other browser
+			return false;
+		},
+		_isFirefox : function() {
+			if (navigator.userAgent.indexOf("Firefox") > 0) {
+				return 1;
+			}
 
-		    return slice
-		      .call(table.rows)
-		      .map(function(row) {
-		        return slice
-		          .call(row.cells)
-		          .map(function(cell) {
-		            return '"t"'.replace("t", cell.textContent);
-		          })
-		          .join(",");
-		      })
-		      .join("\r\n");
-		  }
-		};
+			return 0;
+		},
+		_downloadAnchor : function(content, ext) {
+			var anchor = document.createElement("a");
+			anchor.style = "display:none !important";
+			anchor.id = "downloadanchor";
+			document.body.appendChild(anchor);
+
+			// If the [download] attribute is supported, try to use it
+
+			if ("download" in anchor) {
+				anchor.download = this._filename + "." + ext;
+			}
+			anchor.href = content;
+			anchor.click();
+			anchor.remove();
+		},
+		_tableToCSV : function(table) {
+			// We'll be co-opting `slice` to create arrays
+			var slice = Array.prototype.slice;
+
+			return slice.call(table.rows).map(function(row) {
+				return slice.call(row.cells).map(function(cell) {
+					return '"t"'.replace("t", cell.textContent);
+				}).join(",");
+			}).join("\r\n");
+		}
+	};
 </script>
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Raleway", sans-serif
@@ -205,8 +214,8 @@ form-horizontal {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
-				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a href="muontra.poly"
+				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
@@ -253,8 +262,11 @@ form-horizontal {
 
 		</header>
 		<br>
-<p> <button id="btnExport" onclick="javascript:xport.toCSV('myTable');"> Export </button> <em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
-  </p>
+		<p>
+			<button id="btnExport" onclick="javascript:xport.toCSV('myTable');">
+				Export</button>
+			<em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
+		</p>
 		<form:form modelAttribute="ma" action="ma.poly">
 			<table id="myTable">
 				<tr>
@@ -287,34 +299,43 @@ form-horizontal {
 									<h4 class="modal-title">Sửa Mã</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="ma" action="ma.poly">
+									<form:form class="form-horizontal" modelAttribute="ma"
+										action="ma.poly">
 										<div class="container">
 
 											<div class="form-group">
-										<label class="control-label col-sm-2">Mã số sách:</label>
-										<div class="col-sm-10" style="width: 350px">
+												<label class="control-label col-sm-2">Mã số sách:</label>
+												<div class="col-sm-10" style="width: 350px">
 
-											<form:input path="masosach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.masosach}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"/>
-										</div>
-									</div>
-									<br><br>
+													<form:input path="masosach" class="form-control"
+														placeholder="Mã Loại sách" value="${u.masosach}"
+														required="required"
+														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$"
+														title="VD: mls01" />
+												</div>
+											</div>
+											<br> <br>
 											<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Mã loại sách:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:select items="${sach}" path="sach.maloaisach"
-												itemValue="maloaisach" itemLabel="maloaisach"></form:select>
-										</div>
-									</div><br><br>
+												<label class="control-label col-sm-2" for="pwd">Mã
+													loại sách:</label>
+												<div class="col-sm-10" style="width: 500px">
+													<form:select items="${sach}" path="sach.maloaisach"
+														itemValue="maloaisach" itemLabel="maloaisach"></form:select>
+												</div>
+											</div>
+											<br> <br>
 
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tình Trạng
-											:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tinhtrang" class="form-control"
-												placeholder="Tình Trạng" value="${u.tinhtrang}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kimdong"/>
-										</div>
-									</div><br><br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tình
+													Trạng :</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tinhtrang" class="form-control"
+														placeholder="Tình Trạng" value="${u.tinhtrang}"
+														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+														title="VD: Kim dong" />
+												</div>
+											</div>
+											<br> <br>
 											<div class="form-group">
 												<div class="col-sm-offset-2 col-sm-10">
 													<form:button name="btnUpdate" class="btn btn-success">
@@ -353,11 +374,11 @@ form-horizontal {
 			<ul class="pagination" id="pagination"
 				style="float: right; box-shadow: 1px 1px 5px #888888;">
 				<li class="page-item first"><a
-					href="ma.poly?phantrangbtn&page=${trangdau }"
-					class="page-link">Trang đầu</a></li>
+					href="ma.poly?phantrangbtn&page=${trangdau }" class="page-link">Trang
+						đầu</a></li>
 				<li class="page-item prev"><a
 					href="ma.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
-					class="page-link"><</a></li>
+					class="page-link"></a></li>
 
 				<c:forEach items="${listSoLuongTrang }" var="u">
 					<li class="page-item"><a
@@ -369,13 +390,13 @@ form-horizontal {
 					href="ma.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>"
 					class="page-link">></a></li>
 				<li class="page-item last"><a
-					href="ma.poly?phantrangbtn&page=${trangcuoi }"
-					class="page-link">Trang cuối</a></li>
+					href="ma.poly?phantrangbtn&page=${trangcuoi }" class="page-link">Trang
+						cuối</a></li>
 			</ul>
 			<br>
 			<br>
 		</c:if>
-		
+
 	</div>
 	<script src="resources/js/jquery-1.11.1.min.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
@@ -422,31 +443,35 @@ form-horizontal {
 							<div class="container">
 
 								<div class="form-group">
-										<label class="control-label col-sm-2">Mã Số sách:</label>
-										<div class="col-sm-10" style="width: 350px">
+									<label class="control-label col-sm-2">Mã Số sách:</label>
+									<div class="col-sm-10" style="width: 350px">
 
-											<form:input path="masosach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.masosach}"  required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mls1"/>
-										</div>
+										<form:input path="masosach" class="form-control"
+											placeholder="Mã Loại sách" value="${u.masosach}"
+											required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$"
+											title="VD: mls01" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Mã Loại
-											Sách:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:select items="${sach}" path="sach.maloaisach"
-												itemValue="maloaisach" itemLabel="maloaisach"></form:select>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Mã Loại
+										Sách:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:select items="${sach}" path="sach.maloaisach"
+											itemValue="maloaisach" itemLabel="maloaisach"></form:select>
 									</div>
+								</div>
 
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tình Trạng
-											:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tinhtrang" class="form-control"
-												placeholder="Tình trạng" value="${u.tinhtrang}"  required="required" pattern="[a-zA-Z0-9\s]+"   title="VD: Kim dong"/>
-										</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tình
+										Trạng :</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="tinhtrang" class="form-control"
+											placeholder="Tình trạng" value="${u.tinhtrang}"
+											required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+											title="VD: Kim dong" />
 									</div>
-									
+								</div>
+
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 

@@ -7,104 +7,107 @@
 <title>Sách</title>
 
 <!--script export excel  -->
-<script type="text/javascript">var xport = {
-		  _fallbacktoCSV: true,  
-		  toXLS: function(tableId, filename) {   
-		    this._filename = (typeof filename == 'undefined') ? tableId : filename;
-		    
-		    //var ieVersion = this._getMsieVersion();
-		    //Fallback to CSV for IE & Edge
-		    if ((this._getMsieVersion() || this._isFirefox()) && this._fallbacktoCSV) {
-		      return this.toCSV(tableId);
-		    } else if (this._getMsieVersion() || this._isFirefox()) {
-		      alert("Not supported browser");
-		    }
+<script type="text/javascript">
+	var xport = {
+		_fallbacktoCSV : true,
+		toXLS : function(tableId, filename) {
+			this._filename = (typeof filename == 'undefined') ? tableId
+					: filename;
 
-		    //Other Browser can download xls
-		    var htmltable = document.getElementById(tableId);
-		    var html = htmltable.outerHTML;
+			//var ieVersion = this._getMsieVersion();
+			//Fallback to CSV for IE & Edge
+			if ((this._getMsieVersion() || this._isFirefox())
+					&& this._fallbacktoCSV) {
+				return this.toCSV(tableId);
+			} else if (this._getMsieVersion() || this._isFirefox()) {
+				alert("Not supported browser");
+			}
 
-		    this._downloadAnchor("data:application/vnd.ms-excel" + encodeURIComponent(html), 'xls'); 
-		  },
-		  toCSV: function(tableId, filename) {
-		    this._filename = (typeof filename === 'undefined') ? tableId : filename;
-		    // Generate our CSV string from out HTML Table
-		    var csv = this._tableToCSV(document.getElementById(tableId));
-		    // Create a CSV Blob
-		    var blob = new Blob([csv], { type: "text/csv" });
+			//Other Browser can download xls
+			var htmltable = document.getElementById(tableId);
+			var html = htmltable.outerHTML;
 
-		    // Determine which approach to take for the download
-		    if (navigator.msSaveOrOpenBlob) {
-		      // Works for Internet Explorer and Microsoft Edge
-		      navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
-		    } else {      
-		      this._downloadAnchor(URL.createObjectURL(blob), 'csv');      
-		    }
-		  },
-		  _getMsieVersion: function() {
-		    var ua = window.navigator.userAgent;
+			this._downloadAnchor("data:application/vnd.ms-excel"
+					+ encodeURIComponent(html), 'xls');
+		},
+		toCSV : function(tableId, filename) {
+			this._filename = (typeof filename === 'undefined') ? tableId
+					: filename;
+			// Generate our CSV string from out HTML Table
+			var csv = this._tableToCSV(document.getElementById(tableId));
+			// Create a CSV Blob
+			var blob = new Blob([ csv ], {
+				type : "text/csv"
+			});
 
-		    var msie = ua.indexOf("MSIE ");
-		    if (msie > 0) {
-		      // IE 10 or older => return version number
-		      return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-		    }
+			// Determine which approach to take for the download
+			if (navigator.msSaveOrOpenBlob) {
+				// Works for Internet Explorer and Microsoft Edge
+				navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
+			} else {
+				this._downloadAnchor(URL.createObjectURL(blob), 'csv');
+			}
+		},
+		_getMsieVersion : function() {
+			var ua = window.navigator.userAgent;
 
-		    var trident = ua.indexOf("Trident/");
-		    if (trident > 0) {
-		      // IE 11 => return version number
-		      var rv = ua.indexOf("rv:");
-		      return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
-		    }
+			var msie = ua.indexOf("MSIE ");
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)),
+						10);
+			}
 
-		    var edge = ua.indexOf("Edge/");
-		    if (edge > 0) {
-		      // Edge (IE 12+) => return version number
-		      return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
-		    }
+			var trident = ua.indexOf("Trident/");
+			if (trident > 0) {
+				// IE 11 => return version number
+				var rv = ua.indexOf("rv:");
+				return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+			}
 
-		    // other browser
-		    return false;
-		  },
-		  _isFirefox: function(){
-		    if (navigator.userAgent.indexOf("Firefox") > 0) {
-		      return 1;
-		    }
-		    
-		    return 0;
-		  },
-		  _downloadAnchor: function(content, ext) {
-		      var anchor = document.createElement("a");
-		      anchor.style = "display:none !important";
-		      anchor.id = "downloadanchor";
-		      document.body.appendChild(anchor);
+			var edge = ua.indexOf("Edge/");
+			if (edge > 0) {
+				// Edge (IE 12+) => return version number
+				return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)),
+						10);
+			}
 
-		      // If the [download] attribute is supported, try to use it
-		      
-		      if ("download" in anchor) {
-		        anchor.download = this._filename + "." + ext;
-		      }
-		      anchor.href = content;
-		      anchor.click();
-		      anchor.remove();
-		  },
-		  _tableToCSV: function(table) {
-		    // We'll be co-opting `slice` to create arrays
-		    var slice = Array.prototype.slice;
+			// other browser
+			return false;
+		},
+		_isFirefox : function() {
+			if (navigator.userAgent.indexOf("Firefox") > 0) {
+				return 1;
+			}
 
-		    return slice
-		      .call(table.rows)
-		      .map(function(row) {
-		        return slice
-		          .call(row.cells)
-		          .map(function(cell) {
-		            return '"t"'.replace("t", cell.textContent);
-		          })
-		          .join(",");
-		      })
-		      .join("\r\n");
-		  }
-		};
+			return 0;
+		},
+		_downloadAnchor : function(content, ext) {
+			var anchor = document.createElement("a");
+			anchor.style = "display:none !important";
+			anchor.id = "downloadanchor";
+			document.body.appendChild(anchor);
+
+			// If the [download] attribute is supported, try to use it
+
+			if ("download" in anchor) {
+				anchor.download = this._filename + "." + ext;
+			}
+			anchor.href = content;
+			anchor.click();
+			anchor.remove();
+		},
+		_tableToCSV : function(table) {
+			// We'll be co-opting `slice` to create arrays
+			var slice = Array.prototype.slice;
+
+			return slice.call(table.rows).map(function(row) {
+				return slice.call(row.cells).map(function(cell) {
+					return '"t"'.replace("t", cell.textContent);
+				}).join(",");
+			}).join("\r\n");
+		}
+	};
 </script>
 <!--script export excel  -->
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
@@ -214,8 +217,8 @@ form-horizontal {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
-				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a href="muontra.poly"
+				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
@@ -262,8 +265,11 @@ form-horizontal {
 
 		</header>
 		<br>
-<p> <button id="btnExport" onclick="javascript:xport.toCSV('myTable');"> Export </button> <em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
-  </p>
+		<p>
+			<button id="btnExport" onclick="javascript:xport.toCSV('myTable');">
+				Export</button>
+			<em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
+		</p>
 		<form:form modelAttribute="sach" action="sach.poly">
 			<table id="myTable">
 				<tr>
@@ -315,109 +321,137 @@ form-horizontal {
 									<h4 class="modal-title">Sửa sách</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="sach" action="sach.poly">>
+									<form:form class="form-horizontal" modelAttribute="sach"
+										action="sach.poly">>
 										<div class="container">
 
 											<div class="form-group">
-										<label class="control-label col-sm-2">Mã loại sách:</label>
-										<div class="col-sm-10" style="width: 350px">
+												<label class="control-label col-sm-2">Mã loại sách:</label>
+												<div class="col-sm-10" style="width: 350px">
 
-											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.maloaisach}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"  title="VD: mls1"/>
-										</div>
-									</div>
-									<br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Mã
-											Danh Mục:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
-												itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
-										</div>
-									</div>
-									<br><br>
+													<form:input path="maloaisach" class="form-control"
+														placeholder="Mã Loại sách" value="${u.maloaisach}"
+														required="required"
+														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$" title="VD: mls1" />
+												</div>
+											</div>
+											<br> <br>
 											<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tên
-											Sách:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách"  value="${u.tensach}"  required="required" pattern="[a-zA-Z\s]+" title="VD: Kim dong"  />
-										</div>
-									</div><br><br>
+												<label class="control-label col-sm-2" for="pwd">Mã
+													Danh Mục:</label>
+												<div class="col-sm-10" style="width: 500px">
+													<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
+														itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tên
+													Sách:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tensach" class="form-control"
+														placeholder="Tên sách" value="${u.tensach}"
+														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+														title="VD: Kim dong" />
+												</div>
+											</div>
+											<br> <br>
 
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tác
-											giả:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tacgia" class="form-control"
-												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kimdong"/>
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Nhà
-											xuất bản:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
-										</div>
-									</div><br><br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tác
+													giả:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tacgia" class="form-control"
+														placeholder="Tác giả" value="${u.tacgia}"
+														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+														title="VD: Kimdong" />
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Nhà
+													xuất bản:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="nhaxuatban" class="form-control"
+														placeholder="Nhà xuất bản" value="${u.nhaxuatban}"
+														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+														title="VD: Kim dong" />
+												</div>
+											</div>
+											<br> <br>
 
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ngày
-											xuất bản:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="ngayxuatban" type="date" class="form-control"
-												placeholder="Ngày xuất bản" value="${u.ngayxuatban}" required="required" />
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ngày
-											nhập:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="ngaynhap" type="date" class="form-control"
-												placeholder="Ngày nhập" value="${u.ngaynhap}" required="required"/>
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Giá
-											sách:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="giasach" class="form-control"
-												placeholder="Giá sách" value="${u.giasach}" required="required" pattern="([1-9])+(?:-?\d){3,}" title="VD: 1754"/>
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tình
-											trạng:</label>
-										<div class="col-sm-10" style="width: 350px">
-										<form:input path="tinhtrang" class="form-control"
-														placeholder="Tình trạng" value="${u.tinhtrang}" required="required" />
-												
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ảnh
-											bìa:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="anhbia" class="form-control" type="file"
-												name="fileUpload" placeholder="Ảnh bìa" value="${u.anhbia}"/>
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Số
-											trang:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="sotrang" class="form-control"
-												placeholder="Số trang"  value="${u.sotrang}" required="required" pattern="([1-9])+(?:-?\d){1,}" title="VD: 754"/>
-										</div>
-									</div><br><br>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="mota" class="form-control"
-												placeholder="Mô tả" value="${u.mota}" required="required" />
-										</div>
-									</div><br><br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Ngày
+													xuất bản:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="ngayxuatban" type="date"
+														class="form-control" placeholder="Ngày xuất bản"
+														value="${u.ngayxuatban}" required="required" />
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Ngày
+													nhập:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="ngaynhap" type="date"
+														class="form-control" placeholder="Ngày nhập"
+														value="${u.ngaynhap}" required="required" />
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Giá
+													sách:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="giasach" class="form-control"
+														placeholder="Giá sách" value="${u.giasach}"
+														required="required" pattern="([1-9])+(?:-?\d){3,}"
+														title="VD: 1754" />
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tình
+													trạng:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tinhtrang" class="form-control"
+														placeholder="Tình trạng" value="${u.tinhtrang}"
+														required="required" />
+
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Ảnh
+													bìa:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="anhbia" class="form-control" type="file"
+														name="fileUpload" placeholder="Ảnh bìa"
+														value="${u.anhbia}" />
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Số
+													trang:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="sotrang" class="form-control"
+														placeholder="Số trang" value="${u.sotrang}"
+														required="required" pattern="([1-9])+(?:-?\d){0,}"
+														title="VD: 754" />
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Mô
+													tả:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="mota" class="form-control"
+														placeholder="Mô tả" value="${u.mota}" required="required" />
+												</div>
+											</div>
+											<br> <br>
 											<div class="form-group">
 												<div class="col-sm-offset-2 col-sm-10">
 													<form:button name="btnUpdate" class="btn btn-success">
@@ -456,8 +490,8 @@ form-horizontal {
 			<ul class="pagination" id="pagination"
 				style="float: right; box-shadow: 1px 1px 5px #888888;">
 				<li class="page-item first"><a
-					href="sach.poly?phantrangbtn&page=${trangdau }"
-					class="page-link">Trang đầu</a></li>
+					href="sach.poly?phantrangbtn&page=${trangdau }" class="page-link">Trang
+						đầu</a></li>
 				<li class="page-item prev"><a
 					href="sach.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
 					class="page-link"><</a></li>
@@ -472,8 +506,8 @@ form-horizontal {
 					href="sach.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>"
 					class="page-link">></a></li>
 				<li class="page-item last"><a
-					href="sach.poly?phantrangbtn&page=${trangcuoi }"
-					class="page-link">Trang cuối</a></li>
+					href="sach.poly?phantrangbtn&page=${trangcuoi }" class="page-link">Trang
+						cuối</a></li>
 			</ul>
 			<br>
 			<br>
@@ -524,106 +558,120 @@ form-horizontal {
 							<div class="container">
 
 								<div class="form-group">
-										<label class="control-label col-sm-2">Mã loại sách:</label>
-										<div class="col-sm-10" style="width: 350px">
+									<label class="control-label col-sm-2">Mã loại sách:</label>
+									<div class="col-sm-10" style="width: 350px">
 
-											<form:input path="maloaisach" class="form-control"
-												placeholder="Mã Loại sách" value="${u.maloaisach}"  required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"/>
-										</div>
+										<form:input path="maloaisach" class="form-control"
+											placeholder="Mã Loại sách" value="${u.maloaisach}"
+											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$" title="VD: mls1" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Mã
-											Danh Mục:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
-												itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Mã Danh
+										Mục:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:select items="${danhmuc}" path="danhmuc.madanhmuc"
+											itemValue="madanhmuc" itemLabel="madanhmuc"></form:select>
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tên
-											Sách:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tensach" class="form-control"
-												placeholder="Tên sách" value="${u.tensach}"  required="required" pattern="[a-zA-Z\s]+" title="VD: Kim dong"/>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tên
+										Sách:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="tensach" class="form-control"
+											placeholder="Tên sách" value="${u.tensach}"
+											required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+											title="VD: Kim dong" />
 									</div>
+								</div>
 
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tác
-											giả:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="tacgia" class="form-control"
-												placeholder="Tác giả" value="${u.tacgia}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
-										</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tác
+										giả:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="tacgia" class="form-control"
+											placeholder="Tác giả" value="${u.tacgia}" required="required"
+											pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$" title="VD: Kim dong" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Nhà
-											xuất bản:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="nhaxuatban" class="form-control"
-												placeholder="Nhà xuất bản" value="${u.nhaxuatban}"  required="required" pattern="[a-zA-Z0-9\s]+" title="VD: Kim dong"/>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Nhà
+										xuất bản:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="nhaxuatban" class="form-control"
+											placeholder="Nhà xuất bản" value="${u.nhaxuatban}"
+											required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
+											title="VD: Kim dong" />
 									</div>
+								</div>
 
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ngày
-											xuất bản:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="ngayxuatban" type="date" class="form-control"
-												placeholder="Ngày xuất bản" value="${u.ngayxuatban}" required="required"/>
-										</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Ngày
+										xuất bản:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="ngayxuatban" type="date"
+											class="form-control" placeholder="Ngày xuất bản"
+											value="${u.ngayxuatban}" required="required" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ngày
-											nhập:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="ngaynhap" type="date" class="form-control"
-												placeholder="Ngày nhập" value="${u.ngaynhap}" required="required"/>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Ngày
+										nhập:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="ngaynhap" type="date" class="form-control"
+											placeholder="Ngày nhập" value="${u.ngaynhap}"
+											required="required" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Giá
-											sách:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="giasach" class="form-control"
-												placeholder="Giá sách" value="${u.giasach}" required="required" pattern="([1-9])+(?:-?\d){3,}" title="VD: 1754"/>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Giá
+										sách:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="giasach" class="form-control"
+											placeholder="Giá sách" value="${u.giasach}"
+											required="required" pattern="([1-9])+(?:-?\d){3,}"
+											title="VD: 1754" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tình
-											trạng:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:radiobutton path="tinhtrang" 
-												placeholder="Tình trạng" value="Moi"/>Mới
-											<form:radiobutton path="tinhtrang" 
-												placeholder="Tình trạng" value="Cu"/>Cũ
-												
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tình
+										trạng:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:radiobutton path="tinhtrang" placeholder="Tình trạng"
+											value="Moi" />
+										Mới
+										<form:radiobutton path="tinhtrang" placeholder="Tình trạng"
+											value="Cu" />
+										Cũ
+
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Ảnh
-											bìa:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="anhbia" class="form-control" type="file"
-														name="fileUpload" placeholder="Ảnh bìa"
-														value="/resources/images/${u.anhbia}" required="required" />
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Ảnh
+										bìa:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="anhbia" class="form-control" type="file"
+											name="fileUpload" placeholder="Ảnh bìa"
+											value="/resources/images/${u.anhbia}" required="required" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Số
-											trang:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="sotrang" class="form-control"
-												placeholder="Số trang" value="${u.sotrang}" required="required" pattern="([1-9])+(?:-?\d){1,}" title="VD: 754"/>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Số
+										trang:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="sotrang" class="form-control"
+											placeholder="Số trang" value="${u.sotrang}"
+											required="required" pattern="([1-9])+(?:-?\d){0,}"
+											title="VD: 754" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
-										<div class="col-sm-10" style="width: 350px">
-											<form:input path="mota" class="form-control"
-												placeholder="Mô tả" value="${u.mota}" required="required" />
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Mô tả:</label>
+									<div class="col-sm-10" style="width: 350px">
+										<form:input path="mota" class="form-control"
+											placeholder="Mô tả" value="${u.mota}" required="required" />
 									</div>
+								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 

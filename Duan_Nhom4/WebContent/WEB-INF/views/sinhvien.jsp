@@ -217,8 +217,8 @@ form-horizontal {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
-				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a href="muontra.poly"
+				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
@@ -313,7 +313,8 @@ form-horizontal {
 									<h4 class="modal-title">Sửa Sinh Viên</h4>
 								</div>
 								<div class="modal-body modal-spa">
-									<form:form class="form-horizontal" modelAttribute="sinhvien" action="sinhvien.poly">
+									<form:form class="form-horizontal" modelAttribute="sinhvien"
+										action="sinhvien.poly">
 										<div class="container">
 
 											<div class="form-group">
@@ -322,7 +323,7 @@ form-horizontal {
 													<form:input path="masinhvien" class="form-control"
 														placeholder="Mã sinh viên" value="${u.masinhvien}"
 														required="required"
-														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$"
+														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$"
 														title="VD: PD01754"></form:input>
 												</div>
 												<br> <br>
@@ -333,7 +334,7 @@ form-horizontal {
 												<div class="col-sm-10" style="width: 350px">
 													<form:input path="tensinhvien" class="form-control"
 														placeholder="Tên sinh viên" value="${u.tensinhvien}"
-														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{5,20}$"
+														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
 														title="VD: Nguyen Van Dong"></form:input>
 												</div>
 												<br> <br>
@@ -377,8 +378,9 @@ form-horizontal {
 												<label class="control-label col-sm-2" for="pwd">Email:</label>
 												<div class="col-sm-10" style="width: 350px">
 													<form:input path="email" class="form-control"
-														placeholder="Tên đăng nhập" value="${u.email}" required="required"
-											pattern="^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$" />
+														placeholder="Tên đăng nhập" value="${u.email}"
+														required="required"
+														pattern="^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$" />
 												</div>
 												<br> <br>
 											</div>
@@ -396,8 +398,9 @@ form-horizontal {
 												<label class="control-label col-sm-2" for="pwd">Mật
 													khẩu:</label>
 												<div class="col-sm-10" style="width: 350px">
-													<form:input path="matkhau" type="password" class="form-control"
-														placeholder="mật khẩu" value="${u.matkhau}" required="required"/>
+													<form:input path="matkhau" type="password"
+														class="form-control" placeholder="mật khẩu"
+														value="${u.matkhau}" required="required" />
 												</div>
 												<br> <br>
 											</div>
@@ -508,7 +511,7 @@ form-horizontal {
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="masinhvien" class="form-control"
 											placeholder="Mã sinh viên" required="required"
-											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: PD01754"></form:input>
+											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$" title="VD: PD01754"></form:input>
 									</div>
 								</div>
 								<div class="form-group">
@@ -517,7 +520,7 @@ form-horizontal {
 									<div class="col-sm-10" style="width: 350px">
 										<form:input path="tensinhvien" class="form-control"
 											placeholder="Tên sinh viên" required="required"
-											pattern="^[a-zA-Z][a-zA-Z\s.]{5,20}$"
+											pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"
 											title="VD: Nguyen Van Dong" />
 									</div>
 								</div>

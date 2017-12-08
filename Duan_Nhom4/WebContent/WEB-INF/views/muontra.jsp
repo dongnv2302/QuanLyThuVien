@@ -156,7 +156,7 @@ th {
 		<button
 			class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
 			onclick="w3_open();">
-			<i class="fa fa-bars"></i>  Menu
+			<i class="fa fa-bars"></i> Menu
 		</button>
 		<span class="w3-bar-item w3-right">Xin Chào Admin&nbsp;<img
 			src="resources/images/if_User_group_132235.png" width="24"
@@ -208,8 +208,8 @@ th {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
-				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a href="muontra.poly"
+				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
@@ -323,7 +323,7 @@ th {
 												<div class="col-sm-10" style="width: 500px">
 													<form:input path="ngaymuon" type="date"
 														class="form-control" placeholder="Mã mượn trả"
-														value="${u.ngaymuon}"></form:input>
+														value="${u.ngaymuon}" required="required"></form:input>
 												</div>
 											</div>
 											<div class="form-group">

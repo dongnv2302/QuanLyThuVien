@@ -5,104 +5,107 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <title>Danh Mục</title>
-<script type="text/javascript">var xport = {
-		  _fallbacktoCSV: true,  
-		  toXLS: function(tableId, filename) {   
-		    this._filename = (typeof filename == 'undefined') ? tableId : filename;
-		    
-		    //var ieVersion = this._getMsieVersion();
-		    //Fallback to CSV for IE & Edge
-		    if ((this._getMsieVersion() || this._isFirefox()) && this._fallbacktoCSV) {
-		      return this.toCSV(tableId);
-		    } else if (this._getMsieVersion() || this._isFirefox()) {
-		      alert("Not supported browser");
-		    }
+<script type="text/javascript">
+	var xport = {
+		_fallbacktoCSV : true,
+		toXLS : function(tableId, filename) {
+			this._filename = (typeof filename == 'undefined') ? tableId
+					: filename;
 
-		    //Other Browser can download xls
-		    var htmltable = document.getElementById(tableId);
-		    var html = htmltable.outerHTML;
+			//var ieVersion = this._getMsieVersion();
+			//Fallback to CSV for IE & Edge
+			if ((this._getMsieVersion() || this._isFirefox())
+					&& this._fallbacktoCSV) {
+				return this.toCSV(tableId);
+			} else if (this._getMsieVersion() || this._isFirefox()) {
+				alert("Not supported browser");
+			}
 
-		    this._downloadAnchor("data:application/vnd.ms-excel" + encodeURIComponent(html), 'xls'); 
-		  },
-		  toCSV: function(tableId, filename) {
-		    this._filename = (typeof filename === 'undefined') ? tableId : filename;
-		    // Generate our CSV string from out HTML Table
-		    var csv = this._tableToCSV(document.getElementById(tableId));
-		    // Create a CSV Blob
-		    var blob = new Blob([csv], { type: "text/csv" });
+			//Other Browser can download xls
+			var htmltable = document.getElementById(tableId);
+			var html = htmltable.outerHTML;
 
-		    // Determine which approach to take for the download
-		    if (navigator.msSaveOrOpenBlob) {
-		      // Works for Internet Explorer and Microsoft Edge
-		      navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
-		    } else {      
-		      this._downloadAnchor(URL.createObjectURL(blob), 'csv');      
-		    }
-		  },
-		  _getMsieVersion: function() {
-		    var ua = window.navigator.userAgent;
+			this._downloadAnchor("data:application/vnd.ms-excel"
+					+ encodeURIComponent(html), 'xls');
+		},
+		toCSV : function(tableId, filename) {
+			this._filename = (typeof filename === 'undefined') ? tableId
+					: filename;
+			// Generate our CSV string from out HTML Table
+			var csv = this._tableToCSV(document.getElementById(tableId));
+			// Create a CSV Blob
+			var blob = new Blob([ csv ], {
+				type : "text/csv"
+			});
 
-		    var msie = ua.indexOf("MSIE ");
-		    if (msie > 0) {
-		      // IE 10 or older => return version number
-		      return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-		    }
+			// Determine which approach to take for the download
+			if (navigator.msSaveOrOpenBlob) {
+				// Works for Internet Explorer and Microsoft Edge
+				navigator.msSaveOrOpenBlob(blob, this._filename + ".csv");
+			} else {
+				this._downloadAnchor(URL.createObjectURL(blob), 'csv');
+			}
+		},
+		_getMsieVersion : function() {
+			var ua = window.navigator.userAgent;
 
-		    var trident = ua.indexOf("Trident/");
-		    if (trident > 0) {
-		      // IE 11 => return version number
-		      var rv = ua.indexOf("rv:");
-		      return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
-		    }
+			var msie = ua.indexOf("MSIE ");
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)),
+						10);
+			}
 
-		    var edge = ua.indexOf("Edge/");
-		    if (edge > 0) {
-		      // Edge (IE 12+) => return version number
-		      return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
-		    }
+			var trident = ua.indexOf("Trident/");
+			if (trident > 0) {
+				// IE 11 => return version number
+				var rv = ua.indexOf("rv:");
+				return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+			}
 
-		    // other browser
-		    return false;
-		  },
-		  _isFirefox: function(){
-		    if (navigator.userAgent.indexOf("Firefox") > 0) {
-		      return 1;
-		    }
-		    
-		    return 0;
-		  },
-		  _downloadAnchor: function(content, ext) {
-		      var anchor = document.createElement("a");
-		      anchor.style = "display:none !important";
-		      anchor.id = "downloadanchor";
-		      document.body.appendChild(anchor);
+			var edge = ua.indexOf("Edge/");
+			if (edge > 0) {
+				// Edge (IE 12+) => return version number
+				return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)),
+						10);
+			}
 
-		      // If the [download] attribute is supported, try to use it
-		      
-		      if ("download" in anchor) {
-		        anchor.download = this._filename + "." + ext;
-		      }
-		      anchor.href = content;
-		      anchor.click();
-		      anchor.remove();
-		  },
-		  _tableToCSV: function(table) {
-		    // We'll be co-opting `slice` to create arrays
-		    var slice = Array.prototype.slice;
+			// other browser
+			return false;
+		},
+		_isFirefox : function() {
+			if (navigator.userAgent.indexOf("Firefox") > 0) {
+				return 1;
+			}
 
-		    return slice
-		      .call(table.rows)
-		      .map(function(row) {
-		        return slice
-		          .call(row.cells)
-		          .map(function(cell) {
-		            return '"t"'.replace("t", cell.textContent);
-		          })
-		          .join(",");
-		      })
-		      .join("\r\n");
-		  }
-		};
+			return 0;
+		},
+		_downloadAnchor : function(content, ext) {
+			var anchor = document.createElement("a");
+			anchor.style = "display:none !important";
+			anchor.id = "downloadanchor";
+			document.body.appendChild(anchor);
+
+			// If the [download] attribute is supported, try to use it
+
+			if ("download" in anchor) {
+				anchor.download = this._filename + "." + ext;
+			}
+			anchor.href = content;
+			anchor.click();
+			anchor.remove();
+		},
+		_tableToCSV : function(table) {
+			// We'll be co-opting `slice` to create arrays
+			var slice = Array.prototype.slice;
+
+			return slice.call(table.rows).map(function(row) {
+				return slice.call(row.cells).map(function(cell) {
+					return '"t"'.replace("t", cell.textContent);
+				}).join(",");
+			}).join("\r\n");
+		}
+	};
 </script>
 <link rel="stylesheet" type="text/css" href="resources/css/css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/table.css">
@@ -162,29 +165,27 @@ th {
 		style="z-index: 3; width: 300px;" id="mySidebar">
 		<br>
 		<center>
-		<div class="w3-container w3-row">
-			<div class="w3-col s4">
-				
-			</div>
-			<div class="w3-col s8 w3-bar">
-				<span><h3 style="color: #906">
-						<b>Thư Viện</b>
-					</h3> <strong>FPT Polytechnic</strong></span><br>
+			<div class="w3-container w3-row">
+				<div class="w3-col s4"></div>
+				<div class="w3-col s8 w3-bar">
+					<span><h3 style="color: #906">
+							<b>Thư Viện</b>
+						</h3> <strong>FPT Polytechnic</strong></span><br>
 
-				<div class="header-ri">
-					<ul class="social-top">
-						<li><a href="#" class="icon facebook"><i
-								class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon twitter"><i
-								class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-						<li><a href="#" class="icon pinterest"><i
-								class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					<div class="header-ri">
+						<ul class="social-top">
+							<li><a href="#" class="icon facebook"><i
+									class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon twitter"><i
+									class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+							<li><a href="#" class="icon pinterest"><i
+									class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
 
-					</ul>
+						</ul>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
 		</center>
 		<hr>
 
@@ -204,8 +205,8 @@ th {
 				href="danhmuc.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-diamond fa-fw"></i>  Quản Lý danh mục</a> <a href="ma.poly"
 				class="w3-bar-item w3-button w3-padding"><i
-				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a
-				href="muontra.poly" class="w3-bar-item w3-button w3-padding"><i
+				class="fa fa-bell fa-fw"></i>  Quản Lý Mã</a><a href="muontra.poly"
+				class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-bank fa-fw"></i>  Quản Lý Mượn Trả</a> <a
 				href="muontract.poly" class="w3-bar-item w3-button w3-padding"><i
 				class="fa fa-history fa-fw"></i>  Quản Lý mượn trả chi tiết </a>
@@ -252,106 +253,129 @@ th {
 
 		</header>
 		<br>
-<p> <button id="btnExport" onclick="javascript:xport.toCSV('myTable');"> Export </button> <em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
-  </p>
+		<p>
+			<button id="btnExport" onclick="javascript:xport.toCSV('myTable');">
+				Export</button>
+			<em>&nbsp;&nbsp;&nbsp;Xuất file ra excel</em>
+		</p>
 		<form:form modelAttribute="danhmuc" action="danhmuc.poly">
 			<table id="myTable">
 				<tr>
 					<th>Mã Danh Mục</th>
 					<th>Tên Danh Mục</th>
-					
+
 					<th>Action</th>
 				</tr>
 				<c:forEach var="u" items="${danhmucs}">
 					<tr>
 						<td>${u.madanhmuc}</td>
 						<td>${u.tendanhmuc}</td>
-						
+
 						<td><a href="#" data-toggle="modal"
 							data-target="#myModal1${u.madanhmuc}" class="offer-img"><button
 									type="button" class="btn btn-info">Edit</button></a></td>
 
 					</tr>
-<!-- Modal -->
-  <div class="modal fade" id="myModal1${u.madanhmuc}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sửa Danh Mục</h4>
-        </div>
-        <div class="modal-body modal-spa">
-          	<form:form class="form-horizontal" modelAttribute="danhmuc">
-							<div class="container">
+					<!-- Modal -->
+					<div class="modal fade" id="myModal1${u.madanhmuc}" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Sửa Danh Mục</h4>
+								</div>
+								<div class="modal-body modal-spa">
+									<form:form class="form-horizontal" modelAttribute="danhmuc">
+										<div class="container">
 
-								<div class="form-group">
-									<label class="control-label col-sm-2">Mã danh mục:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="madanhmuc" class="form-control"
-											placeholder="Mã danh mục" value="${u.madanhmuc}" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mls1"></form:input>
-									</div>
-								</div><br><br>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pwd">Tên
-										danh mục:</label>
-									<div class="col-sm-10" style="width: 350px">
-										<form:input path="tendanhmuc" class="form-control"
-											placeholder="Tên danh mục" value="${u.tendanhmuc}"></form:input>
-									</div>
-								</div><br><br>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
+											<div class="form-group">
+												<label class="control-label col-sm-2">Mã danh mục:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="madanhmuc" class="form-control"
+														placeholder="Mã danh mục" value="${u.madanhmuc}"
+														required="required"
+														pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$"
+														title="VD: mls01"></form:input>
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="pwd">Tên
+													danh mục:</label>
+												<div class="col-sm-10" style="width: 350px">
+													<form:input path="tendanhmuc" class="form-control"
+														placeholder="Tên danh mục" value="${u.tendanhmuc}"
+														required="required" pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$"></form:input>
+												</div>
+											</div>
+											<br> <br>
+											<div class="form-group">
+												<div class="col-sm-offset-2 col-sm-10">
 
 
-										
-										<form:button name="btnUpdate" class="btn btn-success">
-											<img src="resources/images/if_edit1.png" width="24"
-												height="24" alt="" />Sửa
+
+													<form:button name="btnUpdate" class="btn btn-success">
+														<img src="resources/images/if_edit1.png" width="24"
+															height="24" alt="" />Sửa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<form:button name="btnDelete" class="btn btn-success"
-											onclick="return confirm('Bạn có muốn xóa hay không?');">
-											<img src="resources/images/if_edit1.png" width="24"
-												height="24" alt="" />Xóa
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<form:button name="btnDelete" class="btn btn-success"
+														onclick="return confirm('Bạn có muốn xóa hay không?');">
+														<img src="resources/images/if_edit1.png" width="24"
+															height="24" alt="" />Xóa
 										</form:button>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</div>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												</div>
+											</div>
+										</div>
+									</form:form>
+								</div>
+								<div class="clearfix"></div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
 								</div>
 							</div>
-						</form:form>
-        </div>
-        <div class="clearfix"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-    </div>
+						</div>
+					</div>
 				</c:forEach>
 			</table>
 		</form:form>
-		
-		
-		
-		
+
+
+
+
 		<!-- Khi danh sách bằng 0 thì không hiện chọn page -->
-       <c:if test="${danhsach!=0}">
-	<ul class="pagination" id="pagination" style="float: right;box-shadow: 1px 1px 5px #888888;">
-	<li class="page-item first"><a href="danhmuc.poly?phantrangbtn&page=${trangdau }" class="page-link">Trang đầu</a></li>
-	<li class="page-item prev"><a href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>" class="page-link"><</a></li>
-	
-	<c:forEach items="${listSoLuongTrang }" var="u">
-	<li class="page-item"><a <c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>  href="danhmuc.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
-	</c:forEach>
-	
-	<li class="page-item next"><a href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>" class="page-link">></a></li>
-	<li class="page-item last"><a href="danhmuc.poly?phantrangbtn&page=${trangcuoi }" class="page-link">Trang cuối</a></li>
-</ul>
-<br><br>
-</c:if>
-		
-		
+		<c:if test="${danhsach!=0}">
+			<ul class="pagination" id="pagination"
+				style="float: right; box-shadow: 1px 1px 5px #888888;">
+				<li class="page-item first"><a
+					href="danhmuc.poly?phantrangbtn&page=${trangdau }"
+					class="page-link">Trang đầu</a></li>
+				<li class="page-item prev"><a
+					href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==1 }">${vitrihientai }</c:if><c:if test="${vitrihientai>1 }">${vitrihientai-1 }</c:if>"
+					class="page-link"></a></li>
+
+				<c:forEach items="${listSoLuongTrang }" var="u">
+					<li class="page-item"><a
+						<c:if test="${u == vitrihientai}">style="background-color: rgba(0,0,0,.15);"</c:if>
+						href="danhmuc.poly?phantrangbtn&page=${u }" class="page-link">${u }</a></li>
+				</c:forEach>
+
+				<li class="page-item next"><a
+					href="danhmuc.poly?phantrangbtn&page=<c:if test="${vitrihientai==trangcuoi }">${vitrihientai }</c:if><c:if test="${vitrihientai<trangcuoi }">${vitrihientai+1 }</c:if>"
+					class="page-link">></a></li>
+				<li class="page-item last"><a
+					href="danhmuc.poly?phantrangbtn&page=${trangcuoi }"
+					class="page-link">Trang cuối</a></li>
+			</ul>
+			<br>
+			<br>
+		</c:if>
+
+
 
 
 	</div>
@@ -381,7 +405,7 @@ th {
 			overlayBg.style.display = "none";
 		}
 	</script>
-	
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -399,59 +423,62 @@ th {
 							action="danhmuc.poly">
 							<div class="container">
 
-									<div class="form-group">
-										<label class="control-label col-sm-2">Mã Danh Mục:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:input path="madanhmuc" class="form-control"
-												placeholder="Mã Danh Mục" required="required" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$" title="VD: mdm1" />
-										</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2">Mã Danh Mục:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="madanhmuc" class="form-control"
+											placeholder="Mã Danh Mục"
+											required="required"
+											pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,50}$" title="VD: mdm01" />
 									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="pwd">Tên
-											Danh Mục:</label>
-										<div class="col-sm-10" style="width: 500px">
-											<form:input path="tendanhmuc" class="form-control"
-												placeholder="Tên Danh Mục" pattern="{1,50}" required="required" />
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="pwd">Tên
+										Danh Mục:</label>
+									<div class="col-sm-10" style="width: 500px">
+										<form:input path="tendanhmuc" class="form-control"
+											placeholder="Tên Danh Mục" required="required"
+											pattern="^[a-zA-Z][a-zA-Z\s.]{1,20}$" />
 									</div>
-									
-									<div class="form-group">
+								</div>
+
+								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 
-										
+
 										<form:button name="btnInsert" class="btn btn-success">
-											<img src="resources/images/if_Add_to_basket_132292.png" width="24"
-												height="24" alt="" />Thêm
+											<img src="resources/images/if_Add_to_basket_132292.png"
+												width="24" height="24" alt="" />Thêm
 										</form:button>
 
 									</div>
 								</div>
-								</div>
-							</form:form>
-						</div>
+							</div>
+						</form:form>
+					</div>
 					<div class="clearfix"></div>
-					</div>
-					</div>
-					</div>
-					</div>
-				<script>
-			function myFunction() {
-				var input, filter, table, tr, td, i;
-				input = document.getElementById("myInput");
-				filter = input.value.toUpperCase();
-				table = document.getElementById("myTable");
-				tr = table.getElementsByTagName("tr");
-				for (i = 0; i < tr.length; i++) {
-					td = tr[i].getElementsByTagName("td")[0];
-					if (td) {
-						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-							tr[i].style.display = "";
-						} else {
-							tr[i].style.display = "none";
-						}
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
 					}
 				}
 			}
-		</script>
+		}
+	</script>
 </body>
 </html>
