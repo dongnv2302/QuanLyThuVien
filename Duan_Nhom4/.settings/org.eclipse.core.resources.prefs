@@ -7,6 +7,7 @@ encoding//WebContent/WEB-INF/views/lienhe.jsp=UTF-8
 encoding//src/edu/poly/controller/DangkyController.java=UTF-8
 encoding//src/edu/poly/controller/DanhMucController.java=UTF-8
 encoding//src/edu/poly/controller/MaController.java=UTF-8
+encoding//src/edu/poly/controller/MuontraController.java=UTF-8
 encoding//src/edu/poly/controller/NhanVienController.java=UTF-8
 encoding//src/edu/poly/controller/SachController.java=UTF-8
 encoding//src/edu/poly/controller/SinhvienController.java=UTF-8
